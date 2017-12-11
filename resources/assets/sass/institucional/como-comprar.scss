@@ -1,0 +1,204 @@
+/*******************************************************************************
+******************************* COMO COMPRAR ***********************************
+*******************************************************************************/
+
+#como-comprar {
+
+    h1 {
+        @include titulos;
+    }
+
+    h2 {
+        @include h2;
+    }
+
+    #passos {
+        margin-top: $entre-blocos;
+        text-align: center;
+
+        h3 {
+            font-size: 50px;
+            line-height: 1.1;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+        }
+
+        img {
+            margin-top: 40px;
+            width: 68%;
+        }
+
+        p {
+            font-family: $font-family-serif;
+            text-align: left;
+            font-size: 20px;
+            line-height: 1.3;
+            margin-top: 40px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+    }
+
+    .atencao {
+        border: 3px solid #000000;
+        border-radius: 20px;
+        margin-top: $entre-blocos;
+        padding: 15px 90px;
+        text-align: center;
+        font-family: $font-family-serif;
+        font-weight: 700;
+
+        p {
+            margin: 0px 0px 0px 0px;
+        }
+
+        h3 {
+            margin: 0px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+    }
+
+    .btn-submit {
+        text-align: center;
+        margin-top: 45px;
+
+        a {
+            background: $color-green;
+            text-transform: uppercase;
+            color: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            font-family: $font-family-sans-serif;
+            font-size: 18px;
+            display: inline-block;
+
+            &:hover {
+                background: $color-hover-green;
+            }
+
+        }
+
+    }
+
+    #vantagens {
+        background-color: #d9d9d9;
+        padding-top: $entre-blocos;
+        padding-bottom: $entre-blocos;
+        margin-top: $entre-blocos;
+        margin-bottom: -$entre-blocos;
+
+        h3 {
+            font-size: 50px;
+            line-height: 1.1;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 0px;
+            margin-top: -5px;
+        }
+
+        .intro {
+
+            p {
+                margin-top: $entre-paragrafos;
+            }
+
+        }
+
+    }
+
+}
+
+/********************************** Mobile ************************************/
+
+@media (max-width: $screen-md-min) {
+
+    #como-comprar {
+
+        h1 {
+            @include titulos-md;
+        }
+
+        h2 {
+            @include h2;
+            font-size: 17.5px;
+
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        #passos {
+            margin-top: $entre-blocos-mobile;
+
+            .col-md-4 {
+                margin-bottom: 20px;
+            }
+
+            .col-md-4:last-child {
+                margin-bottom: 0px;
+            }
+
+            h3 {
+                font-size: 30px;
+
+                padding-left: 20px;;
+                padding-right: 20px;;
+            }
+
+            img {
+                margin-top: 20px;
+                width: 58%;
+            }
+
+            p {
+                font-size: 16px;
+
+                margin-top: 20px;
+                padding-left: 10px;;
+                padding-right: 10px;;
+            }
+
+        }
+
+        .atencao {
+            margin-top: $entre-blocos-mobile;
+            padding: 15px 15px;
+        }
+
+        .btn-submit {
+            margin-top: $entre-blocos-mobile;
+
+            a {
+                padding: 15px 10px;
+                font-size: 14px;
+                display: block;
+            }
+
+        }
+
+        #vantagens {
+            background-color: #d9d9d9;
+            padding-top: $entre-blocos-mobile;
+            padding-bottom: $entre-blocos-mobile;
+            margin-top: $entre-blocos-mobile;
+            margin-bottom: -$entre-blocos-mobile;
+
+            h3 {
+                font-size: 30px;
+                text-align: left;
+                margin-top: 0px;
+            }
+
+            img {
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+
+        }
+
+    }
+
+}

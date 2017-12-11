@@ -1,0 +1,404 @@
+/*******************************************************************************
+**************************** CREDENCIAMENTO ************************************
+*******************************************************************************/
+
+#credenciamento {
+
+    h3 {
+        @include titulos;
+    }
+
+    #intro {
+        margin-bottom: 0px;
+
+        h2 {
+            @include h2;
+        }
+
+        ul {
+            list-style-image: url('https://s3-sa-east-1.amazonaws.com/sitedo/img/credenciamento/seta.png');
+            list-style-position: inside;
+            -webkit-padding-start: 10px;
+
+            li {
+                margin-top: 15px;
+            }
+
+        }
+
+        iframe {
+            margin-top: 30px;
+        }
+
+    }
+
+    #clinicas {
+        margin-top: 50px;
+        background: url('https://s3-sa-east-1.amazonaws.com/sitedo/img/credenciamento/clinica.jpg');
+        background-position: center;
+        background-size: cover;
+
+        .formulario {
+            background: rgba(255,255,255,1);
+            margin-bottom: 50px;
+            margin-top: 50px;
+            padding: 35px;
+
+            form {
+
+                p {
+                    margin: 0px;
+                }
+
+            }
+
+            .subtitulo {
+                font-size: 30px;
+
+                letter-spacing: -0.05em;
+                font-weight: 700;
+                padding: 0px 60px;
+                text-transform: none;
+                margin: 0px;
+            }
+
+            .conteudo {
+                margin: 20px 0px;
+            }
+
+            label {
+                font-size: 14px;
+                font-family: $font-family-serif;
+                margin-top: 4px;
+            }
+
+            input,
+            select {
+                display: block;
+                border: none;
+                height: 46px;
+                width: 100%;
+                background: #d9d9d9;
+                padding: 10px;
+            }
+
+            .btn-submit {
+                background: #00a651;
+                text-transform: uppercase;
+                color: #ffffff;
+                margin-top: 15px;
+                font-size: 15px;
+                font-weight: 600;
+            }
+
+        }
+
+    }
+
+    #vantagens {
+        text-align: center;
+        padding-bottom: $entre-blocos;
+
+        img {
+            width: auto;
+        }
+
+        .subtitulo {
+            margin-bottom: 45px;
+            margin-top: $entre-blocos;
+        }
+
+        h4 {
+            font-size: 30px;
+
+            letter-spacing: -0.05em;
+            font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 0px;
+            padding: 0px 30px;
+        }
+
+        .conteudo {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+    }
+
+    #depoimentos {
+        background: #d9d9d9;
+        text-align: center;
+        padding-bottom: 50px;
+
+        img {
+            width: 100%;
+            max-width: 240px;
+            border-radius: 50%;
+        }
+
+        .subtitulo {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        h4 {
+            font-size: 35px;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 0px;
+        }
+
+        .crf,
+        .cidade {
+            font-size: 20px;
+            letter-spacing: -0.045em;
+            color: #565656;
+            text-align: center;
+            margin: 5px 0px 0px 0px;
+            line-height: 1;
+        }
+
+        .conteudo {
+            text-align: left;
+            margin-top: 40px;
+        }
+
+    }
+
+    #amplifon {
+
+        .subtitulo {
+            margin-top: 40px;
+            margin-bottom: 25px;
+        }
+
+    }
+
+}
+
+// *************************** MOBILE ******************************************
+
+@media (max-width: $screen-md-min) {
+
+    #credenciamento {
+
+        h3 {
+            @include titulos-md;
+        }
+
+        #intro {
+
+            h1 {
+                @include titulos-md;
+            }
+
+            h2 {
+                font-size: 17.5px;
+
+                text-align: left;
+                margin-top: 20px;
+            }
+
+            .video {
+                padding: 0px;
+            }
+
+            ul {
+
+                li {
+                    margin-top: 10px;
+                }
+
+            }
+
+        }
+
+        #clinicas {
+            margin-bottom: 15px;
+            margin-top: 30px;
+            margin-bottom: 0px;
+            background: url('https://s3-sa-east-1.amazonaws.com/sitedo/img/credenciamento/cadastro-seja-nossa-fonoaudiologa.jpg');
+            background-position: center;
+            background-size: cover;
+
+            .formulario {
+                background: none;
+                margin-top: 30px;
+                margin-bottom: 40px;
+                padding: 0px 20px;
+
+                .subtitulo {
+                    color: #ffffff;
+                    padding: 0px 0px;
+                    font-size: 25px;
+                    text-align: center;
+                }
+
+                .conteudo {
+                    color: #ffffff;
+                    padding: 0px;
+                }
+
+                label {
+                    color: #ffffff;
+                }
+
+                input,
+                select {
+                    background-color: #ffffff;
+                    font-size: 12px;
+                    color: #000000;
+                }
+
+            }
+
+        }
+
+        #vantagens {
+            margin-top: $entre-blocos-mobile;
+            padding-bottom: $entre-blocos-mobile;
+
+            .padding {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .subtitulo {
+                margin-bottom: 0px;
+                margin-top: 0px;
+            }
+
+            img {
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            h4 {
+                padding: 0px;
+                font-size: 20px;
+                margin-top: 15px;
+                text-align: left;
+            }
+
+            .conteudo {
+                font-size: 15px;
+
+                margin-top: 15px;
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+
+        }
+
+        #depoimentos {
+            padding-bottom: $entre-blocos-mobile;
+
+            .subtitulo {
+                margin-bottom: 0px;
+                margin-top: $entre-blocos-mobile;
+            }
+
+            img {
+                margin-top: $entre-blocos-mobile;
+            }
+
+            h4 {
+                font-size: 25px;
+
+                margin-top: 10px;
+            }
+
+            .crf, .cidade {
+                font-size: 17.5px;
+
+            }
+
+            .conteudo {
+                margin-top: 20px;
+            }
+
+        }
+
+        #amplifon {
+
+            h3 {
+                margin-top: $entre-blocos-mobile;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            img {
+                margin-bottom: $entre-blocos-mobile;
+            }
+
+            .last-img {
+                margin-bottom: 0px;
+            }
+
+            .map {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .subtitulo {
+                margin-top: 20px;
+            }
+
+            .legenda {
+                font-family: $font-family-serif;
+                font-size: 17.5px;
+
+                letter-spacing: -0.015em;
+                list-style: none;
+                margin-bottom: 35px;
+
+                @mixin square {
+                    height: 14px;
+                    width: 14px;
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+
+                .square-red {
+                    @include square;
+                    background: #e30613;
+                }
+
+                .square-orange {
+                    @include square;
+                    background: #e94e0f;
+                }
+
+                li:first-child {
+                    margin-left: 24px;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+@media (max-width: $screen-sm-min) {
+
+    #credenciamento {
+
+        #clinicas {
+
+            .formulario {
+
+                .btn-submit {
+                    font-size: 10px;
+                }
+
+            }
+
+        }
+
+    }
+
+}

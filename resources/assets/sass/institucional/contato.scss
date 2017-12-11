@@ -1,0 +1,146 @@
+#contato {
+
+    h1 {
+        @include titulos;
+    }
+
+    h2 {
+        @include h2;
+        margin-bottom: $entre-blocos;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    h3 {
+        @include subtitulos;
+        margin-top: $entre-blocos;
+    }
+
+    form {
+        padding-bottom: $entre-blocos;
+        border-bottom: 1px solid #7f7f7f;
+    }
+
+    .ligue {
+
+        p {
+            margin-bottom: 30px;
+        }
+
+        .block-tel {
+            background: #d9d9d9;
+            padding: 20px;
+            display: block;
+            width: 420px;
+            text-align: center;
+            margin: 0 auto;
+            font-size: 20px;
+            margin-bottom: $entre-blocos;
+            font-family: 'Georgia', $font-family-serif;
+
+            &:hover {
+                color: $color-light-black;
+            }
+
+            span {
+                font-size: 40px;
+            }
+
+        }
+
+    }
+
+}
+
+@import '../home/social';
+
+#social {
+    margin-bottom: -$entre-blocos;
+}
+
+@media (max-width: $screen-md-min) {
+
+    #contato {
+
+        h1 {
+            @include titulos-md;
+        }
+
+        h2 {
+            @include h2-mb;
+            margin-bottom: $entre-blocos-mobile;
+        }
+
+        .intro {
+            @include padding-mobile;
+        }
+
+        h3 {
+            @include subtitulos-mb;
+            margin-top: $entre-blocos-mobile;
+        }
+
+        .conteudo {
+            @include padding-mobile;
+        }
+
+        form {
+            padding-bottom: $entre-blocos-mobile;
+        }
+
+        .ligue {
+
+            .block-tel {
+                width: 280px;
+                font-size: 17.5px;
+                margin-bottom: $entre-blocos-mobile;
+
+                span {
+                    font-size: 30px;
+                }
+
+                .btn-ligar {
+                    background: $color-green;
+            		text-transform: uppercase;
+            		color: #ffffff;
+            		margin-top: 15px;
+            		font-size: 15px;
+            		font-weight: 600;
+                    display: block;
+                    padding: 10px;
+                    font-family: $font-family-sans-serif;
+
+                    &:hover {
+                        background: $color-hover-green;
+                        color: $color-hover-white;
+                    }
+
+                }
+
+            }
+
+        }
+
+        .banner-fixo {
+            margin-top: 0px;
+
+            .col-md-6:first-child {
+    			padding: 0px 20px 30px 20px;
+    		}
+
+            .col-md-6:last-child {
+                padding-left: 0px;;
+        		padding-right: 0px;;
+        	}
+
+        }
+
+    }
+
+    #social {
+        margin-bottom: -$entre-blocos-mobile;
+    }
+
+}

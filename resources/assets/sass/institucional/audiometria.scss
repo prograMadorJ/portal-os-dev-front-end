@@ -1,0 +1,243 @@
+/*******************************************************************************
+* ************************** AUDIOMETRIA ************************************* *
+*******************************************************************************/
+
+#audiometria {
+
+    h1 {
+        @include titulos;
+    }
+
+    h2 {
+        @include h2;
+    }
+
+    .intro {
+
+        img {
+            margin-top: 45px;
+        }
+
+    }
+
+    h3 {
+        margin-top: $entre-blocos;
+    }
+
+    .exame {
+        background-color: #d9d9d9;
+        margin-top: $entre-blocos;
+        padding-bottom: $entre-blocos;
+
+        .titulo {
+            margin-top: $entre-blocos;
+        }
+
+        .perdas {
+            margin-top: $entre-blocos;
+            margin-bottom: $entre-blocos;
+            text-align: center;
+
+            dt {
+                color: #ffffff;
+                font-size: 25px;
+                letter-spacing: -0.05em;
+                border-radius: 100%;
+                height: 105px;
+                width: 105px;
+                padding: 34px 0px;
+                display: inline-block;
+            }
+
+            dd {
+                margin-top: 15px;
+                font-size: 20px;
+
+                letter-spacing: -0.015em;
+                font-family: $font-family-serif;
+            }
+
+            .dt1 {
+                background-color: #979797;
+            }
+
+            .dt2 {
+                background-color: #828282;
+            }
+
+            .dt3 {
+                background-color: #626262;
+            }
+
+            .dt4 {
+                background-color: #414141;
+            }
+
+            .dt5 {
+                background-color: #202020;
+            }
+
+            .dt6 {
+                background-color: #000000;
+            }
+
+        }
+
+        .tipos {
+
+            .subtitulo {
+                margin-top: $entre-blocos;
+            }
+
+            .conteudo {
+
+                strong, b {
+                    color: #000000;
+                }
+
+                .intro {
+                    margin-top: 20px;
+                }
+
+            }
+
+        }
+
+    }
+
+    .recomendacoes {
+
+        .titulo {
+            margin-top: $entre-blocos;
+        }
+
+        ul {
+            margin-top: $entre-blocos;
+            margin-bottom: $entre-blocos;
+            list-style: none;
+            -webkit-padding-start: 0px;
+        }
+
+    }
+
+    .importante {
+        border-top: 1px solid #7f7f7f;
+
+        .porque {
+
+            .intro {
+                margin-top: 35px;
+            }
+
+        }
+
+    }
+
+}
+
+//******************************** MOBILE **************************************
+
+@media (max-width: $screen-md-min) {
+
+    #audiometria {
+
+        h1 {
+            @include titulos-md;
+        }
+
+        h2 {
+            font-size: 17.5px;
+            text-align: left;
+        }
+
+        h3 {
+            margin-top: $entre-blocos-mobile;
+        }
+
+        .intro {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .exame {
+            margin-top: $entre-blocos-mobile;
+            padding-bottom: $entre-blocos-mobile;
+
+            .titulo {
+                margin-top: $entre-blocos-mobile;
+            }
+
+            .perdas {
+                margin-top: $entre-blocos-mobile;
+                margin-bottom: 25px;
+                padding-left: 20px;;
+                padding-right: 20px;;
+
+                dt {
+                    font-size: 20px;
+                    height: 75px;
+                    width: 75px;
+                    padding: 24px 0px;
+                }
+
+                dd {
+                    margin-top: 10px;
+                    font-size: 15px;
+                }
+
+            }
+
+            .tipos {
+
+                .subtitulo {
+                    margin-top: $entre-blocos-mobile;
+                }
+
+                .conteudo {
+
+                    .intro {
+                        padding-left: 15px;
+                        padding-right: 15px;
+                    }
+
+                }
+
+            }
+
+        }
+
+        .recomendacoes {
+
+            .titulo {
+                margin-top: $entre-blocos-mobile;
+            }
+
+            ul {
+                margin-top: $entre-blocos-mobile;
+                margin-bottom: $entre-blocos-mobile;
+            }
+
+        }
+
+        .importante {
+
+            .titulo {
+                margin-top: $entre-blocos-mobile;
+                margin-bottom: $entre-blocos-mobile;
+            }
+
+            .porque {
+                margin-bottom: 0px;
+
+                .intro {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+
+            }
+
+        }
+
+    }
+
+}

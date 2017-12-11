@@ -1,0 +1,128 @@
+#design {
+	margin-top: $entre-blocos;
+
+	h3 {
+		@include titulo-section;
+	}
+
+	.conteudo {
+		margin-top: $entre-blocos;
+        margin-bottom: $entre-blocos;
+		font-family: $font-family-serif;
+		font-size: 20px;
+
+		text-align: center;
+	}
+
+	@mixin design {
+		height: 330px;
+		margin-bottom: 9px;
+		margin-top: 0px;
+		padding-left: 15px;
+		padding-right: 15px;
+
+		img {
+			height: 330px;
+			object-position: center;
+			object-fit: cover;
+			width: 100%;
+		}
+
+		.col-md-5,
+		.col-md-12 {
+			color: #ffffff;
+			min-height: 330px;
+			max-height: 330px;
+			overflow: hidden;
+			text-align: center;
+
+			h4 {
+				font-size: 50px;
+
+				letter-spacing: -0.05em;
+				text-transform: uppercase;
+				margin-top: 50px;
+			}
+
+			.conteudo {
+                margin-top: 30px;
+				font-size: 20px;
+
+				text-align: left;
+			}
+
+		}
+
+	}
+
+	.design {
+		@include design;
+
+		.col-md-5,
+		.col-md-12 {
+			background-color: #000000;
+			padding-left: 50px;
+			padding-right: 50px;
+		}
+
+	}
+
+	.design-1 {
+		@include design;
+
+		.col-md-7 {
+			float: right;
+		}
+
+		.col-md-5,
+		.col-md-12 {
+			float: left;
+			background-color: #404040;
+			padding-right: 50px;
+			padding-left: 50px;
+		}
+
+	}
+
+}
+
+/*********************************** MD ***************************************/
+
+@media (max-width: $screen-md-min) {
+
+	#design {
+		margin-top: $entre-blocos-mobile;
+		padding-left: 20px;
+		padding-right: 20px;
+
+		h3 {
+			@include titulo-section-md;
+		}
+
+		.conteudo {
+			text-align: left;
+			margin-top: $entre-blocos-mobile;
+			margin-bottom: $entre-blocos-mobile;
+		}
+
+		.design {
+			@include design-mb;
+		}
+
+		.design-1 {
+			@include design-mb;
+
+			.col-md-7 {
+				float: left;
+			}
+
+			.col-md-5,
+			.col-md-12 {
+				float: right;
+			}
+
+		}
+
+	}
+
+}

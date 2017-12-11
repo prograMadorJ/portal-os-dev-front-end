@@ -1,0 +1,124 @@
+/*******************************************************************************
+************************** perguntas-frequentes ********************************
+*******************************************************************************/
+
+#perguntas-frequentes {
+
+    h1 {
+        font-size: 50px;
+        letter-spacing: -0.05em;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: $entre-blocos;
+        margin-top: $entre-paragrafos;
+    }
+
+    dl {
+
+        .pergunta-frequente {
+            border-bottom: 1px solid #7f7f7f;
+            margin-bottom: 21px;
+        }
+
+        .pergunta-frequente:last-child {
+            border-bottom: 0px;
+        }
+
+        dt {
+            font-size: 30px;
+            letter-spacing: -0.05em;
+            font-weight: 700;
+            margin-bottom: 21px;
+
+            .icone {
+                border: 2px solid #000000;
+                border-radius: 100%;
+                height: 42px;
+                width: 42px;
+                padding: 1px 14px 2px 14px;
+                margin-right: 20px;
+            }
+
+        }
+
+        dt:hover {
+            cursor: pointer;
+
+            .icone {
+                background-color: #000000;
+                color: #ffffff;
+            }
+
+        }
+
+        dt.active {
+            color: $color-blue;
+
+            .icone {
+                border: 2px solid $color-blue;
+                background-color: $color-blue;
+                color: #ffffff;
+                letter-spacing: -0em;
+                padding: 0px 14px 3px 15px;
+            }
+
+        }
+
+        dd {
+            font-size: 20px;
+            letter-spacing: -0.015em;
+            font-family: $font-family-serif;
+            margin-left: 80px;
+            margin-bottom: $entre-paragrafos;
+        }
+
+    }
+
+}
+
+//******************************** MOBILE **************************************
+
+@media (max-width: $screen-md-min) {
+
+    #perguntas-frequentes {
+        padding-left: 20px;;
+        padding-right: 20px;;
+
+        h1 {
+            font-size: 40px;
+
+            text-align: left;
+        }
+
+        dl {
+
+            dt {
+                font-size: 25px;
+
+                .icone {
+                    padding: 1px 12px 2px 12px;
+                    margin-right: 10px;
+                }
+
+            }
+
+            dt.active {
+
+                .icone {
+                    padding: 0px 12px 3px 13px;
+                }
+
+            }
+
+            dd {
+                font-size: 18px;
+
+                margin-left: 25px;
+            }
+
+        }
+
+    }
+
+}

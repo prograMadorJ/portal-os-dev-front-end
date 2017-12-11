@@ -1,0 +1,240 @@
+.navbar-geral {
+	background-color: $navbar-geral-color;
+	height: 75px;
+	position: fixed;
+	top: 0px;
+	z-index: 998;
+	width: 100%;
+	border-bottom: 4px solid $navbar-border-color;
+
+	.logotipo {
+		float: left;
+		padding: 15px 0px;
+	}
+
+	.navbar-do {
+		float: right;
+
+		.menu {
+			color: #ffffff;
+			text-transform: uppercase;
+			list-style: none;
+			display: inline-flex;
+			-webkit-padding-start: 0px;
+			-moz-padding-start: 0px;
+			text-align: center;
+			max-height: 75px;
+
+			li > a {
+				color: #ffffff;
+				padding: 29px 10px;
+				display: block;
+				font-size: 12px;
+				letter-spacing: -0.05em;
+				font-weight: 600;
+				cursor: pointer;
+
+				&:hover {
+					background: $color-hover;
+				}
+
+			}
+
+			li.active {
+				background: $color-hover;
+			}
+
+			.br {
+				padding: 20.5px 10px;
+			}
+
+			.sub-menu {
+				z-index: 998;
+				background: #ffffff;
+				position: absolute;
+				-webkit-padding-start: 0px;
+				-moz-padding-start: 0px;
+				list-style: none;
+				border: 1px solid $color-hover;
+
+				li {
+					padding: 0px 15px;
+
+					&:hover {
+						background: #ffffff;
+					}
+
+				}
+
+				li > a {
+					color: #000000;
+					padding: 10px 0px;
+					border-bottom: 1px solid #d9d9d9;
+
+					&:hover {
+						color: $navbar-geral-color;
+						text-decoration: underline;
+						background: #ffffff;
+					}
+
+				}
+
+				li.active > a{
+					color: #ffffff;
+					border-bottom: 1px solid $color-hover;
+
+					&:hover {
+						color: $navbar-geral-color;
+					}
+
+				}
+
+				.no-border {
+					border-bottom: 0px;
+				}
+
+			}
+
+			.zero-oito {
+				background: #000000;
+				padding: 18px 12px;
+
+				font-size: 12px;
+				text-align: center;
+
+				a {
+					padding: 0px;
+
+					&:hover {
+						background: none;
+					}
+
+				}
+
+				strong {
+					font-size: 18px;
+				}
+
+			}
+
+			.whatsapp > a {
+				padding: 27px 10px;
+
+				.icone-whatsapp {
+					height: 21px;
+					width: 21px;
+				}
+
+			}
+
+			.busca > a {
+				padding-top: 27px;
+				padding-left: 10px;
+				padding-right: 10px;
+				padding-bottom: 20px;
+			}
+
+		}
+
+	}
+
+}
+
+/******************************** Mobile **************************************/
+
+@media (max-width: $screen-md-min) {
+
+	.navbar-geral {
+		position: fixed;
+
+		.menu-hamburger {
+			float: left;
+			padding: 25px 5px;
+
+			img {
+				width: 75%;
+			}
+
+		}
+
+		.logotipo {
+
+			img {
+				width: 100%;
+			}
+
+		}
+
+		.navbar-do {
+			float: left;
+			display: none;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			margin-top: 75px;
+			width: 100%;
+
+			.menu {
+				display: block;
+				max-height: 100%;
+				background: $navbar-geral-color;
+				text-align: left;
+
+				.right {
+					float: right;
+					margin-right: 15px;
+				}
+
+				li > a {
+					padding: 20px 20px;
+				}
+
+				.br {
+					padding: 20px 20px;
+				}
+
+				.sub-menu {
+					position: relative;
+				}
+
+			}
+
+		}
+
+		.buttons {
+			float: right;
+			padding-top: 20px;
+
+			ul {
+				list-style: none;
+				display: flex;
+
+				li {
+					padding-right: 10px;
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+@media (max-width: $screen-sm-min) {
+
+	.navbar-geral {
+
+		.logotipo {
+			max-width: 120px;
+			padding-top: 22px;
+
+			img {
+				width: 100%;
+			}
+
+		}
+
+	}
+
+}

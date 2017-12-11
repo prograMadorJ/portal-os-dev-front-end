@@ -1,0 +1,156 @@
+@media (max-width: $screen-md-min) {
+
+	.artigos {
+		margin-right: 20px;
+		margin-left: 20px;
+		padding-right: 14px;
+        margin-bottom: $entre-blocos-mobile;
+        margin-top: $entre-blocos-mobile;
+	}
+
+	.artigo {
+		background-color: #e2e3e4;
+		box-shadow: 1px 1px 1px $bg-dark-gray,
+					1px -1px 1px $bg-dark-gray,
+					1px -1px 1px $bg-dark-gray,
+					-1px 1px 1px $bg-dark-gray;
+		border-bottom: 1px solid $bg-light-gray;
+        padding-top: 0px;
+        margin-top: $entre-blocos-mobile;
+
+		h3 {
+			color: $color-black;
+		}
+
+        .espaco-util {
+            min-height: auto;
+        }
+
+        .icons-social {
+            position: relative;
+        }
+
+        .categoria-tempo {
+            margin-top: 20px;
+        }
+
+	}
+
+	aside {
+		margin-top: 0px;
+	}
+
+	.btn-mais {
+		height: 60px;
+		padding: 20px 80px;
+        margin-top: 30px;
+	}
+
+	.artigo-cabecalho {
+		margin-top: $entre-blocos-mobile;
+
+		h1 {
+			font-size: 40px;
+		}
+
+		h2 {
+			font-size: 16px;
+			margin-top: $entre-blocos-mobile;
+		}
+
+		.icons-social {
+			margin-top: $entre-blocos-mobile;
+		}
+
+		.data {
+			text-indent: 0px;
+			font-size: 14px;
+            @include padding-mobile;
+		}
+
+	}
+
+	.imagem-principal {
+		img {
+			min-width: 100%;
+			width: 100%;
+		}
+	}
+
+	.artigo-conteudo {
+		@include padding-mobile;
+	}
+
+	.categorias {
+		@include padding-mobile;
+	}
+
+	.icons-social-footer {
+		@include padding-mobile;
+	}
+
+	.comentarios {
+		@include padding-mobile;
+	}
+
+	.mais-artigos {
+		@include padding-mobile;
+		padding-top: $entre-blocos-mobile;
+	}
+
+	.destaque {
+		padding-right: 0px;
+		padding-left: 0px;
+
+		.titulo {
+			font-size: 40px;
+			letter-spacing: -0.04em;
+			font-family: $font-family-sans-serif;
+			font-weight: 700;
+			bottom: 0px;
+			position: relative;
+			margin-bottom: 25px;
+			margin-top: 50px;
+			margin-left: 25px;
+			margin-right: 25px;
+
+			a {
+				color: $color-blue;
+			}
+
+		}
+
+		.descricao {
+			margin-left: 25px;
+			font-size: 25px;
+			color: #000000;
+		}
+
+		.icon-social {
+
+			img {
+				height: 30px;
+				width: 30px;
+				filter: none;
+				-webkit-filter: none;
+				margin-left: 25px;
+			}
+
+		}
+
+	}
+
+}
+
+
+@media (max-width: $screen-xs-min) {
+
+    .artigo {
+
+        img {
+            height: 315px;
+        }
+
+    }
+
+}

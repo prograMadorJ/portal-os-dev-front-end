@@ -1,0 +1,442 @@
+@mixin box-con {
+	padding: 20px 20px;
+	margin-bottom: 25px;
+
+	.titulo {
+		text-align: center;
+		font-size: 35px;
+		margin: 0px 0px 0px 0px;
+		letter-spacing: -0.05em;
+		text-transform: uppercase;
+	}
+
+	.conteudo {
+		font-size: 14px;
+		font-family: $font-family-serif;
+	}
+
+}
+
+#tecnologia {
+	margin-top: $entre-blocos;
+
+	h3 {
+		@include titulo-section;
+	}
+
+	.media {
+
+		iframe {
+			height: 498px;
+			width: 100%;
+			margin-top: $entre-blocos;
+			display: block;
+		}
+
+	}
+
+	.intro-conectividade {
+		margin-top: $entre-blocos;
+
+		h4 {
+			margin-top: 0px;
+			font-size: 50px;
+			letter-spacing: -0.05em;
+			text-transform: uppercase;
+			text-align: center;
+		}
+
+		.conteudo {
+			font-size: 20px;
+			margin-top: $entre-blocos;
+			font-family: $font-family-serif;
+			margin-right: 55px;
+		}
+
+		picture {
+			max-height: 448px;
+
+			img {
+				object-position: center;
+				object-fit: none;
+			}
+
+		}
+
+	}
+
+	.chamada {
+		font-size: 24px;
+		font-family: $font-family-serif;
+		margin-top: $entre-blocos;
+		text-align: center;
+	}
+
+	.detalhes-conectividade {
+		margin-top: $entre-blocos;
+		margin-right: 0px;
+
+		picture {
+			display: block;
+
+			img {
+				object-fit: contain;
+				object-position: center;
+			}
+
+		}
+
+		.descritivos {
+
+			.box-con {
+				margin-left: 70px;
+				margin-bottom: 12px;
+
+				.botao {
+					background-color: #b2b2b2;
+					height: 178px;
+					padding: 20px 50% 20px 20px;
+					text-align: center;
+					font-size: 35px;
+					letter-spacing: -0.05em;
+					text-transform: uppercase;
+					overflow: hidden;
+					cursor: pointer;
+
+					p {
+						margin: 0px 0px 0px 0px;
+						line-height: 1.2;
+					}
+
+				}
+
+				.conteudo {
+					background-color: #b2b2b2;
+					height: 178px;
+					margin-top: -178px;
+					position: absolute;
+					padding: 20px 45% 20px 20px;
+					font-size: 14px;
+					font-family: $font-family-serif;
+					overflow: hidden;
+					cursor: pointer;
+
+					p {
+						margin-top: 0px;
+					}
+
+				}
+
+			}
+
+			.box-con-2 {
+
+				.botao {
+					background-color: #cccccc;
+				}
+
+				.conteudo {
+					background-color: #cccccc;
+				}
+
+			}
+
+		}
+
+	}
+
+	.ordem-1 {
+		margin-top: $entre-blocos;
+
+		h4 {
+			font-size: 50px;
+			letter-spacing: -0.05em;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		.conteudo {
+			font-size: 20px;
+			text-align: center;
+			font-family: $font-family-serif;
+			margin-top: $entre-blocos;
+		}
+
+	}
+
+	picture.ordem-1 {
+		margin-top: $entre-blocos;
+		display: block;
+		margin-bottom: -$entre-blocos;
+
+		img {
+			height: 916px;
+			object-fit: cover;
+			object-position: center;
+		}
+
+	}
+
+	.ordem-2 {
+		padding-top: calc(50px * 2);
+
+		h4 {
+			font-size: 50px;
+
+			letter-spacing: -0.05em;
+			text-transform: uppercase;
+			text-align: center;
+		}
+
+		.conteudo {
+			font-size: 20px;
+			font-family: $font-family-serif;
+			margin-top: $entre-blocos;
+		}
+
+		.imagem-secundaria {
+			margin-top: 50px;
+			display: block;
+
+			img {
+				width: auto;
+				max-height: 364px;
+			}
+
+		}
+
+		.imagem-principal {
+
+			img {
+				max-height: 790px;
+				object-position: center;
+				object-fit: none;
+			}
+
+		}
+
+	}
+
+}
+
+/******************************* Mobile ***************************************/
+
+@media (max-width: $screen-md-min) {
+
+	#tecnologia {
+		margin-top: $entre-blocos-mobile;
+
+		h3 {
+			@include titulo-section-md;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+
+		.media {
+			padding-left: 0px;
+			padding-right: 0px;
+
+			iframe {
+				max-height: 340px;
+				margin-top: 45px;
+				display: block;
+			}
+
+		}
+
+		.intro-conectividade {
+			margin-top: 0px;
+			padding-left: 25px;
+			padding-right: 25px;
+
+			h4 {
+				margin-top: $entre-blocos-mobile;
+				color: $color-orange;
+				font-size: 25px;
+			}
+
+			picture {
+				margin-top: 30px;
+				max-height: 350px;
+				display: block;
+
+				img {
+					max-height: 350px;
+					object-position: center;
+					object-fit: none;
+				}
+
+			}
+
+			.conteudo {
+				margin-right: 0px;
+				margin-top: $entre-blocos-mobile;
+			}
+
+		}
+
+		.chamada {
+			margin-top: $entre-blocos-mobile;
+			text-align: left;
+			font-size: 20	px;
+		}
+
+		.detalhes-conectividade {
+			margin-top: $entre-blocos-mobile;
+			margin-left: 0px;
+
+			.descritivos {
+				margin-top: 55px;
+				padding-right: 20px;
+				padding-left: 20px;
+
+				.col-sm-6 {
+					width: 47.5%
+				}
+
+				.box-con-md {
+					background-color: #b2b2b2;
+					margin-right: 12.5px;
+					@include box-con;
+				}
+
+				.box-con-md-1 {
+					margin-left: 12.5px;
+					background-color: #cccccc;
+					@include box-con;
+
+					.titulo {
+						font-size: 25px;
+						line-height: 1.2;
+					}
+
+				}
+
+			}
+
+		}
+
+		.ordem-1 {
+			margin-top: 0px;
+
+			h4 {
+				color: $color-orange;
+				font-size: 25px;
+
+			}
+
+			.conteudo {
+				margin-top: 0px;
+				text-align: left;
+			}
+
+		}
+
+		picture.ordem-1 {
+			margin-top: $entre-blocos-mobile;
+			display: block;
+
+			img {
+				height: 344px;
+				object-fit: cover;
+				object-position: center;
+			}
+
+		}
+
+		.ordem-2 {
+			margin-top: $entre-blocos-mobile;
+
+			h4 {
+				color: $color-orange;
+				font-size: 25px;
+
+			}
+
+			.conteudo {
+				font-size: 20px;
+
+				font-family: $font-family-serif;
+				margin-top: 35px;
+			}
+
+			.imagem-secundaria {
+				margin-top: $entre-blocos-mobile;
+				display: block;
+
+				img {
+					max-width: 364px;
+				}
+
+			}
+
+			.imagem-principal {
+				display: block;
+				margin-top: 35px;
+
+				img {
+					max-height: 410px;
+					object-position: center;
+					object-fit: none;
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+@media (max-width: $screen-sm-min) {
+
+	#tecnologia {
+
+		.detalhes-conectividade {
+
+			.descritivos {
+
+				.box-con-md {
+
+					.titulo {
+						font-size: 25px;
+						line-height: 1.2;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+@media (max-width: 565px) {
+
+	#tecnologia {
+
+		.detalhes-conectividade {
+
+			.descritivos {
+
+				.col-sm-6 {
+					width: 100%
+				}
+
+				.box-con-md {
+					margin-right: 0px;
+				}
+
+				.box-con-md-1 {
+					margin-left: 0px;
+				}
+
+			}
+
+		}
+
+	}
+
+}

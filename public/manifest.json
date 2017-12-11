@@ -1,0 +1,38 @@
+{
+  "manifest_version": 1,
+  "verison": 1.0,
+
+  "default_locale": "pt-br",
+
+  "author": "Direito de Ouvir Amplifon S/A",
+  "name": "Direito de Ouvir",
+  "short_name": "Direito de Ouvir",
+  "description": "Área do paciente da Direito de Ouvir, permite visualizar pedidos, agendamentos, baixar boletos, etc",
+  "theme_color": "#ef6c00",
+  "background_color": "#ef6c00",
+  "display": "standalone",
+  "start_url": "/",
+  "Scope": "/",
+  "icons": [
+    {
+      "src": "/img/icon_do_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon_do_192x192.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon_do_192x192.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon_do_192x192.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

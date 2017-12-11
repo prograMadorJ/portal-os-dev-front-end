@@ -1,0 +1,32 @@
+$blue: #0072bc;
+
+$color-orange: #f06e21;
+
+$navbar-geral-color: $blue;
+$navbar-border-color: #0067aa;
+$color-hover: $navbar-border-color;
+
+$color-dark-gray: #636466;
+
+$color-blue: $blue;
+$color-light-blue: #d9eaf5;
+$color-light2-blue: #7fb8dd;
+
+$bg-gray: #dcddde;
+// $bg-gray: #ffffff;
+$bg-dark-gray: #c7c8c9;
+
+$color-white: #ffffff;
+
+$color-green: #39b54a;
+
+/*********************************** Mixin ************************************/
+
+@mixin aside-header-block {
+	text-transform: uppercase;
+	font-size: 12px;
+	background-color: $blue;
+	color: $color-white;
+	text-align: center;
+	font-family: Arial, $font-family-serif;
+}

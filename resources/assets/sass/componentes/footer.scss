@@ -1,0 +1,179 @@
+.footer-title {
+	margin-top: 50px;
+	margin-bottom: 22px;
+}
+
+footer {
+	min-height: 358px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 14px;
+	letter-spacing: -0.05em;
+	margin-top: $entre-blocos;
+
+	.logo-footer {
+		margin-top: 50px;
+		display: block;
+
+		img {
+			max-width: 253px;
+		}
+
+	}
+
+	h4 {
+		font-size: 16px;
+		color: $color-orange;
+		font-weight: 600;
+	}
+
+	.go-top {
+		float: right;
+		font-size: 12px;
+		color: #ffffff;
+		margin-top: 20px;
+
+		span {
+			font-size: 10px;
+			margin-left: 5px;
+		}
+
+	}
+
+	ul {
+		-webkit-padding-start: 0px;
+		list-style: none;
+	}
+
+	.empresa {
+
+		ul {
+
+			li {
+				margin-bottom: 15px;
+
+				a {
+					color: #ffffff;
+				}
+
+			}
+
+		}
+
+	}
+
+	.links {
+
+			li {
+				margin-bottom: 15px;
+
+				a {
+					color: #ffffff;
+					display: flex;
+					align-items: center;
+					svg {
+						margin-right: 10px;
+					}
+					.telefone {
+						margin-left: 5px;
+					}
+				}
+
+			}
+
+	}
+
+	.details {
+
+		svg {
+			margin-right: 10px;
+		}
+
+		.matriz {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+
+		a {
+			color: #ffffff;
+		}
+
+		p {
+			margin-top: 0px;
+		}
+
+	}
+
+	.copy {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+}
+
+/*********************************** Mobile **********************************/
+
+@media (max-width: $screen-md-min) {
+
+	footer {
+		padding-left: 5px;
+		padding-right: 5px;
+		margin-top: $entre-blocos-mobile;
+		padding-bottom: 45px;
+
+		.logo-footer {
+			margin-top: 30px;
+
+			img {
+				width: 50%;
+			}
+
+		}
+
+		.go-top {
+			margin-top: 0px;
+			margin-bottom: 10px;
+		}
+
+		h4 {
+			font-size: 14px;
+		}
+
+		.empresa {
+
+			ul {
+				font-size: 12px;
+			}
+
+		}
+
+		.links {
+
+			ul {
+				font-size: 12px;
+			}
+
+		}
+
+		.details {
+
+			h4 {
+				margin-top: 20px;
+				border-top: 1px solid #ffffff;
+				padding-top: 20px;
+				padding-bottom: 10px;
+			}
+
+			.matriz {
+				padding-top: 20px;
+				border-top: 1px solid #ffffff;
+				color: $color-orange;
+				font-weight: 600;
+				font-size: 14px;
+			}
+
+		}
+
+	}
+
+}

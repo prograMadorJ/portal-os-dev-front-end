@@ -1,0 +1,166 @@
+// Arquivo de variaveis globais, são visiveis dentro de toda hieraquia SASS
+
+$font-family-sans-serif: 'Open Sans', sans-serif;
+$font-family-serif: Georgia, "Times New Roman", Times;
+
+// New Colours
+$color-light-blue-ft: #bbdefb;
+$color-light-blue-sd: #90caf9;
+$color-light-blue-rd: #64b5f6;
+$color-light-blue-th: #42a5f5;
+
+$color-blue-ft: #008ae3;
+$color-blue-sd: #0072bc;
+$color-blue-rd: #005992;
+$color-blue-th: #00375a;
+
+$color-green-ft: #50b848;
+$color-green-sd: #00a651;
+$color-green-rd: #008C44;
+$color-green-th: #005529;
+
+$color-orange-ft: #fa9c63;
+$color-orange-sd: #f98945;
+$color-orange-rd: #f37021;
+$color-orange-th: #f15a22;
+
+$color-white-ft: #ffffff;
+$color-white-sd: #f0f0f0;
+$color-white-rd: #e0e0e0;
+$color-white-th: #d0d0d0;
+
+$color-grey-ft: #e2e3e4;
+$color-grey-sd: #c1c9cf;
+$color-grey-rd: #989898;
+$color-grey-th: #676767;
+
+$color-black-ft: #040404;
+$color-black-sd: #242424;
+$color-black-rd: #343434;
+$color-black-th: #444444;
+
+/********************************* Old Colors *********************************/
+
+$color-orange: #f15a22;
+$color-light-orange: #f06e21;
+$color-blue: #0072bc;
+$color-hover-blue: #005992;
+$color-black: #040404;
+$color-black-ft: #000000;
+$color-light-black: #434343;
+$color-light-gray: #c1c9cf;
+$color-gray: #989898;
+$color-dark-gray: #676767;
+$bg-light-gray: #e2e3e4;
+$color-hover-white: #dddddd;
+$color-red: #e40000;
+$color-green: #00a651;
+$color-hover-green: #008c44;
+$navbar-geral-color: $color-orange;
+$navbar-border-color: $color-light-orange;
+$color-hover: $navbar-border-color;
+
+/***************************** Espaceamentos **********************************/
+
+$entre-paragrafos: 30px;
+$entre-paragrafos-mobile: 15px;
+
+$entre-blocos: 40px;
+$entre-blocos-mobile: 20px;
+
+/********************************** Mixin *************************************/
+
+@mixin first-letter {
+	color: $color-orange;
+	font-size: 60px;
+	float: left;
+	line-height: 1;
+	letter-spacing: 10px;
+}
+
+@mixin first-letter-none {
+	float: none;
+	color: #000000;
+	font-size: 20px;
+
+	letter-spacing: 0;
+}
+
+@mixin conteudo {
+	font-size: 20px;
+	letter-spacing: -0.015em;
+	font-family: $font-family-serif;
+
+	strong, b {
+		color: $color-orange;
+	}
+
+	ul, ol {
+		-webkit-padding-start: 40px;
+	}
+
+	a {
+		color: $color-orange;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+	}
+
+}
+
+@mixin conteudo-mb {
+    font-size: 17.5px;
+}
+
+@mixin padding-mobile {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+@mixin titulos {
+    font-size: 50px;
+    line-height: 1.2;
+    letter-spacing: -0.05em;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 35px;
+    font-family: $font-family-sans-serif;
+}
+
+@mixin subtitulos {
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: -0.05em;
+    font-weight: 700;
+    text-align: center;
+    font-family: $font-family-sans-serif;
+}
+
+@mixin h2 {
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.045em;
+    text-align: center;
+    color: #676767;
+}
+
+@mixin titulos-md {
+    font-size: 30px;
+    line-height: 1.1;
+    text-align: left;
+}
+
+@mixin subtitulos-mb {
+    font-size: 23px;
+    line-height: 1.1;
+    text-align: left;
+}
+
+@mixin h2-mb {
+    font-size: 17.5px;
+    line-height: 1.1;
+    text-align: left;
+}

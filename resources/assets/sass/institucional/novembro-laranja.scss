@@ -1,0 +1,519 @@
+
+$color-one: #FF760D;
+$color-two: #14B4B4;
+$color-three: #9B14B4;
+$color-four: #FFFFFF;
+$font-color: #515151;
+
+$colorOne:#FFFFFF;
+$colorTwo: #9B14B4;
+$colorThree: #14B4B4;
+$colorFour: #FF760D;
+
+/*CORES DAS FONTES (Incluem 1 e 4)*/
+$fontColorOne: #515151;
+
+#NovembroLaranja {
+
+    .novembrolaranja {
+        margin-bottom: 60px;
+        background-image: url("https://s3-sa-east-1.amazonaws.com/sitedo/img/novembro-laranja/banner_inicial_desktop.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        text-align: center;
+        &__logo {
+            &__texto{
+                font-family: Open Sans;
+                padding-bottom: 100px;
+                color: $color-four;
+                font-size: 24px;
+            }
+        }
+    }
+    .textoexplicacao{
+        position: relative;
+        background-color: $color-four;
+        border: 1px solid grey;
+        border-radius: 50em/4em;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-top: none;
+        text-align: center;
+        margin-top: -120px;
+        margin-bottom: $entre-blocos;
+        padding-top: $entre-blocos;
+        &__titulo{
+            font-family: Open Sans;
+            color: $color-one;
+            font-size: 40px;
+            margin-bottom: $entre-blocos;
+            font-weight: 700;
+        }
+        &__historia{
+            font-size: 24px;
+            font-family: Open Sans;
+            color: grey;
+        }
+    }
+    .expand {
+        border: 4px solid $color-one;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: space-around;
+        border-radius: 50px;
+        margin: 30px;
+        &__img {
+            height: 50px;
+            width: 50px;
+            fill: $color-one;
+        }
+    }
+    .explicacaozumbido {
+        background-color: $color-two;
+        margin-bottom: $entre-blocos;
+        &__image{
+            display: flex;
+            img {
+                width: 100%;
+            }
+        }
+        &__background {
+            height: 100px;
+            svg {
+                height: 600%;
+            }
+        }
+        &__label{
+            text-align: center;
+            position: relative;
+            &__exp{
+                font-family: Open Sans;
+                font-size: 16px;
+                color: $font-color;
+            }
+            &__title{
+                font-family: Open Sans;
+                font-size: 25px;
+                color: $color-one;
+                margin: 0px;
+            }
+            &__content {
+                position: absolute;
+                top: 0px;
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                align-items: center;
+                height: 25vh;
+                margin: 20% 30%;
+            }
+        }
+
+    }
+    .factors{
+        text-align: center;
+        &__titulo{
+            @extend .textoexplicacao__titulo;
+        }
+        &__first{
+            padding: 30px;
+            object{
+                width: 225px;
+                height: 225px;
+            }
+        }
+        &__model{
+            text-align: center;
+            &__title{
+                font-family: Open Sans;
+                font-size: 25px;
+                color:$font-color;
+                text-align: center;
+            }
+            &__body{
+                font-family: Open Sans;
+                font-size: 20px;
+                color: $font-color;
+                text-align: left;
+                padding: 20px;
+            }
+        }
+
+    }
+
+    //***************************************************************** Gustavo part
+
+    .ringing {
+        margin-bottom: $entre-blocos;
+        text-align: center;
+        &__title {
+            color: $fontColorOne;
+            @include textOne;
+        }
+        &__text {
+            @include textFour;
+            margin-bottom: $entre-blocos;
+        }
+        &__images {
+            .container-uniform  {
+                position: absolute;
+                width: 120px;
+                left: 0px;
+            }
+            .row {
+                display: flex;
+                flex-flow: row;
+                justify-content: left;
+                align-items: center;
+                padding: 35px 0px;
+                svg {
+                    width: 100%;
+                }
+                .col-md-9 {
+                    text-align: left;
+                }
+                h6 {
+                    @include graphTextParagraph
+                }
+                p {
+                    margin: 0px;
+                }
+            }
+
+            &__leve {
+                .cls-1 {
+                  clip-path: url(#clip-imagem_list2_desktop_a);
+                }
+
+                .cls-2, .cls-3, .cls-5 {
+                  fill: none;
+                }
+
+                .cls-2 {
+                  stroke: #ea4f12;
+                }
+
+                .cls-2, .cls-3 {
+                  stroke-width: 5px;
+                }
+
+                .cls-3 {
+                  stroke: #95989a;
+                }
+
+                .cls-4 {
+                  stroke: none;
+                }
+            }
+
+            &__moderado {
+                .cls-1 {
+                  clip-path: url(#clip-imagem_list2_desktop_b);
+                }
+                .cls-2, .cls-3, .cls-5 {
+                  fill: none;
+                }
+                .cls-2 {
+                  stroke: #ea4f12;
+                }
+                .cls-2, .cls-3 {
+                  stroke-width: 5px;
+                }
+                .cls-3 {
+                  stroke: #95989a;
+                }
+                .cls-4 {
+                  stroke: none;
+                }
+            }
+
+            &__intenso {
+                .cls-1 {
+                  clip-path: url(#clip-imagem_list2_desktop_c);
+                }
+                .cls-2, .cls-3, .cls-5 {
+                  fill: none;
+                }
+                .cls-2 {
+                  stroke: #ea4f12;
+                }
+                .cls-2, .cls-3 {
+                  stroke-width: 5px;
+                }
+                .cls-3 {
+                  stroke: #95989a;
+                }
+                .cls-4 {
+                  stroke: none;
+                }
+            }
+
+            &__severo {
+                .cls-1 {
+                    clip-path: url(#clip-imagem_list2_desktop_d);
+                }
+                .cls-2, .cls-4 {
+                    fill: none;
+                }
+                .cls-2 {
+                    stroke: #ea4f12;
+                    stroke-width: 5px;
+                }
+                .cls-3 {
+                    stroke: none;
+                }
+            }
+
+            &__image {
+                width: 100%;
+            }
+        }
+    }
+
+
+    .treatment {
+        background-image: url('https://s3-sa-east-1.amazonaws.com/sitedo/img/novembro-laranja/banner_imagem_opaca_desktop.png');
+        background-size: cover;
+        background-repeat: round;
+        margin-bottom: $entre-blocos;
+
+        &__image  {
+            height: 100vh;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            svg {
+                height: auto;
+                width: 100%;
+            }
+            .cls-1 {
+              clip-path: url(#clip-banner_imagem__bottom_desktop);
+            }
+            .cls-2 {
+              fill: #9b14b4;
+            }
+            .cls-2, .cls-3, .cls-4 {
+              opacity: 0.63;
+            }
+            .cls-3 {
+              fill: #14b4b4;
+            }
+            .cls-4 {
+              fill: #ff760d;
+            }
+            .cls-5, .cls-7 {
+              fill: #fff;
+            }
+            .cls-5, .cls-6, .cls-8 {
+              stroke: #fff;
+            }
+            .cls-5 {
+              stroke-width: 2px;
+            }
+            .cls-6, .cls-8 {
+              fill: none;
+              stroke-width: 6px;
+            }
+            .cls-8 {
+              opacity: 0.68;
+            }
+        }
+
+        &__info {
+            background-color: $colorTwo;
+            opacity: 0.6;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: left;
+            height: 100vh;
+            &__title {
+                display: flex;
+                @include textNine;
+                color: $colorOne;
+            }
+            &__text {
+                @include textTwelve;
+                text-align: left;
+                color: $colorOne;
+            }
+        }
+    }
+
+    .apparatus {
+        text-align: center;
+        &__title {
+            color: $fontColorOne;
+            @include textOne;
+        }
+        &__content {
+            @include textFour;
+        }
+        &__badge {
+            margin-bottom: $entre-blocos;
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .info {
+        @include box-align;
+
+        &__button {
+            @include buttonize;
+            background-color: $color-orange-th;
+            margin-bottom: $entre-blocos;
+            color: $colorOne;
+            font-weight: bold;
+            text-align: center;
+            &:hover {
+                background-color: $color-orange-ft
+            }
+        }
+
+        &__social {
+            margin-bottom: $entre-blocos;
+
+            svg {
+                width: 50px;
+                height: 50px;
+                margin: 0px 10px;
+            }
+        }
+    }
+
+    .schedule {
+        @include box-align;
+        height: 350px;
+        background-image: url('https://s3-sa-east-1.amazonaws.com/sitedo/img/novembro-laranja/banner_imagem_bottom_desktop.png');
+        background-size: cover;
+        padding: 0px 20px;
+        margin-bottom: -$entre-blocos;
+
+        &__heading {
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+            margin-bottom: $entre-blocos;
+        }
+
+        &__button
+        {
+            @include buttonize;
+            border: 2px solid #fff;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            &:hover {
+                color: $color-black-th;
+                border-color: $color-black-th;
+            }
+        }
+    }
+
+    // MEDIA MOBILE
+    @media (max-width: $screen-md-min) {
+
+        .novembrolaranja {
+            background-size: auto;
+            img {
+                width: 100%;
+            }
+        }
+
+        .textoexplicacao{
+            margin-bottom: $entre-blocos-mobile;
+            padding-top: $entre-blocos-mobile;
+            &__titulo{
+                font-size: 32px;
+                margin-bottom: $entre-blocos-mobile;
+            }
+            &__historia{
+                font-size: 18px;
+            }
+        }
+
+        .explicacaozumbido {
+            background-color: #ffffff;
+            margin-bottom: $entre-blocos-mobile;
+            &__image{
+                background-color: $color-two;
+                display: block;
+            }
+            &__label{
+                text-align: left;
+                &__content {
+                    position: relative;
+                    height: auto;
+                    margin: 0px 30px;
+                }
+            }
+
+        }
+
+        .ringing {
+            &__title {
+                font-size: 30px;
+            }
+            &__images {
+                .row {
+                    padding: 17.5px 0px;
+                    h6 {
+                        text-align: center;
+                    }
+                    .col-md-9 {
+                        padding: 0px 40px;
+                    }
+                }
+            }
+        }
+
+        .treatment {
+            margin-bottom: $entre-blocos-mobile;
+
+            &__image  {
+                padding: $entre-blocos-mobile 0px;
+                height: auto;
+            }
+
+            &__info {
+                padding: 40px;
+                height: auto;
+                &__title {
+                    font-size: 30px;
+                }
+                &__text {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .info {
+            &__button {
+                width: 100%;
+            }
+            &__social {
+                margin-bottom: $entre-blocos-mobile;
+            }
+        }
+
+        .schedule {
+            margin-bottom: -$entre-blocos-mobile;
+            &__heading {
+                font-size: 34px;
+            }
+            &__button {
+                width: 100%;
+            }
+        }
+
+    }
+
+}

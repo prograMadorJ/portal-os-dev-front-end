@@ -1,0 +1,118 @@
+/*******************************************************************************
+********************************** Sucesso Cadastro ****************************
+*******************************************************************************/
+
+#sucesso-cadastro {
+	position: relative;
+	background: url('https://s3-sa-east-1.amazonaws.com/sitedo/img/screens/obrigado-desktop.png');
+	min-height: 664px;
+	margin-bottom: -$entre-blocos;
+
+	.textos {
+		margin-top: $entre-blocos;
+		margin-bottom: $entre-blocos;
+
+		.titulo {
+			font-size: 50px;
+	        letter-spacing: -0.05em;
+	        font-weight: 700;
+	        margin-top: 0px;
+	        margin-bottom: 0px;
+		}
+
+		.subtitulo {
+			font-size: 20px;
+			font-weight: 400;
+			line-height: 1.2;
+			color: #3e3e3e;
+		}
+
+	}
+
+}
+
+.trabalhe-conosco {
+	background: url('https://s3-sa-east-1.amazonaws.com/sitedo/img/screens/obrigado-trabalhe-conosco.jpg') !important;
+	min-height: 560px !important;
+}
+
+@media (max-width: $screen-md-min) {
+
+	#sucesso-cadastro {
+		background: none;
+		margin-bottom: 0px;
+
+		.textos {
+			margin-top: $entre-blocos-mobile;
+			margin-bottom: 0px;
+			margin-left: 5px;
+			margin-right: 5px;
+
+			.titulo {
+				font-size: 30px;
+		        letter-spacing: -0.05em;
+		        font-weight: 700;
+		        margin-top: 0px;
+		        margin-bottom: 0px;
+			}
+
+			.subtitulo {
+				font-size: 17.5px;
+				font-weight: 400;
+				line-height: 1.2;
+				color: #3e3e3e;
+			}
+
+			.imagem-obrigado {
+				display: block;
+				margin-top: $entre-blocos-mobile;
+				margin-left: -20px;
+				margin-right: -20px;
+
+				img {
+					width: 100%;
+				}
+
+			}
+
+		}
+
+	}
+
+	.trabalhe-conosco {
+		background: none;
+	}
+
+}
+
+/*******************************************************************************
+*************************************** 404 ************************************
+*******************************************************************************/
+
+#pagina-404 {
+
+	.textos {
+		margin-top: $entre-blocos;
+		margin-bottom: $entre-blocos;
+
+		.titulo {
+			font-size: 50px;
+
+	        letter-spacing: -0.05em;
+	        text-align: center;
+	        font-weight: 700;
+	        margin-top: 0px;
+	        margin-bottom: 0px;
+		}
+
+		.conteudo {
+
+			strong {
+				color: #000000;
+			}
+
+		}
+
+	}
+
+}

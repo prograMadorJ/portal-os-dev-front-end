@@ -1,0 +1,494 @@
+#teste-gratis {
+
+  #intro {
+
+    .intro {
+      margin-top: 45px;
+
+      p {
+        margin-top: 0px;
+      }
+
+    }
+
+    .col-md-5 {
+      text-align: center;
+
+      img {
+        margin-top: 30px;
+        width: 80%;
+      }
+
+    }
+
+  }
+
+  #como-funciona {
+    margin-top: 58px;
+
+    .quadros {
+      margin-top: 45px;
+      text-align: center;
+
+      .seta-right {
+        width: auto;
+        margin-left: 40px;
+        position: absolute;
+        top: 50%;
+        margin-top: -10.5px;
+      }
+
+      img {
+        width: 75%;
+      }
+
+      h4 {
+        font-size: 28px;
+        letter-spacing: -0.05em;
+        font-weight: 600;
+        margin-top: 40px;
+        font-weight: 700;
+      }
+
+      p {
+        text-align: left;
+        font-family: $font-family-serif;
+        font-size: 16px;
+        margin-top: 16px;
+      }
+
+    }
+
+  }
+
+  #custo-beneficio {
+    margin-top: 80px;
+    background-color: #d9d9d9;
+    padding-top: 60px;
+
+    .espaco-texto-consulta {
+      padding-right: 45px;
+    }
+
+    .intro {
+
+      p {
+        margin-top: 35px;
+      }
+
+    }
+
+    .alerta {
+      background-color: #7f7f7f;
+      color: #ffffff;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      font-family: $font-family-serif;
+      text-align: center;
+      padding: 10px 0px;
+      margin-top: 45px;
+      margin-bottom: 40px;
+
+      p {
+        margin: 10px;
+      }
+
+    }
+
+  }
+
+  .btn-grupo {
+    display: block;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .btn-grupo-last {
+    margin-bottom: 20px;
+  }
+
+  #saude {
+
+    #conteudo {
+      border-bottom: 1px solid #7f7f7f;
+
+      #introducao {
+        margin-top: 50px;
+
+        .espaco-texto-saude {
+          padding-left: 45px;
+        }
+
+        .intro {
+
+          p {
+            margin-top: 35px;
+          }
+
+        }
+
+        .intro:first-letter {
+          color: #0072bc;
+        }
+
+      }
+
+      .alerta {
+        background-color: #7f7f7f;
+        color: #ffffff;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 18px;
+        font-family: $font-family-serif;
+        padding: 15px 30px;
+        margin-top: 50px;
+        font-weight: 600;
+
+        strong {
+          font-size: 20px;
+        }
+
+        p {
+          margin: 0px;
+        }
+
+      }
+
+      .subtitulo {
+        color: #000000;
+        text-align: center;
+        font-size: 30px;
+        letter-spacing: -0.05em;
+        margin-top: 30px;
+      }
+
+      .quadro-1 {
+        @include quadro;
+        background-color: #0072bc;
+      }
+
+      .quadro-2 {
+        @include quadro;
+        background-color: #008fd5;
+      }
+
+      .quadro-3 {
+        @include quadro;
+        background-color: #00a1e4;
+      }
+
+    }
+
+  }
+
+}
+
+#formulario-base {
+  margin-top: 35px;
+  background: url('https://s3-sa-east-1.amazonaws.com/sitedo/img/teste-gratis/teste-gratis.jpg');
+  background-position: center;
+  background-size: cover;
+
+  .formulario {
+    background: rgba(255,255,255,1);
+    margin-bottom: 50px;
+    margin-top: 70px;
+    padding: 35px;
+
+    p {
+      margin: 0px;
+    }
+
+    .subtitulo {
+      font-size: 28px;
+
+      letter-spacing: -0.05em;
+      font-weight: 700;
+      padding: 0px;
+      text-transform: none;
+      margin: 0px;
+    }
+
+    .conteudo {
+      margin: 20px 0px;
+    }
+
+  }
+
+}
+
+#qualidade {
+
+  .intro:first-letter {
+    color: #00984a;
+  }
+
+  .alerta {
+    background-color: #7f7f7f;
+    color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-family: $font-family-serif;
+    padding: 15px 30px;
+    margin-top: 20px;
+    font-weight: 600;
+
+    strong {
+      font-size: 20px;
+    }
+
+    p {
+      margin: 0px;
+    }
+
+  }
+
+}
+
+.tamanho-aparelho {
+  p {
+    font-family: $font-family-serif;
+    text-align: left;
+    font-size: 16px;
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+/************************** MOBILE ********************************************/
+
+@media (max-width: $screen-md-min) {
+
+  #teste-gratis {
+
+    #intro {
+
+      .intro {
+        margin-top: 30px;
+      }
+
+      .col-md-5 {
+
+        img {
+          margin-top: 30px;
+          width: auto;
+        }
+
+      }
+
+    }
+
+    #como-funciona {
+      margin-top: 30px;
+
+      h3 {
+        margin-top: 0px;
+      }
+
+      .quadros {
+
+        img {
+          width: 100%;
+          margin-top: 0;
+        }
+
+        .seta, .seta-inverso {
+          width: auto;
+          margin-top: 15px;
+          margin-bottom: 30px;
+          margin-left: -55%;
+        }
+
+        .seta-inverso {
+          margin-left: 55%;
+        }
+
+        h4 {
+          margin-top: 0px;
+          font-size: 18px;
+          margin-top: 5px;
+          text-align: left;
+        }
+
+        p {
+          margin-bottom: 15px;
+          margin-top: 0px;
+          font-size: 14px;
+        }
+
+        .inverso {
+          float: right;
+        }
+
+      }
+
+    }
+
+    #custo-beneficio {
+      margin-top: 30px;
+      background-color: #d9d9d9;
+      padding-top: 30px;
+
+      img {
+        width: 100%;
+      }
+
+      h4 {
+        @include h2;
+        font-size: 20px;
+        text-align: left;
+      }
+
+      .espaco-texto-consulta {
+        padding-right: 15px;
+      }
+
+      .intro {
+        padding-left: 0px;
+        padding-right: 0px;
+
+        p {
+          margin-top: 30px;
+        }
+
+      }
+
+      .alerta {
+        margin-top: 25px;
+        margin-bottom: 20px;
+      }
+
+      .subtitulo {
+        margin-top: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        font-size: 20px;
+
+      }
+
+    }
+
+    .btn-grupo {
+      margin-top: 30px;
+      margin-bottom: 30px;
+
+      .btn-black {
+        font-size: 14px;
+        padding: 15px 15px;
+        display: block;
+      }
+
+    }
+
+    #saude {
+
+      #conteudo {
+        border-bottom: 1px solid #7f7f7f;
+        padding-bottom: 0px;
+
+        #introducao {
+          margin-top: 30px;
+
+
+          .espaco-texto-saude {
+            padding-left: 15px;
+          }
+
+          .intro {
+
+            p {
+              margin-top: 25px;
+            }
+
+          }
+
+          .intro:first-letter {
+            color: #000000;
+          }
+
+        }
+
+        .alerta {
+          background-color: #7f7f7f;
+          color: #ffffff;
+          border-radius: 10px;
+          text-align: center;
+          font-size: 18px;
+          font-family: $font-family-serif;
+          padding: 15px 15px;
+          margin-top: 30px;
+
+          strong {
+            font-size: 20px;
+          }
+        }
+
+        .subtitulo {
+          text-align: left;
+          font-size: 25px;
+          margin-top: 30px;
+        }
+
+      }
+
+    }
+
+  }
+
+  #formulario-base {
+    margin-top: 35px;
+    color: #ffffff;
+    background: url('https://s3-sa-east-1.amazonaws.com/sitedo/img/teste-gratis/cadastro-teste-gratis-7-dias-mobile.jpg');
+    background-position: center;
+    background-size: cover;
+
+    .formulario {
+      background: none;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      padding: 0px 20px;
+
+      .subtitulo {
+        color: #ffffff;
+        padding: 0px 0px;
+        font-size: 25px;
+        text-align: center;
+      }
+
+    }
+
+  }
+
+  #qualidade {
+    margin-top: 30px;
+
+    .intro:first-letter {
+      color: #000000;
+    }
+
+    .alerta {
+      padding: 15px 15px;
+      font-size: 16px;
+      strong {
+        font-size: 20px;
+      }
+    }
+
+  }
+
+}
+
+@media (max-width: $screen-xs-min) {
+  #teste-gratis {
+    #como-funciona {
+      .quadros {
+        img {
+          margin-top: 30%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,180 @@
+.busca {
+    position: relative;
+}
+
+.busca-desktop{
+    position: absolute;
+    right: 0;
+    margin-right: -10px;
+}
+
+.busca-seta{
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 17px solid rgba(255, 255, 255, 0.7);
+    position: absolute;
+    bottom: 36px;
+    left: 353px;
+}
+
+.total-seta{
+    position: relative;
+}
+
+.seta{
+    margin: -4px 3px 0px 0px;
+}
+
+.total-btn-busca{
+    top: 7px;
+    position: absolute;
+    right: 16px;
+}
+
+.input-busca-topo{
+    padding: 20px !important;
+    -webkit-border-radius: none;
+    -moz-border-radius: none;
+    border-radius: 0px;
+    max-width: 999px;
+    background: #FFF!important;
+    width: 400px !important;
+    border: 1px solid $color-orange!important;
+    height: 30px!important;
+    outline: none !important;
+    color: #000000;
+}
+
+.btn-busca-topo{
+    background: $color-green;
+    border-radius: 50%;
+    border: none;
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    float: right;
+}
+
+.gcsc-branding{
+    display: none;
+}
+
+.input-busca{
+    padding: 4px !important;
+    -webkit-border-radius: none;
+    -moz-border-radius: none;
+    border-radius: none;
+    max-width: 999px;
+    background: #FFF!important;
+    border: none !important;
+    width: 565px;
+    border: 1px solid rgba(131, 130, 130, 0.24)!important;
+    height: 40px!important;
+    margin-top: -14px!important;
+    padding-left: 15px!important;
+    outline: none !important;
+}
+
+.form-busca{
+    margin: 60px auto 0;
+}
+
+.btn-busca{
+    background: $color-orange;
+    outline: none !important;
+    letter-spacing: -0.03em;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding: 9px 30px;
+    display: inline-block;
+    margin-top: 5px;
+    border: none;
+
+    &:hover {
+        background: $color-hover;
+    }
+
+}
+
+.btn-busca:hover{
+    color: #fff;
+}
+
+.formulario-Busca{
+    text-align: center;
+}
+
+#adBlock {
+    display: none !important;
+}
+
+.a_, .ad{
+    display: none !important;
+}
+
+@media screen and (max-width: 720px){
+
+  .formulario-Busca{
+      width: 100% !important;
+  }
+
+  .input-busca{
+      width: 100% !important;
+  }
+
+  .btn-busca{
+      margin-top: 20px;
+      width: 100%;
+  }
+
+}
+
+.hidden-busca{
+    display:none;
+}
+
+.li-busca-mobile{
+    display: none;
+}
+
+@media screen and (max-width: 991px){
+
+    .li-busca-mobile{
+        display: block;
+    }
+
+    .input-busca-mobile{
+        width: 100%;
+        height: 57px;
+        color: #3a3a3a;
+        padding: 20px;
+        font-size: 12px;
+    }
+
+    .total-btn-busca-mobile{
+        position: relative;
+        top: -43px;
+        left: 90%;
+    }
+
+    .btn-busca-mobile-topo{
+        background: $color-green;
+        border-radius: 50%;
+        border: none;
+        width: 30px;
+        height: 30px;
+        color: #fff;
+    }
+
+    .form-busca-mobile{
+        margin-bottom: -35px;
+    }
+
+}
+
+.gsc-adBlock{
+    display:none !important;
+}

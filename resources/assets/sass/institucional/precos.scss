@@ -1,0 +1,43 @@
+#precos {
+  .precos {
+    &-intro {
+      border-bottom: 1px solid $color-grey-sd;
+      padding-bottom: $entre-blocos;
+    }
+  }
+  .vantagens--of-precos {
+    padding-bottom: $entre-blocos;
+    margin-bottom: -$entre-blocos;
+    .icones {
+      img {
+        width: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  #precos {
+    .precos {
+      &-intro {
+        padding-bottom: $entre-blocos-mobile;
+      }
+    }
+    .vantagens--of-precos {
+      padding-bottom: $entre-blocos-mobile;
+      margin-bottom: -$entre-blocos-mobile;
+    }
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  #precos {
+    .vantagens--of-precos {
+      .icones {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

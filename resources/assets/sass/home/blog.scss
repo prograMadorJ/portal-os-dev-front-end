@@ -1,0 +1,251 @@
+#blog {
+    margin-bottom: $entre-blocos;
+    position: relative;
+    overflow: hidden; //fixed monster para quebra
+
+    .titulo {
+        text-align: center;
+        font-size: 50px;
+        letter-spacing: -0.05em;
+        font-weight: 700;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        text-transform: uppercase;
+
+        a {
+            color: #000000;
+
+            &:hover {
+                color: $color-light-black;
+            }
+
+        }
+
+    }
+
+    .destaque {
+        margin-top: 34px;
+
+        img {
+            height: 525px;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            -webkit-filter: brightness(0.75);
+            -moz-filter: brightness(0.75);
+            -ms-filter: brightness(0.75);
+            -o-filter: brightness(0.75);
+            filter: brightness(0.75);
+        }
+
+        .categoria {
+            position: absolute;
+            margin-left: 28px;
+            margin-top: 28px;
+            top: 0px;
+            border-bottom: 6px solid $color-blue;
+            text-transform: uppercase;
+
+            a {
+                color: #f5f5f5;
+                font-size: 12px;
+            }
+
+        }
+
+        .titulo {
+            font-size: 40px;
+            line-height: 1.1;
+            letter-spacing: -0.06em;
+            font-family: $font-family-sans-serif;
+            font-weight: 700;
+            bottom: 0px;
+            position: absolute;
+            margin-bottom: 28px;
+            margin-left: 28px;
+            margin-right: 28px;
+            color: #ffffff;
+            text-align: left;
+            text-transform: none;
+
+            a {
+                color: #ffffff;
+
+                &:hover {
+                    color: $color-hover-white;
+                }
+
+            }
+
+        }
+
+        .espaco-box {
+            margin-bottom: 25px;
+        }
+
+    }
+
+    .destaque-secundario {
+
+        .img-secondary {
+            img {
+                height: 250px;
+            }
+        }
+
+        .titulo {
+            font-size: 30px;
+            text-transform: none;
+        }
+
+    }
+
+    #nav_next_prev {
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        margin-top: 26%;
+
+        .next_prev {
+            position: absolute;
+            top: 0px;
+            cursor: pointer;
+        }
+
+        .next {
+            right: 0px;
+            margin-right: -80px;
+        }
+
+        .prev {
+            left: 0;
+            margin-left: -110px;
+        }
+
+    }
+
+    .bulls {
+        text-align: center;
+
+        .active {
+            color: $color-orange;
+        }
+
+        span {
+            font-size: 50px;
+
+            color: #a5a6a6;
+        }
+
+    }
+
+}
+
+/******************************** MD ******************************************/
+
+@media (max-width: $screen-md-min) {
+
+    #blog {
+        background: #dcddde;
+        padding-top: 30px;
+        padding-left: 20px;;
+        padding-right: 20px;;
+        width: 100%;
+
+        .titulo {
+            font-size: 30px;
+            text-align: left;
+        }
+
+        img {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .conteudo {
+            font-family: $font-family-sans-serif;
+            background: #ffffff;
+            padding: 5px 15px 15px 15px;
+            box-shadow: 2px 1px 15px #c3c3c3;
+
+            .categoria {
+                margin-top: 15px;
+                font-size: 14px;
+                font-weight: 700;
+                text-transform: uppercase;
+
+                a {
+                    color: #000000;
+
+                    &:hover {
+                        color: $color-black;
+                    }
+
+                }
+
+                span {
+                    color: $color-gray;
+                }
+
+            }
+
+            .titulo {
+                margin-top: 8px;
+                color: $color-blue;
+                font-size: 18px;
+                text-transform: none;
+
+                a {
+                    color: $color-blue;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: $color-hover-blue;
+                    }
+                }
+
+            }
+
+            .resumo {
+                margin-top: 0px;
+                font-size: 14px;
+
+                a {
+                    color: $color-black;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: $color-light-black;
+                    }
+                }
+
+            }
+
+            .social {
+                margin-top: 0px;
+
+                img {
+                    width: auto;
+                    margin-right: 15px;
+                }
+
+            }
+
+        }
+
+        /** Páginação do widget de blog **/
+        #arrow-blog {
+          margin-top: 10px;
+          display: flex;
+          .active {
+            color: $color-orange;
+          }
+          span {
+            font-size: 45px;
+            color: #a5a6a6;
+          }
+        }
+
+    }
+
+}

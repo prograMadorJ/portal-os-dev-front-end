@@ -1,0 +1,54 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    Options +FollowSymLinks
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+    RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,NE,L]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Options +FollowSymLinks
+    RewriteCond %{HTTP_HOST} ^54\.233\.84\.142
+    RewriteRule (.*) http://direitodeouvir.com.br/$1 [R=301,L]
+
+    # www to non-www
+    RewriteCond %{HTTP_HOST} ^direitodeouvir.com.br [NC]
+    RewriteRule ^(.*)$ http://www.direitodeouvir.com.br/$1 [L,R=301]
+
+    RewriteCond %{HTTP_HOST} ^gdo.direitodeouvir.com.br [NC]
+    RewriteRule ^(.*)$ https://www.direitodeouvir.com.br/$1 [L,R=301]
+    RewriteCond %{HTTP_HOST} ^clinicas.direitodeouvir.com.br [NC]
+    RewriteRule ^(.*)$ https://www.direitodeouvir.com.br/$1 [L,R=301]
+    RewriteCond %{HTTP_HOST} ^gdo.clinicas.direitodeouvir.com.br [NC]
+    RewriteRule ^(.*)$ https://www.direitodeouvir.com.br/$1 [L,R=301]
+</IfModule>
+
+##### EXPIRE CACHING - LEVERAGE BROWSER CACHING #####
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month 1 days"
+    ExpiresByType text/html "access plus 1 month 1 days"
+    ExpiresByType image/gif "access plus 1 month 1 days"
+    ExpiresByType image/jpeg "access plus 1 month 1 days"
+    ExpiresByType image/png "access plus 1 month 1 days"
+    ExpiresByType text/css "access plus 1 month 1 days"
+    ExpiresByType text/javascript "access plus 1 month 1 week"
+    ExpiresByType application/x-javascript "access plus 1 month 1 days"
+    ExpiresByType text/xml "access plus 1 seconds"
+</IfModule>
+##### END EXPIRE CACHING #####
