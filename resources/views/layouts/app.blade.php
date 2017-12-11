@@ -62,7 +62,5 @@
       @endif
     @endforeach
   @endif
-
-  @include('layouts._environment')
 </body>
 </html>

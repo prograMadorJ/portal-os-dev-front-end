@@ -25,15 +25,6 @@ libapache2-mod-php7.0 php7.0-mbstring php7.0-gd php7.0-unit php7.0-dom php7.0-zi
 * Seo
 * Estatisticas
 
-* Produtos
-* Destaque (Produto)
-* Acessórios
-* Design
-* Qualidade Sonora
-* Tecnologia
-* Conectividade
-* Recursos
-
 * Banner
 * Local (Banner)
 
@@ -52,8 +43,6 @@ libapache2-mod-php7.0 php7.0-mbstring php7.0-gd php7.0-unit php7.0-dom php7.0-zi
 * Respostas
 
 * Redirects
-
-* Curriculos
 
 ## Para executar ##
 
