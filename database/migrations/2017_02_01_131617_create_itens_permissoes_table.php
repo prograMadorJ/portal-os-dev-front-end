@@ -31,6 +31,6 @@ class CreateItensPermissoesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('itens_permissoes');
     }
 }

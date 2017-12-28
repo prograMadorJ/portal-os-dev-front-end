@@ -18,8 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('name', '100');
             $table->string('email', '100')->unique();
             $table->string('password');
-            $tbl->integer('status')->default('1');
-            $tbl->integer('grupo_id')->unsigned()->nullable();
+            $table->integer('status')->default('1');
+            $table->integer('grupo_id')->unsigned()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('users');
     }
 }

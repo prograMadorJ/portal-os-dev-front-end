@@ -24,6 +24,6 @@ class CreateSpamsListsTable extends Migration {
      * @return void
      */
     public function down() {
-        //
+        Schema::drop('spams_lists');
     }
 }

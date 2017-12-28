@@ -32,6 +32,6 @@ class CreateDestaquesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('destaques');
     }
 }

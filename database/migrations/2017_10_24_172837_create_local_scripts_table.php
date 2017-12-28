@@ -27,6 +27,6 @@ class CreateLocalScriptsTable extends Migration {
      */
     public function down()
     {
-        //
+        Schema::drop('local_scripts');
     }
 }

@@ -33,6 +33,6 @@ class CreatePerguntasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('perguntas');
     }
 }

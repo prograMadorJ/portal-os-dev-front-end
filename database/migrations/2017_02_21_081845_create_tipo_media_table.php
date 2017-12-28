@@ -32,6 +32,6 @@ class CreateTipoMediaTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('tipo_media');
     }
 }

@@ -29,6 +29,6 @@ class CreateTestesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('testes');
     }
 }

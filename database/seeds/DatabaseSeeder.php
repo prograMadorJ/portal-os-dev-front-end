@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Teste
-        DB::table('teste')->insert([
+        DB::table('testes')->insert([
             'nome' => 'Teste Auditivo'
         ]);
     }

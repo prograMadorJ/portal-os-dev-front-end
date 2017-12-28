@@ -18,11 +18,11 @@ class CreateScriptsTable extends Migration
       $table->string('name', '100');
       $table->text('code');
       $table->integer("status")->default(0);
-      $tbl->integer('local_id')->unsigned()->nullable();
-      $tbl->integer('in_top')->default(0);
+      $table->integer('local_id')->unsigned()->nullable();
+      $table->integer('in_top')->default(0);
       $table->timestamps();
 
-      $tbl->foreign('local_id')->references('id')->on('local')->onDelete("restrict");
+      $table->foreign('local_id')->references('id')->on('local')->onDelete("restrict");
     });
   }
 
@@ -33,6 +33,6 @@ class CreateScriptsTable extends Migration
   */
   public function down()
   {
-    //
+    Schema::drop('scripts');
   }
 }

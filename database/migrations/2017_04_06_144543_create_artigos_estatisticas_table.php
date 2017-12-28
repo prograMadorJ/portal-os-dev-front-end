@@ -31,6 +31,6 @@ class CreateArtigosEstatisticasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('artigos_estatisticas');
     }
 }

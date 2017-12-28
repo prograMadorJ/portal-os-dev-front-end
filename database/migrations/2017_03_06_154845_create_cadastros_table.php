@@ -38,6 +38,6 @@ class CreateCadastrosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('cadastros');
     }
 }

@@ -35,6 +35,6 @@ class CreateAlternativasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('alternativas');
     }
 }

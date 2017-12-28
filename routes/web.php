@@ -20,14 +20,14 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 	/**
 	 * All routes Here
 	 */
-	
+
 
 });
 
 Route::get('/sitemap.xml', 'HomeController@sitemap');
 Route::get('/robots.txt', 'HomeController@robots');
 
-require ('Admin.php');
+// require ('Admin.php');
 
 // Redirect
 

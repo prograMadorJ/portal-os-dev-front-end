@@ -29,6 +29,6 @@ class CreateQuestoesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('questoes');
     }
 }

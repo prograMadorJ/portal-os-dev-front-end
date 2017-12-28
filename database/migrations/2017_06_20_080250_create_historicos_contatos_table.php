@@ -34,6 +34,6 @@ class CreateHistoricosContatosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('historicos_contatos');
     }
 }

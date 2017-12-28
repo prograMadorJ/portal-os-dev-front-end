@@ -33,6 +33,6 @@ class CreateMediaDerivativesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('media_derivatives');
     }
 }

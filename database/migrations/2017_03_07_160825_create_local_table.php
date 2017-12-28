@@ -15,7 +15,7 @@ class CreateLocalTable extends Migration
     {
         Schema::create('local', function(Blueprint $tbl) {
           $tbl->increments("id");
-          $tbl->string('name', '100');
+          $tbl->string('name', '100')->nullable();
           $tbl->string("descricao", '100');
           $tbl->integer('status')->default(1);
           $tbl->timestamps();
@@ -33,6 +33,6 @@ class CreateLocalTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('local');
     }
 }

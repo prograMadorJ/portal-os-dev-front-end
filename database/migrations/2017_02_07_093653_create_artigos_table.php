@@ -40,6 +40,6 @@ class CreateArtigosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('artigos');
     }
 }

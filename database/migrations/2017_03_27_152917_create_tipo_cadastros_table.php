@@ -35,6 +35,6 @@ class CreateTipoCadastrosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('tipo_cadastros');
     }
 }

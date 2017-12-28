@@ -39,6 +39,6 @@ class CreateSeosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('seos');
     }
 }

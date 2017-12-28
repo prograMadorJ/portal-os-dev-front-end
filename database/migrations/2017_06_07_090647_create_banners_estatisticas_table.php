@@ -33,6 +33,6 @@ class CreateBannersEstatisticasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('banners_estatisticas');
     }
 }

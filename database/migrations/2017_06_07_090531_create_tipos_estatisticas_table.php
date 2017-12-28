@@ -27,6 +27,6 @@ class CreateTiposEstatisticasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('tipos_estatisticas');
     }
 }

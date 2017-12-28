@@ -29,6 +29,6 @@ class CreateCategoriaArtigoTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('categoria_artigo');
     }
 }

@@ -33,6 +33,6 @@ class CreateRespostasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('respostas');
     }
 }
