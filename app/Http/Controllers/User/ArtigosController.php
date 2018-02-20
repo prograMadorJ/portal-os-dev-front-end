@@ -18,7 +18,6 @@ class ArtigosController extends Controller
 {
     public function index() {
     	$posts = Artigo::where('status', 1)->limit(6)->orderBy('publicacao', 'desc')->get();
-
     	return view('layouts.app',
     		compact(
     			'posts'
