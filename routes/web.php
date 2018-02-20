@@ -14,12 +14,13 @@
 Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 
 	Route::get('/home', function() {
-		return redirect('/');
+		return redirect('/blog');
 	});
 
 	/**
 	 * All routes Here
 	 */
+	Route::get('/blog', 'User\ArtigosController@index')->name('blogIndex');
 
 
 });
