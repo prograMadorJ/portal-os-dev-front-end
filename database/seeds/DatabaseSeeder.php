@@ -60,6 +60,7 @@ class DatabaseSeeder extends Seeder
 
         // $this->call(SeosTableSeeder::class);
         // $this->call(MediaTableSeeder::class);
+        $this->call(CategoriasTableSeeder::class);
         $this->call(ArtigoTableSeeder::class);
     }
 }

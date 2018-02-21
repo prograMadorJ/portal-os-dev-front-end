@@ -21,6 +21,7 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 	 * All routes Here
 	 */
 	Route::get('/blog', 'User\ArtigosController@index')->name('blogIndex');
+	Route::get('/blog/categoria/{categoriaNome}', 'User\ArtigosController@categoryFilter')->name('categoriasBlog');
 
 
 });

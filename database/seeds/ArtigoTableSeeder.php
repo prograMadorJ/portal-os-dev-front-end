@@ -31,7 +31,7 @@ class ArtigoTableSeeder extends Seeder
         	$posts[] = [
         		'titulo' => $faker->sentence(rand(4, 7)),
         		'resumo' => $faker->sentence(rand(10, 25)),
-        		'conteudo' => $faker->paragraphs(rand(4, 12), true),
+        		'conteudo' => $faker->paragraphs(rand(8, 20), true),
         		'seo_id' => NULL,
         		'url' => $faker->sentence(),
         		'link_titulo' => NULL,
@@ -41,7 +41,8 @@ class ArtigoTableSeeder extends Seeder
         		'media_id' => NULL,
         		'status' => 1,
         		'created_at' => $createdDate,
-        		'updated_at' => $updatedDate
+        		'updated_at' => $updatedDate,
+                'categoria_id' => rand(1, 6)
         	];
         }
 
