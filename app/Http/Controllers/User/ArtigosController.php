@@ -13,6 +13,7 @@ use App\Categoria;
 use App\Seo;
 use App\Media;
 use App\MediaDerivative;
+use Carbon\Carbon;
 
 class ArtigosController extends Controller
 {
@@ -20,8 +21,6 @@ class ArtigosController extends Controller
     	// listagem simples na página inicial do blog
     	// somente pega os artigos que existem
     	$posts = Artigo::where('status', 1)->orderBy('publicacao', 'desc')->paginate(6);
-
-    	dd($posts);
 
     	return view('layouts.app',
     		compact(
@@ -47,13 +46,38 @@ class ArtigosController extends Controller
     	// o id da categoria que filtramos anteriormente
     	$postsFiltrados = Artigo::where('categoria_id', '=', $categoriaFiltro)->get();
 
-    	dd($postsFiltrados);
     	return view('layouts.app',
     		compact(
     			'categoriaId',
     			'categoriaFiltro',
     			'categoriaNome',
     			'postsFiltrados'
+    		)
+    	);
+    }
+
+    public function showPost($id) {
+    	$post = Artigo::findOrFail($id);
+
+    	// dump('id ***** ' . $post->id);
+    	// dump('titulo ***** ' . $post->titulo);
+    	// dump('resumo ***** ' . $post->resumo);
+    	// dump('conteudo ***** ' . $post->conteudo);
+    	// dump('seo_id ***** ' . $post->seo_id);
+    	// dump('url ***** ' . $post->url);
+    	// dump('link_titulo ***** ' . $post->link_titulo);
+    	// dump('publicacao ***** ' . $post->publicacao);
+    	// dump('agendado ***** ' . $post->agendado);
+    	// dump('user_id ***** ' . $post->user_id);
+    	// dump('media_id ***** ' . $post->media_id);
+    	// dump('status ***** ' . $post->status);
+    	// dump('creat ***** ' . $post->created_at);
+    	// dump('update ***** ' . $post->updated_at);
+    	// dump('cat_id ***** ' . $post->categoria_id);
+    	// die();
+    	return view('layouts.app',
+    		compact(
+    			'post'
     		)
     	);
     }

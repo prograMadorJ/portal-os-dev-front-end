@@ -35,7 +35,7 @@ class CategoriasTableSeeder extends Seeder
     			'link_titulo' => $faker->word(rand(20, 45)),
     			'created_at' => $createdAt,
     			'updated_at' => $updatedAt,
-    			'categoria_id' => $i,
+    			'categoria_id' => $i + 1,
     			'seo_id' => NULL
     	    ];
     	}
