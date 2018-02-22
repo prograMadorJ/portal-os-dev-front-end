@@ -20,7 +20,7 @@ class ArtigosController extends Controller
     public function index() {
     	// listagem simples na página inicial do blog
     	// somente pega os artigos que existem
-    	$posts = Artigo::where('status', 1)->orderBy('publicacao', 'desc')->paginate(6);
+    	$posts = Artigo::with('categorias')->where('status', 1)->orderBy('publicacao', 'desc')->paginate(6); // acessa atributos
 
     	return view('layouts.app',
     		compact(
@@ -44,7 +44,7 @@ class ArtigosController extends Controller
 
     	// finalmente, a filtragem dos psots/artigos, passando
     	// o id da categoria que filtramos anteriormente
-    	$postsFiltrados = Artigo::where('categoria_id', '=', $categoriaFiltro)->get();
+    	$postsFiltrados = Artigo::where('categoria_id', '=', $categoriaFiltro)->get(); // Acessa atributos
 
     	return view('layouts.app',
     		compact(
@@ -57,24 +57,8 @@ class ArtigosController extends Controller
     }
 
     public function showPost($id) {
-    	$post = Artigo::findOrFail($id);
+    	$post = Artigo::findOrFail($id); // Acessa atributos
 
-    	// dump('id ***** ' . $post->id);
-    	// dump('titulo ***** ' . $post->titulo);
-    	// dump('resumo ***** ' . $post->resumo);
-    	// dump('conteudo ***** ' . $post->conteudo);
-    	// dump('seo_id ***** ' . $post->seo_id);
-    	// dump('url ***** ' . $post->url);
-    	// dump('link_titulo ***** ' . $post->link_titulo);
-    	// dump('publicacao ***** ' . $post->publicacao);
-    	// dump('agendado ***** ' . $post->agendado);
-    	// dump('user_id ***** ' . $post->user_id);
-    	// dump('media_id ***** ' . $post->media_id);
-    	// dump('status ***** ' . $post->status);
-    	// dump('creat ***** ' . $post->created_at);
-    	// dump('update ***** ' . $post->updated_at);
-    	// dump('cat_id ***** ' . $post->categoria_id);
-    	// die();
     	return view('layouts.app',
     		compact(
     			'post'

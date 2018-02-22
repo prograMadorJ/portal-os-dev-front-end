@@ -20,10 +20,11 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 	/**
 	 * All routes Here
 	 */
-	Route::get('/blog', 'User\ArtigosController@index')->name('blogIndex');
-	Route::get('/blog/categoria/{categoriaNome}', 'User\ArtigosController@categoryFilter')->name('categoriasBlog');
-	Route::get('/blog/artigo/{post}', 'User\ArtigosController@showPost')->name('blogPost');
-
+	Route::group(['prefix' =>'blog'], function() {
+		Route::get('/', 'User\ArtigosController@index')->name('blogIndex');
+		Route::get('/categoria/{id}', 'User\ArtigosController@categoryFilter')->name('categoriasBlog');
+		Route::get('/artigo/{post}', 'User\ArtigosController@showPost')->name('blogPost');
+	});
 
 });
 
