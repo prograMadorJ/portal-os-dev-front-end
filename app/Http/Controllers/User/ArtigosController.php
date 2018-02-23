@@ -20,9 +20,9 @@ class ArtigosController extends Controller
     public function index() {
     	// listagem simples na página inicial do blog
     	// somente pega os artigos que existem
-    	$posts = Artigo::with('categorias')->where('status', 1)->orderBy('publicacao', 'desc')->paginate(6); // acessa atributos
+    	$posts = Artigo::with('categorias', 'usuario')->where('status', 1)->orderBy('publicacao', 'desc')->simplePaginate(2); // acessa atributos
 
-    	return view('layouts.app',
+    	return view('paginacao',
     		compact(
     			'posts'
     		)
@@ -44,7 +44,7 @@ class ArtigosController extends Controller
 
     	// finalmente, a filtragem dos psots/artigos, passando
     	// o id da categoria que filtramos anteriormente
-    	$postsFiltrados = Artigo::where('categoria_id', '=', $categoriaFiltro)->get(); // Acessa atributos
+    	$postsFiltrados = Artigo::where('categoria_id', $categoriaFiltro)->get(); // Acessa atributos
 
     	return view('layouts.app',
     		compact(
@@ -57,7 +57,7 @@ class ArtigosController extends Controller
     }
 
     public function showPost($id) {
-    	$post = Artigo::findOrFail($id); // Acessa atributos
+    	$post = Artigo::findOrFail($id);
 
     	return view('layouts.app',
     		compact(

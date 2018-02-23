@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     protected $fillable = [
-    		'nome', 'resumo', 'url', 'descricao', 'status', 'categoria_id', 'link_titulo', 'seo_id'
-    	];
+		'nome', 'resumo', 'url', 'descricao', 'status', 'categoria_id', 'link_titulo', 'seo_id'
+	];
+
+    protected $table = 'categorias';
 
     public function categoria() {
     	return $this->belongsTo('App\Categoria');
