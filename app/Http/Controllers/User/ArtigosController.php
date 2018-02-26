@@ -20,7 +20,10 @@ class ArtigosController extends Controller
     public function index() {
     	// listagem simples na página inicial do blog
     	// somente pega os artigos que existem
-    	$posts = Artigo::with('categorias', 'usuario')->where('status', 1)->orderBy('publicacao', 'desc')->simplePaginate(2); // acessa atributos
+    	$posts = Artigo::with('categorias', 'usuario')
+            ->where('status', 1)
+            ->orderBy('publicacao', 'desc')
+        ->simplePaginate(6); // acessa atributos
 
     	return view('paginacao',
     		compact(
@@ -29,37 +32,37 @@ class ArtigosController extends Controller
     	);
     }
 
-    public function categoryFilter($id) {
-    	// primeiro lista a categoria, puxando a collection inteira
-    	$categoriaId = Categoria::findOrFail($id);
+    public function categoryFilter($slug) {
+        // primeiro lista a categoria, puxando a collection inteira
+        $categoria = Categoria::where('slug', $slug)->get();
 
-    	// depois, a partir da collection, acessa o ID da categoria
-    	// para fazer a filtragem no where() da classe Artigo
-    	$categoriaFiltro = $categoriaId->id;
+        // depois, a partir da collection, acessa o ID da categoria
+        // para fazer a filtragem no where() da classe Artigo
+        $categoriaFiltro = $categoria->pluck('id');
 
-    	// a partir da collection, acessa o nome da categoria
-    	// talvez seja usada mais pra frente, onde podemos
-    	// substituir o id da categoria pelo nome na url
-    	$categoriaNome = $categoriaId->nome;
+        // finalmente, a filtragem dos psots/artigos, passando
+        // o id da categoria que filtramos anteriormente
+        $postsFiltrados = Artigo::with('categorias')
+            ->where('categoria_id', '=', $categoriaFiltro)
+            ->orderBy('publicacao', 'desc')
+        ->get();
 
-    	// finalmente, a filtragem dos psots/artigos, passando
-    	// o id da categoria que filtramos anteriormente
-    	$postsFiltrados = Artigo::where('categoria_id', $categoriaFiltro)->get(); // Acessa atributos
-
-    	return view('layouts.app',
-    		compact(
-    			'categoriaId',
-    			'categoriaFiltro',
-    			'categoriaNome',
-    			'postsFiltrados'
-    		)
-    	);
+        return view('postsFiltrados',
+            compact(
+                'categoria',
+                'slug',
+                'categoriaFiltro',
+                'postsFiltrados'
+            )
+        );
     }
 
-    public function showPost($id) {
-    	$post = Artigo::findOrFail($id);
+    public function showPost($slug) {
+    	$post = Artigo::with('categorias')
+            ->where('slug', $slug)
+        ->get();
 
-    	return view('layouts.app',
+    	return view('umPost',
     		compact(
     			'post'
     		)

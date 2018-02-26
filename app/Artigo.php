@@ -9,7 +9,7 @@ class Artigo extends Model {
 
     protected $fillable = [
 		'titulo', 'conteudo', 'resumo', 'imagem', 'seo_id', 'status', 'url', 'imagem_titulo', 'link_titulo',
-        'publicacao', 'agendado', 'user_id', 'imagem_tamanho', 'media_id', 'categoria_id'
+        'publicacao', 'agendado', 'user_id', 'imagem_tamanho', 'media_id', 'categoria_id', 'slug'
 	];
 
     protected $table = 'artigos';

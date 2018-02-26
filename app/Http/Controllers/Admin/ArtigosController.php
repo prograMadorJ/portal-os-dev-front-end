@@ -84,6 +84,7 @@ class ArtigosController extends Controller
             $data['agendado'] = date('Y-m-d H:i:s');
 
         $data['user_id'] = \Auth::user()->id;
+        $data['slug'] = str_slug($data['titulo']);
     	$artigo = Artigo::create($data);
     	$artigo->categorias()->attach($data['categorias']);
     	return redirect(action('Admin\ArtigosController@show', $artigo->id));

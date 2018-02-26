@@ -12,7 +12,7 @@
 		@endforeach
 		<br><br><br><br>
 	@endforeach
-	{!! $posts->links() !!}
+	{!! $posts->render() !!}
 	<a href="">
 		VEJA MAIS
 	</a>

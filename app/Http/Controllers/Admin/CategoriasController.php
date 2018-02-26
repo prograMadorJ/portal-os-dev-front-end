@@ -39,6 +39,7 @@ class CategoriasController extends Controller
         if ($seo) {
             $data['seo_id'] = $seo->id;
         }
+        $data['slug'] = str_slug($data['nome']);
 
     	$categoria = Categoria::create($data);
     	return redirect(action('Admin\CategoriasController@show', $categoria->id));

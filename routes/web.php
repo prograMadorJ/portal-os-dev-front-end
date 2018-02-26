@@ -22,8 +22,8 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 	 */
 	Route::group(['prefix' =>'blog'], function() {
 		Route::get('/', 'User\ArtigosController@index')->name('blogIndex');
-		Route::get('/categoria/{id}', 'User\ArtigosController@categoryFilter')->name('categoriasBlog');
-		Route::get('/artigo/{post}', 'User\ArtigosController@showPost')->name('blogPost');
+		Route::get('/categoria/{slug}', 'User\ArtigosController@categoryFilter')->name('categoriasBlog');
+		Route::get('/artigo/{slug}', 'User\ArtigosController@showPost')->name('blogPost');
 	});
 
 });
