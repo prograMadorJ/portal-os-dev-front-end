@@ -1,6 +1,6 @@
 <body>
 	@foreach($posts as $post)
-		<b>{{ $post->titulo }}</b>
+		<a href="{{ route('blogPost', $post->slug) }}"><b>{{ $post->titulo }}</b></a>
 		<br>
 		{{ $post->resumo }}
 		<br>
@@ -12,8 +12,11 @@
 		@endforeach
 		<br><br><br><br>
 	@endforeach
-	{!! $posts->render() !!}
-	<a href="">
+	<a href="" id="btn-load">
 		VEJA MAIS
 	</a>
+
+	<script type="text/javascript">
+
+	</script>
 </body>

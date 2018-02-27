@@ -23,7 +23,8 @@ class ArtigosController extends Controller
     	$posts = Artigo::with('categorias', 'usuario')
             ->where('status', 1)
             ->orderBy('publicacao', 'desc')
-        ->simplePaginate(6); // acessa atributos
+            ->take(6)
+        ->get(); // acessa atributos
 
     	return view('paginacao',
     		compact(
@@ -67,5 +68,9 @@ class ArtigosController extends Controller
     			'post'
     		)
     	);
+    }
+
+    public function loadMore() {
+        return redirect()->back();
     }
 }

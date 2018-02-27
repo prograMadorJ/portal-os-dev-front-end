@@ -1,7 +1,7 @@
 <body>
-	{{ $post[0]->titulo }}<br>
+	<b>{{ $post[0]->titulo }}</b><br>
 	@foreach($post[0]->categorias as $cat)
 		{{ $cat->nome }}<br>
 	@endforeach
-	{{ $post[0]->conteudo }}
+	{!! nl2br(e($post[0]->conteudo)) !!}
 </body>
