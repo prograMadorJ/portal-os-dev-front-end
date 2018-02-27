@@ -5,13 +5,13 @@
             <h3>
                 {{ $post->titulo }}
             </h3>
-            @foreach($post->categorias as $cat)<span class="blog-post__category"> {{ $cat->nome }} </span>@endforeach <span class="blog-post__date"> {{ date_format($date,"d/m/y H") }}H </span>
+            @foreach($post->categorias as $cat)<span class="blog-post__category"> {{ $cat->nome }} </span>@endforeach <span class="blog-post__date"> {{ date_format($date,"d/m/y - H") }}H </span>
         </div>
         <div class="blog-post__image">
             @if(isset($post->media_id))
                 <img src="{{ asset('post-img/' . $post->media->arquivo) }}">
             @else
-                NO FILE!
+                SEM IMAGEM - COLOCAR UMA IMAGEM DEFAULT PARA OS POSTS SEM IMAGEM??
             @endif
         </div>
         <div class="blog-post__content">
