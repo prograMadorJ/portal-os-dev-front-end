@@ -1,6 +1,6 @@
 @foreach($posts as $post)
     @php $date = date_create($post->publicacao) @endphp
-    <div class="blog-post">
+    <div class="blog-post" id="blog-post">
         <div class="blog-post__title">
             <h3>
                 {{ $post->titulo }}
@@ -9,7 +9,7 @@
         </div>
         <div class="blog-post__image">
             @if(isset($post->media_id))
-                <img src="{{ asset('post-img/' . $post->media->arquivo) }}">
+                <img src="{{ asset('img/post-img/' . $post->media->arquivo) }}">
             @else
                 SEM IMAGEM - COLOCAR UMA IMAGEM DEFAULT PARA OS POSTS SEM IMAGEM??
             @endif

@@ -71,6 +71,6 @@ class ArtigosController extends Controller
     }
 
     public function loadMore() {
-        return redirect()->back();
+        return back();
     }
 }
