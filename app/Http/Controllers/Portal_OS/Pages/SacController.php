@@ -23,6 +23,6 @@ class SacController extends Controller
      */
     public function index()
     {
-        return view('Portal-OS.pages.sac');
+        return view('Portal_OS.pages.sac');
     }
 }

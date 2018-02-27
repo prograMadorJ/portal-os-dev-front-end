@@ -1,4 +1,4 @@
-@extends('layouts',
+@extends('Portal_OS.layouts',
     [
         'css' => 'sac',
         'js' => 'sac',
@@ -6,7 +6,7 @@
      ]
 )
 
-@extends('amp.layouts',
+@extends('Portal_OS.amp.layouts',
     [
         'css' => 'sac',
         'ampRouteName' => 'ampSac',
@@ -19,7 +19,7 @@
 )
 
 @section('header')
-    @include('components.header',
+    @include('Portal_OS.components.header',
     [
         'title'=> 'fale conosco',
         'active'=> (object)
@@ -34,9 +34,9 @@
 @endsection
 
 @section('content')
-    @include('partials.sac')
+    @include('Portal_OS.partials.sac')
 @endsection
 
 @section('footer')
-    @include('components.footer')
+    @include('Portal_OS.components.footer')
 @endsection

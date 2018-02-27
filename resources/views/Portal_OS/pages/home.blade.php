@@ -1,4 +1,4 @@
-@extends('layouts',
+@extends('Portal_OS.layouts',
     [
         'css' => 'home',
         'js' => 'home',
@@ -6,7 +6,7 @@
     ]
 )
 
-@extends('amp.layouts',
+@extends('Portal_OS.amp.layouts',
     [
         'css' => 'home',
         'ampRouteName' => 'ampHome',
@@ -20,7 +20,7 @@
 
 
 @section('header')
-    @include('components.header',
+    @include('Portal_OS.components.header',
     [
         'title'=> 'home',
         'active'=> (object)
@@ -35,9 +35,9 @@
 @endsection
 
 @section('content')
-    @include('partials.home')
+    @include('Portal_OS.partials.home')
 @endsection
 
 @section('footer')
-    @include('components.footer')
+    @include('Portal_OS.components.footer')
 @endsection

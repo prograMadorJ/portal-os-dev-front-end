@@ -9,7 +9,7 @@
     </div>
     <div class="stories__content">
         @for($i = 0; $i < 6; $i++)
-            @include('components.stories.storiesPanel')
+            @include('Portal_OS.components.stories.storiesPanel')
         @endfor
     </div>
     {{--*******************************************************************--}}
