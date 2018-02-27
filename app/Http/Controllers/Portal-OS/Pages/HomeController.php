@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.home');
+        return view('Portal-OS.pages.home');
     }
 
 }

@@ -23,6 +23,6 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('pages.blog');
+        return view('Portal-OS.pages.blog');
     }
 }
