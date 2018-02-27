@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     browserify = require('gulp-browserify');
     image = require('gulp-image');
 
-var src_dir = 'resources/assets/Portal-OS';
+var src_dir = 'resources/assets/Portal_OS';
 var dest_dir = 'public/portal-os';
 
 gulp.task('img-minify', function () {
