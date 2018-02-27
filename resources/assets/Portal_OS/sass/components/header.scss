@@ -4,6 +4,7 @@
 
   $bgcolor: $dark-green;
   $font-color: $blank;
+  $font-color-navbar__item--active: $shiny-green;
 
   @include grid-row;
   @include justify(space-between);
@@ -38,11 +39,14 @@
       @include justify(space-evenly);
       line-height: 1em;
       width: 100%;
-      li a {
+      &__item {
         color: $font-color;
         font-size: 1.1vw;
         &:hover {
           color: $shiny-green;
+        }
+        &--active {
+          color: $font-color-navbar__item--active;
         }
       }
     }

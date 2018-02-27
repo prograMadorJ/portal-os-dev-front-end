@@ -13,11 +13,11 @@
             {{--*******************************************************************--}}
             {{--  linhas abaixo comentadas, aguardam implementação futura --}}
             {{--*******************************************************************--}}
-            {{--<li><a href="{{route('home')}}">AGENDE SUA CONSULTA</a></li>--}}
-            {{--<li><a href="{{route('indicacao')}}">INDIQUE</a></li>--}}
-            <li><a href="{{route('blog')}}">BLOG</a></li>
-            <li><a href="{{route('historias')}}">HISTÓRIAS REAIS</a></li>
-            <li><a href="{{route('sac')}}">FALE CONOSCO</a></li>
+            {{--<li><a class="header__navbar__item{{$active}}" href="{{route('home')}}">AGENDE SUA CONSULTA</a></li>--}}
+            {{--<li><a class="header__navbar__item{{$active}}" href="{{route('indicacao')}}">INDIQUE</a></li>--}}
+            <li><a class="header__navbar__item{{$active}}" href="{{route('blog')}}">BLOG</a></li>
+            <li><a class="header__navbar__item{{$active}}" href="{{route('historias')}}">HISTÓRIAS REAIS</a></li>
+            <li><a class="header__navbar__item{{$active}}" href="{{route('sac')}}">FALE CONOSCO</a></li>
         </ul>
     </nav>
     {{--*******************************************************************--}}
