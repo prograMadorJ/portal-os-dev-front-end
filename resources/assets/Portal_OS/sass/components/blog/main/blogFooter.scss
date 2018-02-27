@@ -30,7 +30,7 @@
     &__items {
       @include grid-wrap;
       @include justify(space-around);
-      @include inner-top-margin(25px);
+      @include inner-tb-margin(25px);
 
       &--category {
         @include grid-column(1,0%);
