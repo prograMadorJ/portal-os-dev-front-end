@@ -1,0 +1,25 @@
+@import 'core';
+
+.sac {
+  padding: 10px 0 10px;
+  &__title {
+    text-align: center;
+    h1 {
+      font-weight: 400;
+    }
+    h3 {
+      font-weight: 300;
+    }
+  }
+  &__form {
+    @include form;
+    max-width: 500px;
+    padding: 0 20px;
+    select {
+      color: dimgray;
+    }
+    input, select, textarea {
+      margin: 5px 0 !important;
+    }
+  }
+}

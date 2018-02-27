@@ -1,0 +1,95 @@
+@import 'core';
+
+.blog {
+  /* ========================
+      MOBILE RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-mobile) {
+    $font-size-main-h1: 45px;
+    $font-size-main-h2: 25px;
+
+    @include grid-column;
+
+    &__main {
+
+      @include grid-column;
+      > h1 {
+        @include outer-margin(5px 0 5px);
+        font-size: $font-size-main-h1;
+        font-weight: bold;
+      }
+
+      > h2 {
+        @include outer-margin(5px 0 40px);
+        font-size: $font-size-main-h2;
+        font-weight: 100;
+      }
+      > h1, > h2 {
+        @include outer-left-margin(20px);
+      }
+    }
+
+    &__right {
+      @include grid-wrap;
+      @include outer-top-margin(20px);
+      order: 1;
+    }
+
+    &__load {
+      @include outer-margin(20px 20px 0);
+      order: 0;
+      > a {
+        @include button(100%, 40px);
+        text-transform: uppercase;
+      }
+    }
+  }
+  /* ========================
+    DESKTOP RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-desktop) {
+
+    $font-size-main-h1: 5vw;
+    $font-size-main-h2: 2vw;
+    $font-size-load-a: 1.2vw;
+
+    @include grid-wrap;
+    @include justify(center);
+    @include inner-margin(55px 35px 0);
+
+    &__main {
+      @include grid-column(0, 60vw);
+      @include outer-margin(10px 15px 10px 20px);
+      h1 {
+        font-size: $font-size-main-h1;
+      }
+      h2 {
+        font-size: $font-size-main-h2;
+      }
+    }
+
+  &__right {
+    @include grid-row(0, 26vw);
+    @include outer-margin(10px 0 10px 30px);
+    height: 100%;
+    order: 0;
+  }
+
+  &__load {
+    @include grid-row(1, 100%);
+    @include outer-margin(20px 50px 50px);
+    order: 0;
+    > a {
+      @include button(600px, 40px);
+      font-size: $font-size-load-a;
+    }
+  }
+}
+
+}
+
+@import '../components/blog/main/blogPost';
+
+@import '../components/blog/general/blogPanel';
+
+@import "../components/blog/main/blogFooter";

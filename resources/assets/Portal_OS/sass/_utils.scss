@@ -1,0 +1,168 @@
+/*=================================
+      FLEX
+==================================*/
+@mixin flex($flex:0,$basis:unset) {
+  @if($flex!=0){flex: $flex};
+  @if($basis!=unset){flex-basis: $basis};
+}
+/*=================================
+  FLEX - GRID ROW
+==================================*/
+@mixin grid-row($flex:0,$basis:unset) {
+  display: flex;
+  flex-direction: row;
+  @include flex($flex,$basis);
+}
+/*=================================
+  FLEX - GRID ROW REVERSE
+==================================*/
+@mixin grid-row-reverse($flex:0,$basis:unset) {
+  display: flex;
+  flex-direction: row-reverse;
+  @include flex($flex,$basis);
+}
+/*=================================
+  FLEX - GRID COLUMN
+==================================*/
+@mixin grid-column($flex:0,$basis:unset) {
+  display: flex;
+  flex-direction: column;
+  @include flex($flex,$basis);
+}
+/*=================================
+  FLEX - GRID COLUMN REVERSE
+==================================*/
+@mixin grid-column-reverse($flex:0,$basis:unset) {
+  display: flex;
+  flex-direction: column-reverse;
+  @include flex($flex,$basis);
+}
+/*=================================
+      FLEX - GRID WRAP
+==================================*/
+@mixin grid-wrap($flex:1,$basis:100%) {
+  display: flex;
+  flex-direction: row;
+  @include flex($flex,$basis);
+  flex-wrap: wrap;
+}
+/*=================================
+       INNER MARGIN
+==================================*/
+@mixin inner-margin($top_right_bottom_left) {
+  padding: $top_right_bottom_left;
+}
+/*=================================
+       INNER TOP MARGIN
+==================================*/
+@mixin inner-top-margin($top) {
+  padding-top: $top;
+}
+/*=================================
+       INNER RIGHT MARGIN
+==================================*/
+@mixin inner-right-margin($right) {
+  padding-right: $right;
+}
+/*=================================
+       INNER BOTTOM MARGIN
+==================================*/
+@mixin inner-bottom-margin($bottom) {
+  padding-bottom: $bottom;
+}
+/*=================================
+       INNER RIGHT LEFT MARGIN
+==================================*/
+@mixin inner-rl-margin($rl) {
+  padding: 0 $rl;
+}
+/*=================================
+       INNER TOP BOTTOM MARGIN
+==================================*/
+@mixin inner-tb-margin($tp) {
+  padding: $tp 0;
+}
+/*=================================
+       INNER LEFT MARGIN
+==================================*/
+@mixin inner-left-margin($left) {
+  padding-left: $left;
+}
+/*=================================
+       OUTER MARGIN
+==================================*/
+@mixin outer-margin($top_right_bottom_left) {
+  margin: $top_right_bottom_left;
+}
+/*=================================
+       OUTER TOP MARGIN
+==================================*/
+@mixin outer-top-margin($top) {
+  margin-top: $top;
+}
+/*=================================
+       OUTER RIGHT MARGIN
+==================================*/
+@mixin outer-right-margin($right) {
+  margin-right: $right;
+}
+/*=================================
+       OUTER BOTTOM MARGIN
+==================================*/
+@mixin outer-bottom-margin($bottom) {
+  margin-bottom: $bottom;
+}
+/*=================================
+       OUTER LEFT MARGIN
+==================================*/
+@mixin outer-left-margin($left) {
+  margin-left: $left;
+}
+/*=================================
+       OUTER RIGHT LEFT MARGIN
+==================================*/
+@mixin outer-rl-margin($rl) {
+  margin: 0 $rl;
+}
+/*=================================
+       OUTER TOP BOTTOM MARGIN
+==================================*/
+@mixin outer-tb-margin($tp) {
+  margin: $tp 0;
+}
+/*=================================
+       FLEX ORDER
+==================================*/
+@mixin order($number) {
+  order: $number;
+}
+/*=================================
+  FLEX - JUSTIFY HORIZONTAL
+==================================*/
+@mixin justify($type: space-around) {
+  justify-content: $type;
+}
+/*=================================
+  ALIGN-ITEMS VERTICAL
+==================================*/
+@mixin align($position:unset) {
+  @if($position==self-center) {
+    align-self: center;
+  }
+  @else if($position==self-start){
+    align-self: start;
+  }
+  @else if($position==self-end){
+    align-self: end;
+  }
+  @else if($position==flex-end){
+    align-self: flex-end;
+  }
+  @else if($position==flex-start){
+    align-self: flex-start;
+  }
+  @else {
+    align-items: $position;
+  }
+}
+

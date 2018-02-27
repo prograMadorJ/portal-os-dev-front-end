@@ -1,0 +1,129 @@
+@import '../core';
+
+.blog-post {
+
+  $font-size-title-h3: 25px;
+  $font-size-category: 12px;
+  $font-size-date: 15px;
+  $font-size-content-p: 14px;
+
+  $font-color-content-p: #4b4b4b;
+  $font-color-link-a: $highlight-green;
+
+  $bg-color-category: $highlight-green;
+  $bg-color-link-a: $dark-green;
+
+  /* ========================
+      MOBILE RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-mobile) {
+
+    @include inner-bottom-margin(35px);
+    @include outer-margin(20px 20px 0);
+    border-bottom: 10px solid lightgrey;
+    &__title {
+      @include inner-left-margin(10px);
+      border-left: 2px solid #40E0D0;
+      > h3 {
+        @include outer-bottom-margin(10px);
+        font-size: $font-size-title-h3;
+      }
+    }
+
+    &__category, &__date {
+      @include outer-right-margin(10px);
+      text-transform: uppercase;
+    }
+
+    &__category {
+      @include inner-margin(2px 10px);
+      font-size: $font-size-category;
+      background: $bg-color-category;
+    }
+
+    &__date {
+      font-size: $font-size-date;
+    }
+
+    &__image {
+      @include outer-top-margin(20px);
+      > img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__content {
+      @include outer-margin(10px 0 20px);
+      > p {
+        color: $font-color-content-p;
+        font-size: $font-size-content-p;
+      }
+    }
+
+    &__link {
+      > a {
+        @include inner-margin(2px 20px);
+        color: $font-color-link-a;
+        background: $bg-color-link-a;
+        text-transform: uppercase;
+        border-radius: 65px;
+      }
+    }
+
+    &__social {
+      @include outer-top-margin(25px);
+      > a {
+        > svg {
+          @include outer-right-margin(20px);
+          width: 45px;
+          height: 45px;
+        }
+      }
+    }
+  }
+
+
+
+  /* ========================
+    DESKTOP RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-desktop) {
+
+    $font-size-title-h3: 3.5vw;
+    $font-size-category: 1vw;
+    $font-size-date: 1.3vw;
+    $font-size-content-p: 1.4vw;
+
+    @include outer-margin(20px 0 20px 20px);
+    &__title {
+      //width: 70%;
+      > h3 {
+        font-size: $font-size-title-h3;
+      }
+    }
+    &__category {
+      font-size: $font-size-category;
+    }
+    &__date {
+      font-size: $font-size-date;
+    }
+
+    &__content {
+      @include outer-margin(20px 0 50px);
+      > p {
+        font-size: $font-size-content-p;
+      }
+    }
+
+    &__social {
+      @include outer-top-margin(40px);
+      > a {
+        > svg {
+          width: 4vw;
+          height: 4vw;
+        }
+      }
+    }
+  }
+}

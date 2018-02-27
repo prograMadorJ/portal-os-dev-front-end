@@ -1,0 +1,263 @@
+@import "variables";
+@import "utils";
+
+/*=================================
+  BUTTON MENU HEADER
+==================================*/
+@mixin button-menu($width:95px,$height:40px) {
+  @include grid-row;
+  @include justify(center);
+  @include align(center);
+  background: white;
+  color: $dark-green;
+  font-size: 15px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 8px;
+  height: $height;
+  width: $width;
+  cursor: pointer;
+  line-height: 1;
+  &:active {
+    color: $dark-green;
+    background: #bcff6b !important;
+    position: relative;
+    top: 2px;
+  }
+  @media (min-width: $screen-desktop) {
+    &:hover {
+      background: #d0d0d0;
+    }
+  }
+}
+
+/*====================================
+  BUTTON MENU HEADER INVERTED
+=====================================*/
+@mixin button-menu-inverted($width:95px,$height:40px) {
+  @include button-menu($width, $height);
+  background: $dark-green;
+  color: white;
+}
+
+/*=================================
+  DEFAULT BUTTON
+==================================*/
+@mixin button($width:235px,$height:50px) {
+  @include grid-row;
+  @include justify(center);
+  @include align(center);
+  background: $highlight-green;
+  font-size: 15px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 50px;
+  height: $height;
+  width: $width;
+  line-height: 1;
+  cursor: pointer;
+  margin: 0 auto;
+  &:active {
+    background: #bcff6b !important;
+    position: relative;
+    top: 2px;
+  }
+  @media (min-width: $screen-desktop) {
+    &:hover {
+      background: #bcff6b;
+    }
+  }
+}
+
+/*=================================
+  DEFAULT BUTTON INVERTED
+==================================*/
+@mixin button-inverted($width:235px,$height:50px) {
+  @include button($width, $height);
+  background: darken($font-color, 8%);
+  color: $highlight-green;
+  &:active {
+    color: $dark-green;
+    background: #bcff6b !important;
+    position: relative;
+    top: 2px;
+  }
+  @media (min-width: $screen-desktop) {
+    &:hover {
+      background: lighten($font-color, 0%);
+    }
+  }
+}
+
+/*=================================
+  DEFAULT FORM COMPONENTS
+==================================*/
+@mixin form() {
+  @include grid-column;
+  @include justify(space-around);
+  width: 100%;
+  z-index: 0;
+  margin: 0 auto;
+  .form__group {
+    text-align: center;
+    padding: 0;
+    margin: 5px 0;
+    > input[type="text"],
+    [type="email"],
+    [type="password"], select, textarea {
+      font-size: 14px;
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid $dark-green;
+      border-radius: 0;
+      padding-left: 5px;
+      margin: 10px 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      &:focus {
+        border-bottom: 2px solid $dark-green;
+        outline: 0;
+      }
+    }
+    select {
+      cursor: pointer;
+      background: transparent !important;
+      i {
+        display: flex;
+        position: relative;
+        &:before {
+          //content: $fa-var-angle-down;
+          color: #999;
+          font: 30px FontAwesome;
+          float: right;
+          position: absolute;
+          top: -35px;
+          right: 5px;
+          z-index: -1;
+        }
+      }
+    }
+
+    input[type="password"] + i {
+      display:  flex;
+      @include justify(flex-end);
+      position: relative;
+      top: -35px;
+      svg {
+        fill: $dark-green;
+        position: absolute;
+      }
+    }
+
+    > p {
+      font-size: 10px;
+      text-align: center;
+      width: 100%;
+      margin: 10px 0;
+      > a {
+        font-weight: bold;
+      }
+    }
+    button {
+      @include button(200px, 40px);
+    }
+  }
+}
+/*=================================
+  SOCIAL IMG SCREEN MOBILE
+==================================*/
+@mixin social-icons-mobile {
+  display: block;
+  width: 12.8vw;
+  height: 12.8vw;
+}
+/*=================================
+  SOCIAL IMG SCREEN TABLET
+==================================*/
+@mixin social-icons-tablet {
+  display: block;
+  width: 4.3vw;
+  height: 4vw;
+}
+/*=================================
+  SOCIAL IMG SCREEN DESKTOP
+==================================*/
+@mixin social-icons-desktop {
+  display: block;
+  width: 2.3vw;
+  height: 3vw;
+}
+/*=================================
+  SOCIAL ICONS HOVER
+==================================*/
+@mixin social-icons-hover {
+  svg {
+    &:hover {
+      path {
+        fill: $shiny-green;
+      }
+      g > g > g > g > g {
+        stroke: $shiny-green;
+      }
+    }
+  }
+  a:nth-of-type(2) {
+    svg {
+      &:hover {
+        g > g > g > g {
+          stroke: $shiny-green;
+        }
+        path {
+          stroke: none;
+        }
+      }
+    }
+  }
+  a:nth-of-type(3) {
+    svg {
+      &:hover {
+        g > g > g > g {
+          stroke: $shiny-green;
+        }
+      }
+    }
+  }
+  a:nth-of-type(4) {
+    svg {
+      &:hover {
+        g > g > g {
+          stroke: $shiny-green;
+          path:nth-of-type(1) {
+            stroke: $shiny-green;
+            fill: $shiny-green;
+          }
+          path:nth-of-type(2) {
+            stroke: $shiny-green;
+            fill: none;
+          }
+        }
+      }
+    }
+  }
+}
+/*=================================
+  LOGO MOBILE
+==================================*/
+@mixin logo-mobile {
+  width: 40vw;
+  height: 12vw;
+}
+/*=================================
+  LOGO TABLET
+==================================*/
+@mixin logo-tablet {
+  width: 18vw;
+  height: 6vw;
+}
+/*=================================
+  LOGO DSEKTOP
+==================================*/
+@mixin logo-desktop {
+  width: 14vw;
+  height: 3.3vw;
+}

@@ -1,0 +1,158 @@
+@import "core";
+
+.footer {
+  /* ========================
+      MOBILE RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-mobile) {
+
+    $bgcolor: $dark-green;
+
+    $font-color: $blank;
+    $font-color-social-h5: $blank;
+
+    $font-size-items-li: .8vw;
+    $font-size-items-h5: 3.5vw;
+
+    @include flex(1,unset);
+    @include inner-margin(20px);
+    @include justify(center);
+    background: $bgcolor;
+    &__logo {
+      @include grid-row;
+      @include justify(center);
+      @include outer-bottom-margin(20px);
+      svg {
+        @include logo-mobile;
+      }
+    }
+    &__menu {
+      @include grid-column;
+      @include align(center);
+      @include outer-rl-margin(25px);
+    }
+    &__items {
+      @include align(flex-start);
+      @include order(2);
+      @include outer-margin(15px 0 0 10px);
+      h5 {
+        @include outer-bottom-margin(10px);
+        font-size: $font-size-items-h5;
+      }
+      li {
+        @include outer-bottom-margin(5px);
+        font-size: $font-size-items-li;
+        display: none;
+      }
+      li, h5 {
+        color: $font-color;
+      }
+    }
+    &__social {
+      @include grid-row;
+      @include outer-tb-margin(10px);
+      @include justify(center);
+      @include order(1);
+      h5 {
+        @include outer-bottom-margin(10px);
+        color: $font-color-social-h5;
+        display: none;
+      }
+      li {
+        @include grid-row;
+      }
+      a {
+        @include outer-rl-margin(3vw);
+        svg {
+          @include social-icons-mobile;
+        }
+      }
+    }
+  }
+  /* ========================
+      TABLET RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-tablet) {
+
+    $font-color-items-h5-hover: $shiny-green;
+
+    $font-size-items-h5: 2vw;
+    $font-size-social-h5: 2vw;
+
+    @include grid-row;
+    @include inner-margin(4vw);
+    &__logo {
+      @include align(self-start);
+      svg {
+        @include logo-tablet;
+      }
+    }
+    &__menu {
+      @include grid-row;
+      @include align(unset);
+      @include outer-margin(0);
+    }
+    &__items {
+      @include order(unset);
+      @include outer-margin(0 5vw);
+      width: auto;
+      h5 {
+        font-size: $font-size-items-h5;
+        &:hover {
+          color: $font-color-items-h5-hover;
+        }
+      }
+    }
+    &__social {
+      @include outer-margin(0);
+      h5 {
+        @include grid-row;
+        @include outer-left-margin(.6vw);
+        font-size: $font-size-social-h5;
+      }
+      a {
+        @include outer-rl-margin(.5vw);
+        svg {
+          @include social-icons-tablet;
+        }
+      }
+    }
+  }
+  /* ========================
+      DESKTOP RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-desktop) {
+
+    $font-size-items-h5: 1vw;
+    $font-size-social-h5: 1vw;
+
+    &__logo {
+      svg {
+        @include logo-desktop;
+      }
+    }
+    &__items {
+      @include grid-row;
+      h5 {
+        font-size: $font-size-items-h5;
+      }
+      ul {
+        @include outer-rl-margin(1vw);
+        li {
+          display: flex;
+        }
+      }
+    }
+    &__social {
+      @include social-icons-hover;
+      h5 {
+        font-size: $font-size-social-h5;
+      }
+      a svg {
+        @include social-icons-desktop;
+      }
+    }
+  }
+}
+
+
