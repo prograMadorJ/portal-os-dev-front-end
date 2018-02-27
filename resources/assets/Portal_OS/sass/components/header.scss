@@ -24,13 +24,13 @@
   &__logo {
     @include grid-column;
     @include justify(center);
+    @include inner-tb-margin(.6vw);
     svg {
       @include logo-desktop;
     }
   }
   &__navbar {
     @include grid-row;
-    //@include outer-left-margin(8vw);
     width: 100%;
     ul {
       @include grid-row;
