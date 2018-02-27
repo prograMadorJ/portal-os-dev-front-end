@@ -1,0 +1,51 @@
+@import '../core';
+
+.storiesPanel {
+
+  $font-size-name: 20px;
+  $font-size-city: 20px;
+  $font-size-story: 15px;
+
+  $font-color-city: #40E0D0;
+  $font-color-story: grey;
+
+  @include grid-column;
+  @include outer-right-margin(20px);
+  &__imageHolder {
+    @include align(self-center);
+    @include inner-margin(0);
+    > amp-img,
+    > img {
+      border: 2px solid grey;
+      border-radius: 100%;
+      min-width: 150px;
+      min-height: 150px;
+    }
+    >img{
+      max-width: 150px;
+      max-height: 150px;
+    }
+  }
+
+  &__text {
+    @include grid-column;
+    text-align: center;
+  }
+  &__name {
+    @include outer-top-margin(10px);
+    font-size: $font-size-name;
+  }
+  &__city {
+    @include outer-top-margin(5px);
+    color: $font-color-city;
+    font-size: $font-size-city;
+  }
+  &__story {
+    @include align(self-center);
+    @include outer-margin(15px 5px);
+    color: $font-color-story;
+    font-size: $font-size-story;
+    text-align: justify;
+    max-width: 768px;
+  }
+}

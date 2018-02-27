@@ -1,0 +1,317 @@
+@import "core";
+
+.marketing {
+  $bg-img: '/img/home_banner.jpg';
+  /* ========================
+      MOBILE RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-mobile) {
+
+    $font-size-info-left-h1: 7.5vw;
+    $font-size-info-right-h2: 4.5vw;
+    $font-size-info-right-span: 3.5vw;
+
+    @include grid-column;
+    @include inner-top-margin(75vw);
+    @include outer-bottom-margin(3vw);
+    @include align(center);
+    background: url($bg-img) 42% top no-repeat;
+    background-size: 220vw;
+    height: 150vw;
+    &__panel {
+      @include grid-column;
+      @include outer-rl-margin(25px);
+    }
+    &__info {
+      &-left {
+        h1 {
+          @include outer-bottom-margin(15px);
+          font-size: $font-size-info-left-h1;
+          font-weight: 600;
+          line-height: 1.2em;
+        }
+      }
+      &-right {
+        @include grid-column;
+        h2 {
+          font-size: $font-size-info-right-h2;
+          font-weight: 400;
+        }
+        hr {
+          border: solid .5px;
+        }
+        a {
+          @include button;
+          font-weight: 600;
+          @include outer-margin(20px 0);
+        }
+        span {
+          font-size: $font-size-info-right-span;
+        }
+      }
+    }
+  }
+  /* ========================
+      TABLET RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-tablet) {
+
+    $font-size-info-left-h1: 3.2vw;
+    $font-size-info-right-h2: 1.8vw;
+    $font-size-info-right-span: 1.5vw;
+
+    @include grid-row;
+    @include justify(center);
+    @include align(center);
+    @include inner-top-margin(unset);
+    @include outer-bottom-margin(unset);
+    background: url($bg-img) border-box round;
+    height: 50vw;
+    &__panel {
+      @include grid-row;
+      @include justify(space-evenly);
+      @include align(flex-end);
+      @include inner-margin(4vw 2vw 1.5vw);
+      width: 84%;
+      height: 45%;
+    }
+    &__info {
+      &-left {
+        h1 {
+          font-size: $font-size-info-left-h1;
+        }
+      }
+      &-right {
+        h2 {
+          font-size: $font-size-info-right-h2;
+        }
+        a {
+          @include outer-tb-margin(2vw);
+          font-size: 1.3vw;
+          height: 4vw;
+          width: 22vw;
+        }
+        span {
+          font-size: $font-size-info-right-span;
+        }
+      }
+    }
+  }
+}
+
+.scheduling {
+  /* ========================
+      MOBILE RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-mobile) {
+    @include grid-row;
+    @include justify(center);
+    background: $light-blue;
+    height: 500px;
+    &__form {
+      border: solid 1px black;
+      height: 100%;
+      width: 800px;
+    }
+  }
+}
+
+.steps {
+  /* ========================
+      MOBILE RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-mobile) {
+
+    $font-size-title-h1: 11vw;
+    $font-size-title-h2: 5.5vw;
+    $font-size-step-h3: 5.5vw;
+    $font-size-step-span: 5vw;
+
+    @include inner-margin(4vw 5vw 5vw);
+    text-align: center;
+    &__title {
+      h1 {
+        @include outer-bottom-margin(10px);
+        font-size: $font-size-title-h1;
+        font-weight: 600;
+      }
+      h2 {
+        font-size: $font-size-title-h2;
+        font-weight: 400;
+      }
+    }
+    &__group {
+      @include outer-top-margin(20px);
+    }
+    &__step {
+      svg {
+        @include outer-tb-margin(20px);
+      }
+      h3 {
+        font-size: $font-size-step-h3;
+        font-weight: 600;
+      }
+      span {
+        @include outer-tb-margin(10px);
+        display: block;
+        font-size: $font-size-step-span;
+        font-weight: 400;
+      }
+    }
+  }
+  /* ========================
+      TABLET RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-tablet) {
+
+    $font-size-title-h1: 4vw;
+    $font-size-title-h2: 2vw;
+    $font-size-step-h3: 1.8vw;
+    $font-size-step-span: 1.6vw;
+
+    @include inner-margin(4vw 2vw 5vw);
+    &__title {
+      h1 {
+        @include outer-bottom-margin(10px);
+        font-size: $font-size-title-h1;
+        font-weight: 600;
+      }
+      h2 {
+        font-size: $font-size-title-h2;
+        font-weight: 400;
+      }
+    }
+    &__group {
+      @include grid-row;
+      @include justify(center);
+    }
+    &__step {
+      @include outer-rl-margin(2.8vw);
+      svg {
+        width: 15vw;
+        height: 10vw;
+      }
+      h3 {
+        font-size: $font-size-step-h3;
+      }
+      span {
+        font-size: $font-size-step-span;
+      }
+    }
+  }
+}
+
+.know-more {
+  /* ========================
+      MOBILE RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-mobile) {
+
+    $bgcolor-card-three: $dark-green;
+    $bgcolor-card-one: $shiny-green;
+    $bgcolor-card-two: $beige-yellow;
+
+    $font-color-card-three-span: $blank;
+    $font-color-card-three-span-a: $shiny-green;
+
+    $font-size-card-h2: 6vw;
+    $font-size-card-span: 4vw;
+    $font-size-card-three-span: 6vw;
+
+    @include grid-column;
+    @include align(center);
+    text-align: center;
+    &__card {
+      &-group {
+        width: 100%;
+      }
+      &-one {
+        background: $bgcolor-card-one;
+      }
+      &-two {
+        background: $bgcolor-card-two;
+      }
+      &-three {
+        @include inner-margin(4vw 2.5vw);
+        background: $bgcolor-card-three;
+        width: 100%;
+        span {
+          @include outer-margin(5vw 2vw);
+          color: $font-color-card-three-span;
+          font-size: $font-size-card-three-span;
+          font-weight: 600;
+          display: block;
+          a b {
+            color: $font-color-card-three-span-a;
+          }
+        }
+        > a {
+          @include button(80vw, 15vw);
+          @include outer-margin(.5vw auto);
+          font-size: 5vw;
+        }
+      }
+      &-one, &-two {
+        @include inner-margin(10vw 0);
+        width: 100%;
+        h2 {
+          font-size: $font-size-card-h2;
+          font-weight: 600;
+        }
+        span {
+          @include outer-margin(2vw auto);
+          font-size: $font-size-card-span;
+          font-weight: 600;
+          display: block;
+          max-width: 92vw;
+        }
+        a {
+          @include button-inverted(30vw, 8vw);
+          font-size: 3.3vw;
+        }
+      }
+    }
+  }
+  /* ========================
+      TABLET RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-tablet) {
+
+    $font-size-card-h2: 2.5vw;
+    $font-size-card-span: 1.5vw;
+    $font-size-card-three-span: 1.8vw;
+
+    &__card {
+      &-group {
+        @include grid-row;
+      }
+      &-three {
+        @include grid-row;
+        @include justify(space-evenly);
+        text-align: left;
+        span {
+          @include outer-margin(0);
+          font-size: $font-size-card-three-span;
+          max-width: 55vw;
+        }
+        > a {
+          @include button(24vw, 4.3vw);
+          @include outer-margin(.5vw 0);
+          font-size: 1.3vw;
+        }
+      }
+      &-one, &-two {
+        h2 {
+          font-size: $font-size-card-h2;
+        }
+        span {
+          font-size: $font-size-card-span;
+        }
+        > a {
+          @include button-inverted(15vw, 4vw);
+          font-size: 1.6vw;
+        }
+      }
+    }
+  }
+}

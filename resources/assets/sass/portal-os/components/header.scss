@@ -1,0 +1,83 @@
+@import "core";
+
+.header {
+
+  $bgcolor: $dark-green;
+  $font-color: $blank;
+
+  @include grid-row;
+  @include justify(space-between);
+  @include inner-rl-margin(3vw);
+  background: $bgcolor;
+  width: 100%;
+  height: $height-header;
+  &__nav-icon svg {
+    width: 10px;
+    fill: $font-color;
+  }
+  & .navigation-drawer {
+    background: #fff;
+    &--absolute{}
+    &--close{}
+    &--temporary{}
+  }
+  &__logo {
+    @include grid-column;
+    @include justify(center);
+    svg {
+      @include logo-desktop;
+    }
+  }
+  &__navbar {
+    @include grid-row;
+    //@include outer-left-margin(8vw);
+    width: 100%;
+    ul {
+      @include grid-row;
+      @include align(center);
+      @include justify(space-evenly);
+      line-height: 1em;
+      width: 100%;
+      li a {
+        color: $font-color;
+        font-size: 1.1vw;
+        &:hover {
+          color: $shiny-green;
+        }
+      }
+    }
+  }
+  &__access {
+    @include grid-row;
+    @include align(center);
+    &__register {
+      @include grid-row;
+      @include outer-margin(0 2vw 0 .5vw);
+      a {
+        @include grid-row;
+        color: $font-color;
+        font-size: 1.3vw;
+        font-weight: bold;
+        line-height: 1em;
+        &:hover {
+          color: $shiny-green;
+          svg {
+            fill: $shiny-green !important;
+          }
+        }
+        svg {
+          @include outer-margin(0 .3vw);
+          fill: $font-color;
+          width: 1.2vw;
+          height: 1.25vw;
+        }
+      }
+    }
+    &__entry a {
+      @include button-menu;
+      font-size: 1.2vw;
+      width: 8vw;
+      height: 3vw;
+    }
+  }
+}

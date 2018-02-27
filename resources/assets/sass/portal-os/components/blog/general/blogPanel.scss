@@ -1,0 +1,87 @@
+@import '../core';
+
+.blog-panel {
+
+  $bg-color: $light-beige;
+  $bg-color-heading: $dark-green;
+
+  $font-color-heading-p: $highlight-green;
+  $font-color-body--content-span: $dark-green;
+  $font-color-body--content-a: $grey;
+
+  $font-size-heading-p: 20px;
+  $font-size-body--content-span: 45px;
+  $font-size-body--content-a: 15px;
+  /* ========================
+      MOBILE RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-mobile) {
+    @include grid-column(1,0%);
+    background: $bg-color;
+    &__heading {
+      background: $bg-color-heading;
+      > p {
+        @include inner-tb-margin(20px);
+        color: $font-color-heading-p;
+        font-size: $font-size-heading-p;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+
+    &__body {
+      @include inner-margin(15px);
+      &--content {
+        @include grid-row;
+        @include inner-bottom-margin(10px);
+        width: 100%;
+        border-bottom: 2px solid lightgrey;
+        > span {
+          color: $font-color-body--content-span;
+          font-size: $font-size-body--content-span;
+        }
+        &:nth-last-child(1) {
+          border: 0;
+        }
+
+        > a {
+          @include align(self-center);
+          @include inner-left-margin(1vw);
+          color: $font-color-body--content-a;
+          font-size: $font-size-body--content-a;
+        }
+      }
+    }
+  }
+
+
+
+  /* ========================
+    DESKTOP RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-desktop) {
+
+    $font-color-heading-p: #FFF9CE;
+
+    $font-size-heading-p: 2vw;
+
+    $font-color-body--content-span: 4vw;
+    $font-size-body--content-a: 1.3vw;
+
+
+    &__heading {
+      > p {
+        color: $font-color-heading-p;
+        font-size: $font-size-heading-p;
+      }
+    }
+    &__body--content {
+      > span {
+        font-size: $font-color-body--content-span;
+      }
+      > a {
+        font-size: $font-size-body--content-a;
+      }
+    }
+  }
+}

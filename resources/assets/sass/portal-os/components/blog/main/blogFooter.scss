@@ -1,0 +1,112 @@
+@import "../core";
+
+.blog-footer {
+
+  $bg-color: #e9fffb;
+  $bg-color-h4: $dark-green;
+
+  $font-color-h4: $highlight-green;
+
+  $font-size-h4: 20px;
+  $font-size-items--category-span: 14px;
+
+  /* ========================
+      MOBILE RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-mobile) {
+
+    background: $bg-color;
+    > h4 {
+      @include inner-tb-margin(20px);
+      @include outer-margin(0);
+      color: $font-color-h4;
+      font-size: $font-size-h4;
+      font-weight: 400;
+      text-align: center;
+      text-transform: uppercase;
+      background: $bg-color-h4;
+    }
+
+    &__items {
+      @include grid-wrap;
+      @include justify(space-around);
+      @include inner-top-margin(25px);
+
+      &--category {
+        @include grid-column(1,0%);
+        @include align(center);
+        @include outer-margin(10px 15px);
+
+        > svg {
+          width: 100px;
+          height: 100px;
+        }
+
+        > span {
+          font-size: $font-size-items--category-span;
+          font-weight: bold;
+          text-align: center;
+          text-transform: uppercase;
+        }
+        > p {
+          display: none;
+        }
+
+        > a {
+          display: none;
+        }
+      }
+    }
+  }
+
+
+  /* ========================
+    DESKTOP RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-desktop) {
+
+    $font-size-h4: 4vw;
+    $font-size-items--category-span: 1vw;
+    $font-size-items--category-p: 1vw;
+    $font-size-items--category-a: 15px;
+
+
+    $font-color-items--category-a: $highlight-green;
+
+    $bg-color-items--category-a: $dark-green;
+
+    > h4 {
+      color: $font-color;
+      font-size: $font-size-h4;
+      font-weight: normal;
+      background: transparent;
+    }
+
+    &__items {
+      &--category {
+
+        > svg {
+          width: 10vw;
+          height: 10vw;
+        }
+
+        > span {
+          font-size: $font-size-items--category-span;
+        }
+
+        > p {
+          @include grid-row;
+          @include outer-bottom-margin(1vw);
+          text-align: center;
+          font-size: $font-size-items--category-p;
+        }
+
+        > a {
+          @include button-inverted(120px,20px);
+          background: $bg-color-items--category-a;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
