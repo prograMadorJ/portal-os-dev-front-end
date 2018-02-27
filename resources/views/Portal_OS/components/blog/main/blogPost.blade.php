@@ -7,7 +7,7 @@
         <span class="blog-post__category"> Saúde </span> <span class="blog-post__date"> 05/10/2017 - 16H </span>
     </div>
     <div class="blog-post__image">
-        <img src="/img/img-post.jpg">
+        <img src="{{asset('portal-os/img/img-post.jpg')}}">
     </div>
     <div class="blog-post__content">
         <p>
