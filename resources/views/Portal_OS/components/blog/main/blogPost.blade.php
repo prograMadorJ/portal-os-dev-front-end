@@ -1,7 +1,6 @@
 @foreach($posts as $post)
     @php $date = date_create($post->publicacao) @endphp
     <div class="blog-post">
-
         <div class="blog-post__title">
             <h3>
                 {{ $post->titulo }}

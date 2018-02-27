@@ -79,8 +79,8 @@
 /*=================================
        INNER TOP BOTTOM MARGIN
 ==================================*/
-@mixin inner-tb-margin($tp) {
-  padding: $tp 0;
+@mixin inner-tb-margin($tb) {
+  padding: $tb 0;
 }
 /*=================================
        INNER LEFT MARGIN

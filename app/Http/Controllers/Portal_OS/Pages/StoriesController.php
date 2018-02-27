@@ -23,6 +23,6 @@ class StoriesController extends Controller
      */
     public function index()
     {
-        return view('Portal-OS.pages.stories');
+        return view('Portal_OS.pages.stories');
     }
 }
