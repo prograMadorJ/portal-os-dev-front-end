@@ -20,9 +20,9 @@
         </a>
     </div>
     <div class="blog-post__social">
-        <a href="#facebook">@include('components.graphics.icon-facebook')</a>
-        <a href="#twitter">@include('components.graphics.icon-twitter')</a>
-        <a href="#google">@include('components.graphics.icon-google')</a>
-        <a href="#whatsapp">@include('components.graphics.icon-whatsapp')</a>
+        <a href="#facebook">@include('Portal_OS.components.graphics.icon-facebook')</a>
+        <a href="#twitter">@include('Portal_OS.components.graphics.icon-twitter')</a>
+        <a href="#google">@include('Portal_OS.components.graphics.icon-google')</a>
+        <a href="#whatsapp">@include('Portal_OS.components.graphics.icon-whatsapp')</a>
     </div>
 </div>

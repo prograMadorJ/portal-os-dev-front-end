@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="footer__logo">
-        @include('components.graphics.logo-blank')
+        @include('Portal_OS.components.graphics.logo-blank')
     </div>
     <div class="footer__menu">
         <div class="footer__items">
@@ -40,10 +40,10 @@
             <ul>
                 <h5>SOCIAL</h5>
                 <li>
-                    <a href="#facebook">@include('components.graphics.icon-blank-facebook')</a>
-                    <a href="#twitter">@include('components.graphics.icon-blank-twitter')</a>
-                    <a href="#google">@include('components.graphics.icon-blank-google')</a>
-                    <a href="#whatsapp">@include('components.graphics.icon-blank-whatsapp')</a>
+                    <a href="#facebook">@include('Portal_OS.components.graphics.icon-blank-facebook')</a>
+                    <a href="#twitter">@include('Portal_OS.components.graphics.icon-blank-twitter')</a>
+                    <a href="#google">@include('Portal_OS.components.graphics.icon-blank-google')</a>
+                    <a href="#whatsapp">@include('Portal_OS.components.graphics.icon-blank-whatsapp')</a>
                 </li>
             </ul>
         </div>

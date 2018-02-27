@@ -6,14 +6,14 @@
         <h2>
             Tudo o que você precisa saber sobre sua saúde
         </h2>
-        @include('components.blog.main.blogPost')
+        @include('Portal_OS.components.blog.main.blogPost')
     </div>
     <div class="blog__right">
-        @include('components.blog.general.blogPanel')
+        @include('Portal_OS.components.blog.general.blogPanel')
     </div>
     <div class="blog__load">
         <a href="#veja-mais">Veja mais</a>
     </div>
 </div>
 
-@include('components.blog.main.blogFooter')
+@include('Portal_OS.components.blog.main.blogFooter')

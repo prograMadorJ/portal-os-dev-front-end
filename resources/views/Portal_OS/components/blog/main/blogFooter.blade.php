@@ -5,7 +5,7 @@
 
     <div class="blog-footer__items">
         <div class="blog-footer__items--category">
-            @include('components.graphics.clip-boneco-ouvido')
+            @include('Portal_OS.components.graphics.clip-boneco-ouvido')
             <span>
                 Ouvido
             </span>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="blog-footer__items--category">
-            @include('components.graphics.clip-boneco-nariz')
+            @include('Portal_OS.components.graphics.clip-boneco-nariz')
             <span>
                 Nariz
             </span>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="blog-footer__items--category">
-            @include('components.graphics.clip-boneco-garganta')
+            @include('Portal_OS.components.graphics.clip-boneco-garganta')
             <span>
                 Garganta
             </span>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="blog-footer__items--category">
-            @include('components.graphics.clip-boneco-pescoco')
+            @include('Portal_OS.components.graphics.clip-boneco-pescoco')
             <span>
                 Pescoço
             </span>
@@ -61,7 +61,7 @@
         </div>
 
         <div class="blog-footer__items--category">
-            @include('components.graphics.clip-boneco-saude')
+            @include('Portal_OS.components.graphics.clip-boneco-saude')
             <span>
                 Saúde
             </span>

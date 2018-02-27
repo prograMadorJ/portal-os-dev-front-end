@@ -1,4 +1,4 @@
-@extends('layouts',
+@extends('Portal_OS.layouts',
     [
         'css'=>'blog',
         'js'=>'blog',
@@ -6,7 +6,7 @@
     ]
 )
 
-@extends('amp.layouts',
+@extends('Portal_OS.amp.layouts',
     [
         'css' => 'blog',
         'ampRouteName' => 'ampBlog',
@@ -18,7 +18,7 @@
 )
 
 @section('header')
-    @include('components.header',
+    @include('Portal_OS.components.header',
     [
         'title' => 'blog',
         'active'=> (object)
@@ -33,9 +33,9 @@
 @endsection
 
 @section('content')
-    @include('partials.blog')
+    @include('Portal_OS.partials.blog')
 @endsection
 
 @section('footer')
-    @include('components.footer')
+    @include('Portal_OS.components.footer')
 @endsection

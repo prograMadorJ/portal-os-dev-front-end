@@ -6,7 +6,7 @@
         {{--@include('components.graphics.font-awesome.icon-bars')--}}
     {{--</div>--}}
     <div class="header__logo">
-        @include('components.graphics.logo-blank')
+        @include('Portal_OS.components.graphics.logo-blank')
     </div>
     <nav class="header__navbar">
         <ul>
