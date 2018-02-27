@@ -20,13 +20,13 @@ class ArtigosController extends Controller
     public function index() {
     	// listagem simples na página inicial do blog
     	// somente pega os artigos que existem
-    	$posts = Artigo::with('categorias', 'usuario')
+    	$posts = Artigo::with('categorias', 'usuario', 'media')
             ->where('status', 1)
             ->orderBy('publicacao', 'desc')
             ->take(6)
-        ->get(); // acessa atributos
+        ->get();
 
-    	return view('paginacao',
+    	return view('Portal_OS.pages.blog',
     		compact(
     			'posts'
     		)

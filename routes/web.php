@@ -47,10 +47,10 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 //    Route::get('amp', 'IndicationController@index')->name('ampIndicacao');
 //});
 
-    Route::prefix('/blog')->group(function () {
-        Route::get('/', 'BlogController@index')->name('blog');
-        Route::get('/amp', 'BlogController@index')->name('ampBlog');
-    });
+    // Route::prefix('/blog')->group(function () {
+    //     Route::get('/', 'BlogController@index')->name('blog');
+    //     Route::get('/amp', 'BlogController@index')->name('ampBlog');
+    // });
 
     Route::prefix('/post')->group(function () {
         Route::get('/', 'PostController@index')->name('post');

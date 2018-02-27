@@ -15,7 +15,7 @@
             {{--*******************************************************************--}}
             {{--<li><a href="{{route('home')}}">AGENDE SUA CONSULTA</a></li>--}}
             {{--<li><a href="{{route('indicacao')}}">INDIQUE</a></li>--}}
-            <li><a href="{{route('blog')}}">BLOG</a></li>
+            <li><a href="{{route('blogIndex')}}">BLOG</a></li>
             <li><a href="{{route('historias')}}">HISTÓRIAS REAIS</a></li>
             <li><a href="{{route('sac')}}">FALE CONOSCO</a></li>
         </ul>
