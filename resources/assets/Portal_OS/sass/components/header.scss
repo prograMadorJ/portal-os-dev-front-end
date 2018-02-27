@@ -39,15 +39,16 @@
       @include justify(space-evenly);
       line-height: 1em;
       width: 100%;
-      &__item {
-        color: $font-color;
-        font-size: 1.1vw;
-        &:hover {
-          color: $shiny-green;
-        }
-        &--active {
-          color: $font-color-navbar__item--active;
-        }
+    }
+    &__item {
+      color: $font-color;
+      font-size: 1.1vw;
+      &:hover {
+        color: $shiny-green;
+      }
+      &--active {
+        color: $font-color-navbar__item--active;
+        font-weight: 600;
       }
     }
   }
