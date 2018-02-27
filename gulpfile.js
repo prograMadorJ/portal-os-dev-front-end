@@ -4,49 +4,52 @@ var gulp = require('gulp'),
     browserify = require('gulp-browserify');
     image = require('gulp-image');
 
+var src_dir = 'resources/assets/Portal-OS';
+var dest_dir = 'public/portal-os';
+
 gulp.task('img-minify', function () {
-    gulp.src('public/temp/*')
+    gulp.src(dest_dir+'/temp/*')
         .pipe(image())
         .on('error', swallowError)
-        .pipe(gulp.dest('public/img'));
+        .pipe(gulp.dest(dest_dir+'/img'));
 });
 gulp.task('sass', function(){
-    return gulp.src('resources/assets/sass/pages/*.scss')
+    return gulp.src(src_dir+'/sass/pages/*.scss')
         .pipe(sass({
             outputStyle: 'compressed'
         }).on('error', sass.logError)) // Converts Sass to CSS with gulp-sass
         .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(gulp.dest('public/css/pages'))
+        .pipe(gulp.dest(dest_dir+'/css/pages'))
 });
 gulp.task('js', function() {
     // Single entry point to browserify
     gulp.src([
-        'resources/assets/js/pages/*.js'
+        src_dir+'/js/pages/*.js'
     ])
     // .pipe(browserify())
-        .pipe(gulp.dest('public/js/pages'))
+        .pipe(gulp.dest(dest_dir+'/js/pages'))
 });
 gulp.task('dev', function(){
-    gulp.src('resources/assets/sass/pages/*.scss')
+    gulp.src(src_dir+'sass/pages/*.scss')
         .pipe(sass())
         .on('error', swallowError)
-        .pipe(gulp.dest('public/css/pages'));
+        .pipe(gulp.dest(dest_dir+'/css/pages'));
     gulp.src([
-        'resources/assets/js/pages/*.js'
+        src_dir+'/js/pages/*.js'
     ])
         .pipe(browserify({
             insertGlobals : true,
             debug : true
         }))
         .on('error', swallowError)
-        .pipe(gulp.dest('public/js/pages'))
+        .pipe(gulp.dest(dest_dir+'/js/pages'))
 });
 gulp.task('dev-w',['sass','js'], function(){
     return gulp.watch([
-        'resources/assets/sass/*/*.scss',
-        'resources/assets/sass/*.scss',
-        'resources/assets/js/*/*.js',
-        'resources/assets/js/*.js'
+        src_dir+'/sass/*/*.scss',
+        src_dir+'/sass/*.scss',
+        src_dir+'/js/*/*.js',
+        src_dir+'/js/*.js'
     ], ['sass','js']);
 });
 function swallowError (error) {
