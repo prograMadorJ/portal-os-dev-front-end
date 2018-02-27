@@ -14,7 +14,7 @@
         @yield('amp-head')
     @else
         @if (isset($css) && $css)
-            <link rel="stylesheet" href="{{ asset('/css/pages/'.$css.'.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('/portal-os/css/pages/'.$css.'.css') }}"/>
         @endif
     @endif
     <title>{{$title or 'Portal Ouvido e Saúde'}}</title>
