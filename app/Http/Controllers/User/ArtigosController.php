@@ -71,6 +71,12 @@ class ArtigosController extends Controller
     }
 
     public function loadMore() {
-        return back();
+        $posts = Artigo::with('categorias', 'usuario', 'media')
+            ->where('status', 1)
+            ->orderBy('publicacao', 'desc')
+            ->take(6)
+            ->skip(6)
+        ->get();
+        return $posts;
     }
 }

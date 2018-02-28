@@ -25,5 +25,11 @@
 </script>
 
 <script type="text/javascript">
-
+    $('#loadMore').click(function(e) {
+        get(
+            {{ route('loadMore') }}
+        );
+        console.log(data);
+        e.preventDefault();
+    });
 </script>
