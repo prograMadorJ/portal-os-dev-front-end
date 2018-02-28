@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Portal_OS\User;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Depoimento;
 
-class DepoimentoController extends Controller {
+class DepoimentosController extends Controller {
 
-    public static function depoimentos() {
+    public function index() {
         $depoimentos = Depoimento::select(
             'nome',
             'local',
             'conteudo'
         )->get();
-        return compact('depoimentos');
+        return view('Portal_OS.pages.stories',compact('depoimentos'));
     }
 
 }

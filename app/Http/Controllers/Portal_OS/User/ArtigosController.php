@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Portal_OS\User;
+namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,7 +17,7 @@ use Carbon\Carbon;
 
 class ArtigosController extends Controller
 {
-    public static function posts() {
+    public function index() {
     	// listagem simples na página inicial do blog
     	// somente pega os artigos que existem
     	$posts = Artigo::with('categorias', 'usuario', 'media')
@@ -26,10 +26,10 @@ class ArtigosController extends Controller
             ->take(6)
         ->get();
 
-    	return compact('posts');
+    	return view('Portal_OS.pages.blog',compact('posts'));
     }
 
-    public static function categoryFilter($slug) {
+    public function categoryFilter($slug) {
         // primeiro lista a categoria, puxando a collection inteira
         $categoria = Categoria::where('slug', $slug)->get();
 
@@ -52,7 +52,7 @@ class ArtigosController extends Controller
         );
     }
 
-    public static function showPost($slug) {
+    public function showPost($slug) {
     	$post = Artigo::with('categorias')
             ->where('slug', $slug)
         ->get();
@@ -60,7 +60,7 @@ class ArtigosController extends Controller
     	return compact('post');
     }
 
-    public static function loadMore() {
+    public function loadMore() {
         return back();
     }
 }
