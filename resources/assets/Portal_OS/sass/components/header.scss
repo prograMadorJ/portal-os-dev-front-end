@@ -40,9 +40,11 @@
       line-height: 1em;
       width: 100%;
     }
+    li a {
+      font-size: 1.1vw;
+    }
     &__item {
       color: $font-color;
-      font-size: 1.1vw;
       &:hover {
         color: $shiny-green;
       }

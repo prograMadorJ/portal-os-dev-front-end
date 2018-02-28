@@ -26,4 +26,7 @@ class HomeController extends Controller
         return view('Portal_OS.pages.home');
     }
 
+    public function pagina404() {
+        return view('Portal_OS.pages.error404');
+    }
 }

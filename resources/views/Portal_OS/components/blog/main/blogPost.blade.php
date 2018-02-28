@@ -19,7 +19,6 @@
                 {{ $post->resumo }}
             </p>
         </div>
-
         <div class="blog-post__link">
             <a href="{{ route('blogPost', $post->slug) }}">
                 Leia mais
