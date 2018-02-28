@@ -62,5 +62,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(MediaTableSeeder::class);
         $this->call(CategoriasTableSeeder::class);
         $this->call(ArtigoTableSeeder::class);
+        $this->call(Categoria_ArtigoTableSeeder::class);
     }
 }
