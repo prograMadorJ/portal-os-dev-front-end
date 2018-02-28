@@ -18,7 +18,7 @@
                 {{--<li>Cadastro</li>--}}
             {{--</ul>--}}
             <ul>
-                <a href="{{route('blog')}}"><h5>BLOG</h5></a>
+                <a href="{{route('blogIndex')}}"><h5>BLOG</h5></a>
                 <li>Ouvido</li>
                 <li>Nariz</li>
                 <li>Garganta</li>

@@ -11,7 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
         DB::table('grupos')->insert([
                 'nome' => 'Admin',
                 'status' => 1,
@@ -58,5 +57,10 @@ class DatabaseSeeder extends Seeder
         DB::table('testes')->insert([
             'nome' => 'Teste Auditivo'
         ]);
+
+        // $this->call(SeosTableSeeder::class);
+        // $this->call(MediaTableSeeder::class);
+        $this->call(CategoriasTableSeeder::class);
+        $this->call(ArtigoTableSeeder::class);
     }
 }

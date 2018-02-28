@@ -13,13 +13,22 @@
 
 Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 
-//	Route::get('/home', function() {
-//		return redirect('/');
-//	});
+
+	Route::get('/home', function() {
+		return redirect('/blog');
+	});
 
 	/**
 	 * All routes Here
 	 */
+
+	Route::group(['prefix' =>'blog'], function() {
+		Route::get('/', 'User\ArtigosController@index')->name('blogIndex');
+		Route::get('/categoria/{slug}', 'User\ArtigosController@categoryFilter')->name('categoriasBlog');
+		Route::get('/artigo/{slug}', 'User\ArtigosController@showPost')->name('blogPost');
+		Route::get('/getRequest', 'User\ArtigosController@loadMore')->name('loadMore');
+	});
+
     Route::prefix('/')->group(function () {
         Route::redirect('/','/blog');
         Route::redirect('/amp','/blog/amp');
@@ -38,10 +47,10 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 //    Route::get('amp', 'IndicationController@index')->name('ampIndicacao');
 //});
 
-    Route::prefix('/blog')->group(function () {
-        Route::get('/', 'BlogController@index')->name('blog');
-        Route::get('/amp', 'BlogController@index')->name('ampBlog');
-    });
+    // Route::prefix('/blog')->group(function () {
+    //     Route::get('/', 'BlogController@index')->name('blog');
+    //     Route::get('/amp', 'BlogController@index')->name('ampBlog');
+    // });
 
     Route::prefix('/post')->group(function () {
         Route::get('/', 'PostController@index')->name('post');
@@ -69,7 +78,6 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 //    Route::get('/','LoginController@index')->name('login');
 //    Route::get('/amp','LoginController@index')->name('ampLogin');
 //});
-
 });
 
 Route::get('/sitemap.xml', 'HomeController@sitemap');

@@ -13,9 +13,10 @@
             {{--*******************************************************************--}}
             {{--  linhas abaixo comentadas, aguardam implementação futura --}}
             {{--*******************************************************************--}}
+
             {{--<li><a class="header__navbar__item{{$active->home}}" href="{{route('home')}}">AGENDE SUA CONSULTA</a></li>--}}
             {{--<li><a class="header__navbar__item{{$active->indicacao}}" href="{{route('indicacao')}}">INDIQUE</a></li>--}}
-            <li><a class="header__navbar__item{{$active->blog}}" href="{{route('blog')}}">BLOG</a></li>
+            <li><a class="header__navbar__item{{$active->blog}}" href="{{route('blogIndex')}}">BLOG</a></li>
             <li><a class="header__navbar__item{{$active->historias}}" href="{{route('historias')}}">HISTÓRIAS REAIS</a></li>
             <li><a class="header__navbar__item{{$active->sac}}" href="{{route('sac')}}">FALE CONOSCO</a></li>
         </ul>

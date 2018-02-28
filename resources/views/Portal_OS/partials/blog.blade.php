@@ -12,8 +12,18 @@
         @include('Portal_OS.components.blog.general.blogPanel')
     </div>
     <div class="blog__load">
-        <a href="#veja-mais">Veja mais</a>
+        <a href="{{ route('loadMore') }}" id="loadMore">Veja mais</a>
     </div>
 </div>
 
 @include('Portal_OS.components.blog.main.blogFooter')
+
+<script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+</script>
+
+<script type="text/javascript">
+
+</script>
