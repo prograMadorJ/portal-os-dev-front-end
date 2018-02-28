@@ -76,8 +76,8 @@ Route::get('/robots.txt', 'HomeController@robots');
 
 // Redirect
 
-Route::get('/{error}', 'ErrorController@pagina404');
-Route::get('/{error}/{error2}', 'ErrorController@pagina404');
-Route::get('/{error}/{error2}/{error3}', 'ErrorController@pagina404');
-Route::get('/{error}/{error2}/{error3}/{error4}', 'ErrorController@pagina404');
-Route::get('/{error}/{error2}/{error3}/{error4}/{error5}', 'ErrorController@pagina404');
+Route::get('/{error}', 'Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}', 'Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}/{error3}', 'Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}/{error3}/{error4}', 'Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}/{error3}/{error4}/{error5}', 'Pages\ErrorController@pagina404');
