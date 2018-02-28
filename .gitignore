@@ -10,4 +10,5 @@ Homestead.yaml
 /public/css
 /public/js
 /public/sw.js
-/public/portal-os
+/public/portal-os/css
+/public/portal-os/js
