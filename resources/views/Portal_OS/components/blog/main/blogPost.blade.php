@@ -4,7 +4,8 @@
         <h3>
             Músicos famosos lidam com tinnitus
         </h3>
-        <span class="blog-post__category"> Saúde </span> <span class="blog-post__date"> 05/10/2017 - 16H </span>
+        <span class="blog-post__category"> Saúde </span>
+        <span class="blog-post__date"> 05/10/2017 - 16H </span>
     </div>
     <div class="blog-post__image">
         <img src="{{asset('portal-os/img/img-post.jpg')}}">
