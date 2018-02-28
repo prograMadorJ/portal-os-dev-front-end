@@ -7,7 +7,7 @@ use App\Depoimento;
 
 class DepoimentoController extends Controller {
 
-    public static function getDepoimentos() {
+    public static function depoimentos() {
         $depoimentos = Depoimento::select(
             'nome',
             'local',

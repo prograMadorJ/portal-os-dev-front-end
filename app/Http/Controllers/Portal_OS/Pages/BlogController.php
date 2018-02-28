@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Portal_OS\User\ArtigosController;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -23,6 +24,18 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('Portal_OS.pages.blog');
+        return view('Portal_OS.pages.blog',ArtigosController::posts());
+    }
+
+    public function post() {
+
+    }
+
+    public function categories() {
+
+    }
+
+    public function loadMore() {
+
     }
 }

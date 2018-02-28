@@ -25,6 +25,6 @@ class StoriesController extends Controller
      */
     public function index()
     {
-        return view('Portal_OS.pages.stories',DepoimentoController::getDepoimentos());
+        return view('Portal_OS.pages.stories',DepoimentoController::depoimentos());
     }
 }
