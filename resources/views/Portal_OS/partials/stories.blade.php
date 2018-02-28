@@ -8,9 +8,7 @@
         </h2>
     </div>
     <div class="stories__content">
-        @for($i = 0; $i < 6; $i++)
             @include('Portal_OS.components.stories.storiesPanel')
-        @endfor
     </div>
     {{--*******************************************************************--}}
     {{--  linhas abaixo comentadas, aguardam implementação futura --}}
