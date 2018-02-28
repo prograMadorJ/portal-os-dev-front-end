@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory;
 use Carbon\Carbon;
+use App\Categoria;
 
 class ArtigoTableSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class ArtigoTableSeeder extends Seeder
         $artigos = [];
         $faker = Factory::create();
         $date = new Carbon();
-
+        $category_id = Categoria::select('id')->first()->id or 1;
         // gerar 12 posts
         // campos
         // id, titulo, resumo(nullable), conteudo, seo_id(nullable),url, link_titulo(nullable), publicacao, agendado, user_id(nullable), media_id(nullable), status(default 1), created_at(nullable), updated_at(nullable)
@@ -42,7 +43,7 @@ class ArtigoTableSeeder extends Seeder
         		'status' => 1,
         		'created_at' => $createdDate,
         		'updated_at' => $updatedDate,
-                'categoria_id' => rand(1, 6)
+                'categoria_id' => rand($category_id, ($category_id+5))
         	];
         }
 
