@@ -23,13 +23,10 @@
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous">
 </script>
-
 <script type="text/javascript">
     $('#loadMore').click(function(e) {
-        get(
-            {{ route('loadMore') }}
-        );
-        console.log(data);
-        e.preventDefault();
+       e.preventDefault();
+       var data = {{$posts}};
+       console.log(data);
     });
 </script>

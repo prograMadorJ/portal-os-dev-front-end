@@ -23,10 +23,9 @@ class ArtigosController extends Controller
     	$posts = Artigo::with('categorias', 'usuario', 'media')
             ->where('status', 1)
             ->orderBy('publicacao', 'desc')
-            ->take(6)
-        ->get();
+            ->paginate(6);
 
-    	return view('Portal_OS.pages.blog',
+        return view('Portal_OS.pages.blog',
     		compact(
     			'posts'
     		)
@@ -71,12 +70,7 @@ class ArtigosController extends Controller
     }
 
     public function loadMore() {
-        $posts = Artigo::with('categorias', 'usuario', 'media')
-            ->where('status', 1)
-            ->orderBy('publicacao', 'desc')
-            ->take(6)
-            ->skip(6)
-        ->get();
+        $posts = $this->index();
         return $posts;
     }
 }
