@@ -31,11 +31,11 @@ class ArtigoTableSeeder extends Seeder
 
         	$posts[] = [
         		'titulo' => $faker->sentence(rand(4, 7)),
-        		'resumo' => $faker->sentence(rand(10, 25)),
+        		'resumo' => $faker->sentence(rand(10, 15)),
         		'conteudo' => $faker->paragraphs(rand(8, 20), true),
         		'seo_id' => NULL,
         		'url' => $faker->sentence(),
-        		'link_titulo' => NULL,
+        		'link_titulo' => $faker->word(),
         		'publicacao' => $publishedDate,
         		'agendado' => $scheduledDate,
         		'user_id' => 1,
