@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Depoimento;
+use App\Http\Controllers\Portal_OS\User\DepoimentoController;
 use Illuminate\Http\Request;
 
 class StoriesController extends Controller
@@ -23,6 +25,6 @@ class StoriesController extends Controller
      */
     public function index()
     {
-        return view('Portal_OS.pages.stories');
+        return view('Portal_OS.pages.stories',DepoimentoController::getDepoimentos());
     }
 }
