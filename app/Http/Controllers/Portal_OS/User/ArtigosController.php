@@ -26,12 +26,10 @@ class ArtigosController extends Controller
             ->orderBy('publicacao', 'desc')
         ->paginate(6);
 
-        // $ranking = self::blogPanel();
-        $loadMore = self::loadMore();
-        // dd($ranking);
         return view('Portal_OS.pages.blog',
     		compact(
     			'posts',
+                self::loadMore(),
                 self::blogPanel()
     		)
     	);
@@ -85,9 +83,12 @@ class ArtigosController extends Controller
         $artigo = Artigo::pluck('id');
         $artigoId = ArtigosEstatistica::pluck('artigo_id');
         $relacao = ArtigosEstatistica::with('artigo', 'tipos_estatisticas')->get();
-        $ranking = $relacao->where('artigo_id', $relacao[0]->artigo->id)->where('tipos_estatistica_id', 1);
+
+        foreach($relacao->artigo as $artigoRelacionado)
+        {
+
+        }
         // dd($ranking);
-        // $artigoId = $artigoId;
 
         return compact(
             'artigo',
