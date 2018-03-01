@@ -58,14 +58,14 @@ class DatabaseSeeder extends Seeder
         //     'nome' => 'Teste Auditivo'
         // ]);
 
-        // $this->call(SeosTableSeeder::class);
-        // $this->call(MediaTableSeeder::class);
-        // $this->call(CategoriasTableSeeder::class);
-        // $this->call(ArtigoTableSeeder::class);
-        // $this->call(Categoria_ArtigoTableSeeder::class);
-        // $this->call(DepoimentosTableSeeder::class);
-        // $this->call(TiposEstatisticasSeeder::class);
-        // $this->call(ArtigosEstatisticasSeeder::class);
+//         $this->call(SeosTableSeeder::class);
+//         $this->call(MediaTableSeeder::class);
+         $this->call(CategoriasTableSeeder::class);
+         $this->call(ArtigoTableSeeder::class);
+         $this->call(Categoria_ArtigoTableSeeder::class);
+         $this->call(DepoimentosTableSeeder::class);
+         $this->call(TiposEstatisticasSeeder::class);
+         $this->call(ArtigosEstatisticasSeeder::class);
 
     }
 }
