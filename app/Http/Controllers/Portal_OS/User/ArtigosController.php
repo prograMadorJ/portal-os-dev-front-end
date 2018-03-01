@@ -84,12 +84,6 @@ class ArtigosController extends Controller
         $artigoId = ArtigosEstatistica::pluck('artigo_id');
         $relacao = ArtigosEstatistica::with('artigo', 'tipos_estatisticas')->get();
 
-        foreach($relacao->artigo as $artigoRelacionado)
-        {
-
-        }
-        // dd($ranking);
-
         return compact(
             'artigo',
             'artigoId',
