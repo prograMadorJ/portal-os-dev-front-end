@@ -16,7 +16,7 @@
                 <img src="{{asset('portal-os/img/img-post.jpg')}}">
             @endif
         </div>
-        <div class="blog-post__content">
+        <div class="blog-post__resume">
             <p>
                 {{ $post->resumo }}
             </p>
