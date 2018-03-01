@@ -75,20 +75,29 @@ class ArtigosController extends Controller
     public static function loadMore() {
         // $range = $this->index()->count();
         // $posts = Artigo::whereNotIn('id', $range)->get();
-        // dd($posts);
+        // dd($range);
         // return $posts;
     }
 
     public static function blogPanel() {
-        $artigo = Artigo::pluck('id');
-        $artigoId = ArtigosEstatistica::pluck('artigo_id');
-        $relacao = ArtigosEstatistica::with('artigo', 'tipos_estatisticas')->get();
+
+        // $conta = DB::raw("select * from artigos inner join artigos_estatisticas on artigos.id = artigos_estatisticas.artigo_id");
+        $selecao = DB::table('artigos')
+            ->select('*')
+        ->join(
+            'artigos_estatisticas',
+            'artigos.id',
+            '=',
+            'artigos_estatisticas.artigo_id',
+             'inner'
+        );
+
+        dd($selecao->count());
 
         return compact(
             'artigo',
             'artigoId',
-            'relacao',
-            'ranking'
+            'relacao'
         );
     }
 }
