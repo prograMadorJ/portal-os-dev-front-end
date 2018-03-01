@@ -26,11 +26,13 @@ class ArtigosController extends Controller
             ->orderBy('publicacao', 'desc')
         ->paginate(6);
 
+        $panel = $this->blogPanel();
+
         return view('Portal_OS.pages.blog',
     		compact(
     			'posts',
                 self::loadMore(),
-                self::blogPanel()
+                'panel'
     		)
     	);
     }
@@ -79,25 +81,38 @@ class ArtigosController extends Controller
         // return $posts;
     }
 
-    public static function blogPanel() {
-
-        // $conta = DB::raw("select * from artigos inner join artigos_estatisticas on artigos.id = artigos_estatisticas.artigo_id");
+    public function blogPanel() {
+        // select count(artigos_estatisticas.id) as total,artigos.id from artigos inner join artigos_estatisticas on artigos.id = artigos_estatisticas.artigo_id GROUP BY artigos.id order by total desc;
         $selecao = DB::table('artigos')
-            ->select('*')
-        ->join(
-            'artigos_estatisticas',
-            'artigos.id',
-            '=',
-            'artigos_estatisticas.artigo_id',
-             'inner'
-        );
+            ->select(DB::raw
+                (
+                    'count(artigos_estatisticas.id) as total, artigos.id'
+                )
+            )
+            ->join(
+                'artigos_estatisticas',
+                'artigos.id',
+                '=',
+                'artigos_estatisticas.artigo_id',
+                'inner'
+            )
+            ->groupBy('artigos.id')
+            ->orderBy('total', 'desc')
+        ->get();
 
-        dd($selecao->count());
+        // gambiarra por ora
+        $panelUm = Artigo::where('id', $selecao[0]->id)->pluck('titulo');
+        $panelDo = Artigo::where('id', $selecao[1]->id)->pluck('titulo');
+        $panelTr = Artigo::where('id', $selecao[2]->id)->pluck('titulo');
+        $panelQt = Artigo::where('id', $selecao[3]->id)->pluck('titulo');
+        $panelCi = Artigo::where('id', $selecao[4]->id)->pluck('titulo');
 
         return compact(
-            'artigo',
-            'artigoId',
-            'relacao'
+            'panelUm',
+            'panelDo',
+            'panelTr',
+            'panelQt',
+            'panelCi'
         );
     }
 }
