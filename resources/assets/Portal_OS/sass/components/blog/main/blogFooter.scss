@@ -16,6 +16,7 @@
   @media (min-width: $screen-mobile) {
 
     background: $bg-color;
+    width: 100%;
     > h4 {
       @include inner-tb-margin(20px);
       @include outer-margin(0);
