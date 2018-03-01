@@ -1,0 +1,73 @@
+@import 'core';
+
+.post {
+  /* ========================
+      MOBILE RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-mobile) {
+
+    @include grid-column;
+
+    &__main {
+      @include grid-column;
+    }
+
+    &__right {
+      @include grid-wrap;
+      @include outer-top-margin(20px);
+      order: 1;
+    }
+
+  }
+  /* ========================
+    DESKTOP RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-desktop) {
+
+    @include grid-wrap;
+    @include justify(center);
+    @include inner-margin(55px 35px 0);
+
+    &__main {
+      @include grid-column(0, 60vw);
+      @include outer-margin(10px 15px 10px 20px);
+    }
+
+    &__right {
+      @include grid-row(0, 26vw);
+      @include outer-margin(10px 0 10px 30px);
+      height: 100%;
+      order: 0;
+    }
+  }
+}
+
+@import "../components/blog/single/blogDetail";
+
+@import '../components/blog/general/blogPanel';
+
+@import "../components/blog/main/blogFooter";
+.blog-footer {
+  /* ========================
+    DESKTOP RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-desktop) {
+
+    $font-size-items--category-span: 1.5vw;
+
+    &__items {
+      @include grid-column;
+      &--category {
+        span {
+          @include outer-top-margin(1vw);
+          font-size: $font-size-items--category-span;
+          font-weight: 600;
+        }
+        p, a {
+          display: none;
+        }
+      }
+    }
+
+  }
+}

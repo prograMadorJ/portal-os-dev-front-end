@@ -9,7 +9,7 @@
         @if(isset($post->media_id))
             <img src="{{ asset('img/post-img/' . $post->media->arquivo) }}">
         @else
-            SEM IMAGEM - COLOCAR UMA IMAGEM DEFAULT PARA OS POSTS SEM IMAGEM??
+           <img src="{{asset('portal-os/img/img-post.jpg')}}">
         @endif
     </div>
     <div class="blog-post__content">

@@ -26,13 +26,13 @@ class ArtigosController extends Controller
             ->orderBy('publicacao', 'desc')
         ->paginate(6);
 
-        $ranking = self::blogPanel();
+        // $ranking = self::blogPanel();
         $loadMore = self::loadMore();
-        dd($ranking);
+        // dd($ranking);
         return view('Portal_OS.pages.blog',
     		compact(
     			'posts',
-                'loadMore'
+                self::blogPanel()
     		)
     	);
     }
@@ -63,11 +63,11 @@ class ArtigosController extends Controller
     	$post = Artigo::with('categorias')
             ->where('slug', $slug)
         ->get();
+        // $ranking = $this->blogPanel();
 
-        $ranking = $this->blogPanel();
 
     	return view(
-            'umPost',
+            'Portal_OS.pages.post',
             compact(
                 'post'
             )
@@ -84,13 +84,15 @@ class ArtigosController extends Controller
     public static function blogPanel() {
         $artigo = Artigo::pluck('id');
         $artigoId = ArtigosEstatistica::pluck('artigo_id');
-        // dd($data);
-        // $ranking = ArtigosEstatistica::with('artigo', 'tipos_estatisticas')->where('artigo_id', Artigo::pluck('id'))->where('tipos_estatistica_id', 1)->get();
+        $relacao = ArtigosEstatistica::with('artigo', 'tipos_estatisticas')->get();
+        $ranking = $relacao->where('artigo_id', $relacao[0]->artigo->id)->where('tipos_estatistica_id', 1);
+        // dd($ranking);
         // $artigoId = $artigoId;
 
         return compact(
             'artigo',
             'artigoId',
+            'relacao',
             'ranking'
         );
     }

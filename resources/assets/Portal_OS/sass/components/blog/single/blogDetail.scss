@@ -1,13 +1,15 @@
 @import '../core';
 
-.blog-post {
+.blog-detail {
 
   $font-size-title-h3: 25px;
   $font-size-category: 12px;
   $font-size-date: 15px;
   $font-size-content-p: 14px;
+  $font-size-resume-span: 14px;
 
   $font-color-content-p: #4b4b4b;
+  $font-color-resume-span: #4b4b4b;
   $font-color-link-a: $highlight-green;
 
   $bg-color-category: $highlight-green;
@@ -21,14 +23,6 @@
     @include inner-bottom-margin(35px);
     @include outer-margin(20px 20px 0);
     border-bottom: 10px solid lightgrey;
-    &__title {
-      @include inner-left-margin(10px);
-      border-left: 2px solid #40E0D0;
-      > h3 {
-        @include outer-bottom-margin(10px);
-        font-size: $font-size-title-h3;
-      }
-    }
 
     &__category, &__date {
       @include outer-right-margin(10px);
@@ -45,6 +39,15 @@
       font-size: $font-size-date;
     }
 
+    &__title {
+      @include inner-left-margin(10px);
+      > h3 {
+        @include outer-tb-margin(10px);
+        font-size: $font-size-title-h3;
+        text-align: center;
+      }
+    }
+
     &__image {
       @include outer-top-margin(20px);
       > img {
@@ -53,38 +56,41 @@
       }
     }
 
-    &__resume {
-      @include outer-margin(10px 0 20px);
-      > p {
-        color: $font-color-content-p;
-        font-size: $font-size-content-p;
-      }
-    }
-
-    &__link {
-      > a {
-        @include inner-margin(2px 20px);
-        color: $font-color-link-a;
-        background: $bg-color-link-a;
-        text-transform: uppercase;
-        border-radius: 65px;
-      }
-    }
-
     &__social {
+      @include grid-column;
       @include outer-top-margin(25px);
+      float: right;
+      position: relative;
+      right: 0;
       > a {
         > svg {
-          @include outer-right-margin(20px);
           width: 45px;
           height: 45px;
         }
       }
     }
+
+    &__resume {
+      text-align: center;
+      > span {
+        color: $font-color-resume-span;
+        font-size: $font-size-resume-span;
+      }
+    }
+
+    &__content {
+      text-align: left;
+      > p {
+        color: $font-color-content-p;
+        font-size: $font-size-content-p;
+      }
+
+      &__resume, &__content {
+        @include outer-margin(10px 0 20px);
+      }
+    }
+
   }
-
-
-
   /* ========================
     DESKTOP RESPONSIVE
   ======================== */
@@ -94,14 +100,10 @@
     $font-size-category: 1vw;
     $font-size-date: 1.3vw;
     $font-size-content-p: 1.4vw;
+    $font-size-resume-span: 1.4vw;
 
     @include outer-margin(20px 0 20px 20px);
-    &__title {
-      //width: 70%;
-      > h3 {
-        font-size: $font-size-title-h3;
-      }
-    }
+
     &__category {
       font-size: $font-size-category;
     }
@@ -109,15 +111,14 @@
       font-size: $font-size-date;
     }
 
-    &__resume {
-      @include outer-margin(20px 0 50px);
-      > p {
-        font-size: $font-size-content-p;
+    &__title {
+      //width: 70%;
+      > h3 {
+        font-size: $font-size-title-h3;
       }
     }
 
     &__social {
-      @include outer-top-margin(40px);
       > a {
         > svg {
           width: 4vw;
@@ -125,5 +126,20 @@
         }
       }
     }
+
+    &__resume {
+      @include outer-margin(20px 0 50px);
+      > span {
+        font-size: $font-size-resume-span;
+      }
+    }
+
+    &__content {
+      @include outer-margin(20px 100px 50px 0);
+      > p {
+        font-size: $font-size-content-p;
+      }
+    }
+
   }
 }
