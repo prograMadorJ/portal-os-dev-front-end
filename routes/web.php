@@ -14,7 +14,7 @@
 Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 
 
-    Route::get('/home', function () {
+    Route::get('/', function () {
         return redirect('/blog');
     });
 
@@ -22,13 +22,13 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
      * All routes Here
      */
 
-    Route::prefix('/')->group(function () {
+    // Route::prefix('/')->group(function () {
         /*
          * linhas abaixo comentadas, aguardam implementação futura
          */
 //    Route::get('/', 'HomeController@index')->name('home');
 //    Route::get('amp', 'HomeController@index')->name('ampHome');
-    });
+    // });
     /*
      * linhas abaixo comentadas, aguardam implementação futura
      */
