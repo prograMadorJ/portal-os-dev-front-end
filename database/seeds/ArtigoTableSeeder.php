@@ -43,7 +43,8 @@ class ArtigoTableSeeder extends Seeder
         		'status' => 1,
         		'created_at' => $createdDate,
         		'updated_at' => $updatedDate,
-                'categoria_id' => rand($category_id, ($category_id+5))
+                'categoria_id' => rand($category_id, ($category_id+5)),
+                'slug' => hash('md5',$faker->sentence())
         	];
         }
 
