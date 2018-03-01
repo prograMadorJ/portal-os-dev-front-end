@@ -10,7 +10,7 @@
   $font-color-story: grey;
 
   @include grid-column;
-  @include outer-right-margin(20px);
+  @include outer-margin(10px 20px);
   &__imageHolder {
     @include align(self-center);
     @include inner-margin(0);
