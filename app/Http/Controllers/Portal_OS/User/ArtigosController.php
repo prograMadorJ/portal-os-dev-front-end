@@ -57,7 +57,7 @@ class ArtigosController extends Controller
             ->where('slug', $slug)
         ->get();
 
-    	return compact('post');
+    	return view('Portal_OS.pages.post',compact('post'));
     }
 
     public function loadMore() {
