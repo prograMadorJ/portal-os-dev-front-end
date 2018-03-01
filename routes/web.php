@@ -14,24 +14,15 @@
 Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 
 
-	Route::get('/home', function() {
-		return redirect('/blog');
-	});
+    Route::get('/home', function () {
+        return redirect('/blog');
+    });
 
-	/**
-	 * All routes Here
-	 */
-
-	Route::group(['prefix' =>'blog'], function() {
-		Route::get('/', 'User\ArtigosController@index')->name('blogIndex');
-		Route::get('/categoria/{slug}', 'User\ArtigosController@categoryFilter')->name('categoriasBlog');
-		Route::get('/artigo/{slug}', 'User\ArtigosController@showPost')->name('blogPost');
-		Route::get('/getRequest', 'User\ArtigosController@loadMore')->name('loadMore');
-	});
+    /**
+     * All routes Here
+     */
 
     Route::prefix('/')->group(function () {
-        Route::redirect('/','/blog');
-        Route::redirect('/amp','/blog/amp');
         /*
          * linhas abaixo comentadas, aguardam implementação futura
          */
@@ -47,24 +38,22 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 //    Route::get('amp', 'IndicationController@index')->name('ampIndicacao');
 //});
 
-    // Route::prefix('/blog')->group(function () {
-    //     Route::get('/', 'BlogController@index')->name('blog');
-    //     Route::get('/amp', 'BlogController@index')->name('ampBlog');
-    // });
-
-    Route::prefix('/post')->group(function () {
-        Route::get('/', 'PostController@index')->name('post');
-        Route::get('/amp', 'PostController@index')->name('ampPost');
+    Route::prefix('/blog')->group(function () {
+        Route::get('/', 'User\ArtigosController@index')->name('blogIndex');
+        Route::get('/categoria/{slug}', 'User\ArtigosController@categoryFilter')->name('categoriasBlog');
+        Route::get('/artigo/{slug}', 'User\ArtigosController@showPost')->name('blogPost');
+        Route::get('/getRequest', 'User\ArtigosController@loadMore')->name('loadMore');
+        Route::get('/amp', 'User\ArtigosController@index')->name('ampBlog');
     });
 
     Route::prefix('/historias')->group(function () {
-        Route::get('/','StoriesController@index')->name('historias');
-        Route::get('/amp','StoriesController@index')->name('ampHistorias');
+        Route::get('/', 'User\DepoimentosController@index')->name('historias');
+        Route::get('/amp', 'User\DepoimentosController@index')->name('ampHistorias');
     });
 
     Route::prefix('/sac')->group(function () {
-        Route::get('/','SacController@index')->name('sac');
-        Route::get('/amp','SacController@index')->name('ampSac');
+        Route::get('/', 'SacController@index')->name('sac');
+        Route::get('/amp', 'SacController@index')->name('ampSac');
     });
     /*
      * linhas abaixo comentadas, aguardam implementação futura
@@ -87,8 +76,8 @@ Route::get('/robots.txt', 'HomeController@robots');
 
 // Redirect
 
-Route::get('/{error}', 'HomeController@pagina404');
-Route::get('/{error}/{error2}', 'HomeController@pagina404');
-Route::get('/{error}/{error2}/{error3}', 'HomeController@pagina404');
-Route::get('/{error}/{error2}/{error3}/{error4}', 'HomeController@pagina404');
-Route::get('/{error}/{error2}/{error3}/{error4}/{error5}', 'HomeController@pagina404');
+Route::get('/{error}', 'Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}', 'Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}/{error3}', 'Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}/{error3}/{error4}', 'Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}/{error3}/{error4}/{error5}', 'Pages\ErrorController@pagina404');

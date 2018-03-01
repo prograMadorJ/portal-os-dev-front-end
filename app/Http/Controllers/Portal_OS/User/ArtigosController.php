@@ -47,13 +47,11 @@ class ArtigosController extends Controller
             ->orderBy('publicacao', 'desc')
         ->get();
 
-        return view('postsFiltrados',
-            compact(
+        return compact(
                 'categoria',
                 'slug',
                 'categoriaFiltro',
                 'postsFiltrados'
-            )
         );
     }
 
@@ -62,11 +60,7 @@ class ArtigosController extends Controller
             ->where('slug', $slug)
         ->get();
 
-    	return view('umPost',
-    		compact(
-    			'post'
-    		)
-    	);
+    	return compact('post');
     }
 
     public function loadMore() {
