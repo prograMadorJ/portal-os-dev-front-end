@@ -20,7 +20,7 @@
                 SEM IMAGEM - COLOCAR UMA IMAGEM DEFAULT PARA OS POSTS SEM IMAGEM??
             @endif
         </div>
-        <div class="blog-post__content">
+        <div class="blog-post__resume">
             <p>
                 {{ $post->resumo }}
             </p>

@@ -53,7 +53,7 @@
       }
     }
 
-    &__content {
+    &__resume {
       @include outer-margin(10px 0 20px);
       > p {
         color: $font-color-content-p;
@@ -109,7 +109,7 @@
       font-size: $font-size-date;
     }
 
-    &__content {
+    &__resume {
       @include outer-margin(20px 0 50px);
       > p {
         font-size: $font-size-content-p;
