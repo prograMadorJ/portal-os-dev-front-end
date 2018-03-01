@@ -1,4 +1,4 @@
-@extends('layouts',
+@extends('Portal_OS.layouts',
     [
         'css'=>'post',
         'js'=>'post',
@@ -6,7 +6,7 @@
     ]
 )
 
-@extends('amp.layouts',
+@extends('Portal_OS.amp.layouts',
     [
         'css' => 'post',
         'ampRouteName' => 'ampPost',
@@ -18,14 +18,14 @@
 )
 
 @section('header')
-    @include('components.header',
+    @include('Portal_OS.components.header',
     [
         'title' => 'post',
         'active'=> (object)
         [
             'home'=>'',
             'indicacao'=>'',
-            'blog'=>'',
+            'blog'=>'--active',
             'historias'=>'',
             'sac'=>''
         ]
@@ -33,9 +33,9 @@
 @endsection
 
 @section('content')
-    @include('partials.post')
+    @include('Portal_OS.partials.post')
 @endsection
 
 @section('footer')
-    @include('components.footer')
+    @include('Portal_OS.components.footer')
 @endsection
