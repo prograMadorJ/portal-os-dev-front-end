@@ -21,14 +21,15 @@ class CategoriasTableSeeder extends Seeder
         $categorias = [];
         $faker = Factory::create();
         $date = new Carbon();
+        $categorias_nome = ['ouvido','garganta','pescoço','nariz','saúde'];
 
-        for($i = 0; $i < 6; $i++)
+        for($i = 0; $i < 5; $i++)
 	    {
 	    	$createdAt = new Carbon;
 	    	$updatedAt = clone($createdAt);
 
     	    $categorias[] = [
-    			'nome' => $faker->word(),
+    			'nome' => $categorias_nome[$i],
     			'descricao' => $faker->sentence(rand(5, 15)),
     			'url' => $faker->word(),
     			'status' => 1,
