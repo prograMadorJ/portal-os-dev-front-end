@@ -39,6 +39,7 @@
         <p>
             {!! nl2br(e($post[0]->conteudo)) !!}
         </p>
+        @include('Portal_OS.components.blog.single.components.postsSuggested')
     </div>
 </div>
 
