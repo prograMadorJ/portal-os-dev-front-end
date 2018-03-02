@@ -26,13 +26,14 @@ class ArtigosController extends Controller
             ->orderBy('publicacao', 'desc')
         ->paginate(6);
 
-        $panel = $this->blogPanel();
+        $rank = self::blogPanel();
 
         return view('Portal_OS.pages.blog',
     		compact(
     			'posts',
-                self::loadMore(),
-                'panel'
+                'rank',
+                'item',
+                self::loadMore()
     		)
     	);
     }
@@ -46,7 +47,7 @@ class ArtigosController extends Controller
             ->orderBy('publicacao', 'desc')
         ->get();
 
-        $ranking = self::blogPanel();
+        $rank = self::blogPanel();
 
         return view(
             'postsFiltrados',
@@ -54,7 +55,7 @@ class ArtigosController extends Controller
                 'categoria',
                 'categoriaFiltro',
                 'postsFiltrados',
-                'ranking'
+                'rank'
             )
         );
     }
@@ -63,13 +64,14 @@ class ArtigosController extends Controller
     	$post = Artigo::with('categorias')
             ->where('slug', $slug)
         ->get();
-        // $ranking = $this->blogPanel();
 
+        $rank = self::blogPanel();
 
     	return view(
             'Portal_OS.pages.post',
             compact(
-                'post'
+                'post',
+                'rank'
             )
         );
     }
@@ -81,7 +83,7 @@ class ArtigosController extends Controller
         // return $posts;
     }
 
-    public function blogPanel() {
+    public static function blogPanel() {
         // select count(artigos_estatisticas.id) as total,artigos.id from artigos inner join artigos_estatisticas on artigos.id = artigos_estatisticas.artigo_id GROUP BY artigos.id order by total desc;
         $selecao = DB::table('artigos')
             ->select(DB::raw
@@ -101,18 +103,15 @@ class ArtigosController extends Controller
         ->get();
 
         // gambiarra por ora
-        $panelUm = Artigo::where('id', $selecao[0]->id)->pluck('titulo');
-        $panelDo = Artigo::where('id', $selecao[1]->id)->pluck('titulo');
-        $panelTr = Artigo::where('id', $selecao[2]->id)->pluck('titulo');
-        $panelQt = Artigo::where('id', $selecao[3]->id)->pluck('titulo');
-        $panelCi = Artigo::where('id', $selecao[4]->id)->pluck('titulo');
+        $panels = Artigo::whereIn('id', [
+            $selecao[0]->id,
+            $selecao[1]->id,
+            $selecao[2]->id,
+            $selecao[3]->id,
+            $selecao[4]->id
+            ])
+        ->get();
 
-        return compact(
-            'panelUm',
-            'panelDo',
-            'panelTr',
-            'panelQt',
-            'panelCi'
-        );
+        return $panels;
     }
 }
