@@ -23,8 +23,9 @@ class ArtigosController extends Controller
     public function index() {
     	$posts = Artigo::with('categorias', 'usuario', 'media')
             ->where('status', 1)
+            ->limit(6)
             ->orderBy('publicacao', 'desc')
-        ->paginate(6);
+        ->get();
 
         $rank = self::blogPanel();
 
@@ -77,9 +78,7 @@ class ArtigosController extends Controller
     }
 
     public static function loadMore() {
-        // $range = $this->index()->count();
-        // $posts = Artigo::whereNotIn('id', $range)->get();
-        // dd($range);
+
         // return $posts;
     }
 
@@ -102,13 +101,12 @@ class ArtigosController extends Controller
             ->orderBy('total', 'desc')
         ->get();
 
-        // gambiarra por ora
         $panels = Artigo::whereIn('id', [
-            $selecao[0]->id,
-            $selecao[1]->id,
-            $selecao[2]->id,
-            $selecao[3]->id,
-            $selecao[4]->id
+                $selecao[0]->id,
+                $selecao[1]->id,
+                $selecao[2]->id,
+                $selecao[3]->id,
+                $selecao[4]->id
             ])
         ->get();
 

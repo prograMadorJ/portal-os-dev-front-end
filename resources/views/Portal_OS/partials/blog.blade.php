@@ -12,7 +12,9 @@
         @include('Portal_OS.components.blog.general.blogPanel')
     </div>
     <div class="blog__load">
-        <a href="{{ route('loadMore') }}" id="loadMore">Veja mais</a>
+        <a href="{{ route('loadMore') }}" id="loadMore">
+            Veja mais
+        </a>
     </div>
 </div>
 
