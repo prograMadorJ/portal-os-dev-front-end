@@ -2,13 +2,36 @@
     $amp_status = config('amp.status');
 @endphp
 
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" {{($amp_status) ? 'amp' : ''}}>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var HttpRequest = {};
+        HttpRequest.get = function (url, funcResponse) {
+            axios.get(url)
+                .then(funcResponse)
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+        HttpRequest.post = function (url,content, funcResponse) {
+            axios.post(url,content)
+                .then(funcResponse)
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+        var render = function (target,content) {
+            for(var c in content) {
+                console.log(content.data);
+            }
+        };
+    </script>
     {{--<link href="https://unpkg.com/vuetify@1.0.1/dist/vuetify.min.css" rel="stylesheet">--}}
     @if($amp_status)
         @yield('amp-head')

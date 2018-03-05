@@ -29,12 +29,12 @@
     @include inner-margin(55px 35px 0);
 
     &__main {
-      @include grid-column(0, 60vw);
+      @include grid-column(0, 65vw);
       @include outer-margin(10px 15px 10px 20px);
     }
 
     &__right {
-      @include grid-row(0, 26vw);
+      @include grid-row(0, 20vw);
       @include outer-margin(10px 0 10px 30px);
       height: 100%;
       order: 0;

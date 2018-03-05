@@ -7,7 +7,7 @@
   $font-size-date: 15px;
   $font-size-content-p: 14px;
 
-  $font-color-content-p: #4b4b4b;
+  $font-color-content-p: $dark-grey;
   $font-color-link-a: $highlight-green;
 
   $bg-color-category: $highlight-green;
@@ -110,7 +110,7 @@
     }
 
     &__resume {
-      @include outer-margin(20px 0 50px);
+      @include outer-tb-margin(20px);
       > p {
         font-size: $font-size-content-p;
       }

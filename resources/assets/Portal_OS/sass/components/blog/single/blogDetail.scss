@@ -8,8 +8,8 @@
   $font-size-content-p: 14px;
   $font-size-resume-span: 14px;
 
-  $font-color-content-p: #4b4b4b;
-  $font-color-resume-span: #4b4b4b;
+  $font-color-content-p: $grey;
+  $font-color-resume-span: $grey;
   $font-color-link-a: $highlight-green;
 
   $bg-color-category: $highlight-green;
@@ -143,3 +143,5 @@
 
   }
 }
+
+@import "components/postsSuggested";
