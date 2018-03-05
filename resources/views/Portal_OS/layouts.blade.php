@@ -10,28 +10,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-        var HttpRequest = {};
-        HttpRequest.get = function (url, funcResponse) {
-            axios.get(url)
-                .then(funcResponse)
-                .catch(function (error) {
-                    console.log(error);
-                });
-        }
-        HttpRequest.post = function (url,content, funcResponse) {
-            axios.post(url,content)
-                .then(funcResponse)
-                .catch(function (error) {
-                    console.log(error);
-                });
-        }
-        var render = function (target,content) {
-            for(var c in content) {
-                console.log(content.data);
-            }
-        };
-    </script>
+    <script src="{{ asset('/portal-os/js/pages/core.js') }}"></script>
     {{--<link href="https://unpkg.com/vuetify@1.0.1/dist/vuetify.min.css" rel="stylesheet">--}}
     @if($amp_status)
         @yield('amp-head')
