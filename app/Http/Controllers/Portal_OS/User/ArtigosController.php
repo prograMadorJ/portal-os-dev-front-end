@@ -29,11 +29,7 @@ class ArtigosController extends Controller
 
         $rank = self::blogPanel();
 
-        $categorias = Categoria::select(
-            'nome',
-            'descricao',
-            'slug'
-        )->get();
+        $categorias = self::categorias();
 
         return view('Portal_OS.pages.blog',
     		compact(
@@ -75,11 +71,14 @@ class ArtigosController extends Controller
 
         $rank = self::blogPanel();
 
+        $categorias = self::categorias();
+
     	return view(
             'Portal_OS.pages.post',
             compact(
                 'post',
-                'rank'
+                'rank',
+                'categorias'
             )
         );
     }
@@ -118,5 +117,13 @@ class ArtigosController extends Controller
         ->get();
 
         return $panels;
+    }
+
+    private function categorias() {
+        return Categoria::select(
+            'nome',
+            'descricao',
+            'slug'
+        )->get();
     }
 }
