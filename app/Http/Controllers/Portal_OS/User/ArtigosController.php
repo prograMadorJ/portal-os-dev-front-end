@@ -29,11 +29,18 @@ class ArtigosController extends Controller
 
         $rank = self::blogPanel();
 
+        $categorias = Categoria::select(
+            'nome',
+            'descricao',
+            'slug'
+        )->get();
+
         return view('Portal_OS.pages.blog',
     		compact(
     			'posts',
                 'rank',
                 'item',
+                'categorias',
                 self::loadMore()
     		)
     	);
