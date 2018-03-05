@@ -105,10 +105,9 @@
           @include outer-right-margin(1vw);
         }
       }
-      &__post a{
+      &__post a {
         font-size: $font-size-panel__post-a;
       }
     }
   }
-
 }
