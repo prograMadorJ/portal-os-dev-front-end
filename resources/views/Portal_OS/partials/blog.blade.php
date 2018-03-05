@@ -19,9 +19,13 @@
 @include('Portal_OS.components.blog.main.blogFooter')
 
 <script type="text/javascript" charset="utf-8">
-    HttpRequest.get('http://192.168.1.7:8000/blog',
-        function (response) {
-            render('',response);
-            console.log(response);
-        });
+    $.event('body','click',function () {
+        HttpRequest.get('http://192.168.1.83:8000/blog',
+            function (response) {
+                console.log(response);
+            });
+    })
+    $.event('.blog__load','click',function (e) {
+        alert('voce clicou no link: '+e.target);
+    })
 </script>
