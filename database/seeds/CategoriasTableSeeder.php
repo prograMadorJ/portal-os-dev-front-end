@@ -22,6 +22,7 @@ class CategoriasTableSeeder extends Seeder
         $faker = Factory::create();
         $date = new Carbon();
         $categorias_nome = ['ouvido','garganta','pescoço','nariz','saúde'];
+        $clip = ['clip-boneco-ouvido','clip-boneco-garganta','clip-boneco-pescoco','clip-boneco-nariz','clip-boneco-saude'];
 
         for($i = 0; $i < 5; $i++)
 	    {
@@ -30,14 +31,15 @@ class CategoriasTableSeeder extends Seeder
 
     	    $categorias[] = [
     			'nome' => $categorias_nome[$i],
-    			'descricao' => $faker->sentence(rand(5, 15)),
+    			'descricao' => $faker->sentence(rand(1, 4)),
     			'url' => $faker->word(),
     			'status' => 1,
-    			'link_titulo' => $faker->word(rand(20, 45)),
+    			'link_titulo' => $categorias_nome[$i],
     			'created_at' => $createdAt,
     			'updated_at' => $updatedAt,
     			'categoria_id' => $i + 1,
-    			'seo_id' => NULL
+    			'seo_id' => NULL,
+                'slug' => $clip[$i]
     	    ];
     	}
 
