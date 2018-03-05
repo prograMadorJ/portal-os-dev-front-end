@@ -2,71 +2,15 @@
     <h4>
         Leia por categoria
     </h4>
-
+@foreach($categorias as $categoria)
     <div class="blog-footer__items">
         <div class="blog-footer__items--category">
-            @include('Portal_OS.components.graphics.clip-boneco-ouvido')
+            @include('Portal_OS.components.graphics.'.$categoria->slug)
             <span>
-                Ouvido
+                {{$categoria->nome}}
             </span>
             <p>
-                Você já percebeu que tem algum problema auditivo e
-            </p>
-
-            <a href="#ler-mais">
-                LER MAIS
-            </a>
-        </div>
-
-        <div class="blog-footer__items--category">
-            @include('Portal_OS.components.graphics.clip-boneco-nariz')
-            <span>
-                Nariz
-            </span>
-            <p>
-                Você já percebeu que tem algum problema auditivo e
-            </p>
-
-            <a href="#ler-mais">
-                LER MAIS
-            </a>
-        </div>
-
-        <div class="blog-footer__items--category">
-            @include('Portal_OS.components.graphics.clip-boneco-garganta')
-            <span>
-                Garganta
-            </span>
-            <p>
-                Você já percebeu que tem algum problema auditivo e
-            </p>
-
-            <a href="#ler-mais">
-                LER MAIS
-            </a>
-        </div>
-
-        <div class="blog-footer__items--category">
-            @include('Portal_OS.components.graphics.clip-boneco-pescoco')
-            <span>
-                Pescoço
-            </span>
-            <p>
-                Você já percebeu que tem algum problema auditivo e
-            </p>
-
-            <a href="#ler-mais">
-                LER MAIS
-            </a>
-        </div>
-
-        <div class="blog-footer__items--category">
-            @include('Portal_OS.components.graphics.clip-boneco-saude')
-            <span>
-                Saúde
-            </span>
-            <p>
-                Você já percebeu que tem algum problema auditivo e
+                {{$categoria->descricao}}
             </p>
 
             <a href="#ler-mais">
@@ -74,4 +18,5 @@
             </a>
         </div>
     </div>
+@endforeach
 </div>
