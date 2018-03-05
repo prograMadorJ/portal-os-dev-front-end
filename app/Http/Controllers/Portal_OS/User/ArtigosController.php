@@ -23,20 +23,17 @@ class ArtigosController extends Controller
     public function index() {
     	$posts = Artigo::with('categorias', 'usuario', 'media')
             ->where('status', 1)
-            ->limit(6)
             ->orderBy('publicacao', 'desc')
+            ->limit(6)
         ->get();
 
         $rank = self::blogPanel();
 
         return view('Portal_OS.pages.blog',
     		compact(
-    			'posts',
-                'rank',
-                'item',
-                self::loadMore()
+                'rank'
     		)
-    	);
+    	)->withPosts($posts);
     }
 
     public function categoryFilter($slug) {
@@ -77,9 +74,35 @@ class ArtigosController extends Controller
         );
     }
 
-    public static function loadMore() {
+    public function loadMore() {
+        $processo = $this->index();
+        $idArray = $processo->posts->pluck('id');
+        $lastId = $idArray[5];
 
-        // return $posts;
+        $posts = Artigo::with('categorias', 'usuario', 'media')
+            ->where('status', 1)
+            ->where('id', '<', $lastId)
+            ->orderBy('publicacao', 'desc')
+            ->limit(6)
+        ->get();
+
+        $rank = $processo->rank;
+
+        // dd(
+        //     'processo', $processo,
+        //     'idArray', $idArray,
+        //     'lastId', $lastId,
+        //     'posts', $posts,
+        //     'id dos posts', $posts->pluck('id'),
+        //     'rank', $rank,
+        //     'id dos posts do rank', $rank->pluck('id')
+        // );
+
+        return view('Portal_OS.partials.blog')->withPosts($posts)->withRank($rank)->render();
+        // compact(
+        //     'posts',
+        //     'rank'
+        // );
     }
 
     public static function blogPanel() {
