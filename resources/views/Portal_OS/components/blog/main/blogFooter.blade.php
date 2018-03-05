@@ -4,7 +4,6 @@
     </h4>
     <div class="blog-footer__items">
         @foreach($categorias as $categoria)
-
             <div class="blog-footer__items--category">
                 @include('Portal_OS.components.graphics.'.$categoria->slug)
                 <span>
