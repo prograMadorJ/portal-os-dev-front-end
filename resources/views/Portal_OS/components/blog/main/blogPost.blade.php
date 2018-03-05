@@ -1,13 +1,18 @@
 @foreach($posts as $post)
     @php
-        $date = date_create($post->publicacao)
+        $date = date_create($post->publicacao);
     @endphp
     <div class="blog-post" id="blog-post">
         <div class="blog-post__title">
             <h3>
                 {{ $post->titulo }}
             </h3>
-            @foreach($post->categorias as $cat)<span class="blog-post__category"> {{ $cat->nome }} </span>@endforeach <span class="blog-post__date"> {{ date_format($date,"d/m/y - H") }}H </span>
+            @foreach($post->categorias as $cat)
+                <span class="blog-post__category"> {{ $cat->nome }} </span>
+            @endforeach
+            <span class="blog-post__date">
+                {{ date_format($date,"d/m/y - H") }}H
+            </span>
         </div>
         <div class="blog-post__image">
             @if(isset($post->media_id))

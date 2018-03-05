@@ -23,14 +23,18 @@ class ArtigosController extends Controller
     public function index() {
     	$posts = Artigo::with('categorias', 'usuario', 'media')
             ->where('status', 1)
+            ->limit(6)
             ->orderBy('publicacao', 'desc')
-        ->paginate(6);
+        ->get();
+
+        $rank = self::blogPanel();
 
         return view('Portal_OS.pages.blog',
     		compact(
     			'posts',
-                self::loadMore(),
-                self::blogPanel()
+                'rank',
+                'item',
+                self::loadMore()
     		)
     	);
     }
@@ -44,7 +48,7 @@ class ArtigosController extends Controller
             ->orderBy('publicacao', 'desc')
         ->get();
 
-        $ranking = self::blogPanel();
+        $rank = self::blogPanel();
 
         return view(
             'postsFiltrados',
@@ -52,7 +56,7 @@ class ArtigosController extends Controller
                 'categoria',
                 'categoriaFiltro',
                 'postsFiltrados',
-                'ranking'
+                'rank'
             )
         );
     }
@@ -61,34 +65,51 @@ class ArtigosController extends Controller
     	$post = Artigo::with('categorias')
             ->where('slug', $slug)
         ->get();
-        // $ranking = $this->blogPanel();
 
+        $rank = self::blogPanel();
 
     	return view(
             'Portal_OS.pages.post',
             compact(
-                'post'
+                'post',
+                'rank'
             )
         );
     }
 
     public static function loadMore() {
-        // $range = $this->index()->count();
-        // $posts = Artigo::whereNotIn('id', $range)->get();
-        // dd($posts);
+
         // return $posts;
     }
 
     public static function blogPanel() {
-        $artigo = Artigo::pluck('id');
-        $artigoId = ArtigosEstatistica::pluck('artigo_id');
-        $relacao = ArtigosEstatistica::with('artigo', 'tipos_estatisticas')->get();
+        // select count(artigos_estatisticas.id) as total,artigos.id from artigos inner join artigos_estatisticas on artigos.id = artigos_estatisticas.artigo_id GROUP BY artigos.id order by total desc;
+        $selecao = DB::table('artigos')
+            ->select(DB::raw
+                (
+                    'count(artigos_estatisticas.id) as total, artigos.id'
+                )
+            )
+            ->join(
+                'artigos_estatisticas',
+                'artigos.id',
+                '=',
+                'artigos_estatisticas.artigo_id',
+                'inner'
+            )
+            ->groupBy('artigos.id')
+            ->orderBy('total', 'desc')
+        ->get();
 
-        return compact(
-            'artigo',
-            'artigoId',
-            'relacao',
-            'ranking'
-        );
+        $panels = Artigo::whereIn('id', [
+                $selecao[0]->id,
+                $selecao[1]->id,
+                $selecao[2]->id,
+                $selecao[3]->id,
+                $selecao[4]->id
+            ])
+        ->get();
+
+        return $panels;
     }
 }
