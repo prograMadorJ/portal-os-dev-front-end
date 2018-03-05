@@ -31,9 +31,11 @@ class ArtigosController extends Controller
 
         return view('Portal_OS.pages.blog',
     		compact(
-                'rank'
+                'rank',
+                'posts'
     		)
-    	)->withPosts($posts);
+    	);
+        // ->withPosts($posts);
     }
 
     public function categoryFilter($slug) {
@@ -74,7 +76,7 @@ class ArtigosController extends Controller
         );
     }
 
-    public function loadMore() {
+    public function loadMore(Request $request) {
         $processo = $this->index();
         $idArray = $processo->posts->pluck('id');
         $lastId = $idArray[5];
@@ -97,8 +99,19 @@ class ArtigosController extends Controller
         //     'rank', $rank,
         //     'id dos posts do rank', $rank->pluck('id')
         // );
+        if($request->ajax()) {
+            $processo = $this->loadMore();
+            dd($processo);
+        }
 
-        return view('Portal_OS.partials.blog')->withPosts($posts)->withRank($rank)->render();
+        return redirect(
+            view('Portal_OS.components.blog.main.blogPost',
+                compact(
+                    'posts',
+                    'rank'
+                )
+            )
+        ->render());
         // compact(
         //     'posts',
         //     'rank'
