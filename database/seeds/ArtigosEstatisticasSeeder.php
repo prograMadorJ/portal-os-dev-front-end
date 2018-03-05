@@ -30,7 +30,7 @@ class ArtigosEstatisticasSeeder extends Seeder
         for($i = 1; $i <  $counter; $i++)
         {
 	        $dados[] = [
-	        	'artigo_id' => rand(1, 48),
+	        	'artigo_id' => rand(1, $counter),
 	        	'cliente_ip' => $ip,
 	        	'http_user_agent' => $agent,
 	        	'created_at' => clone($date),
