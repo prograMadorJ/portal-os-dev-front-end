@@ -22,7 +22,7 @@
             @endif
         </div>
         <div class="blog-post__resume">
-            <p id="art">
+            <p id="artSumma">
                 {{ $post->resumo }}
             </p>
         </div>
@@ -49,27 +49,34 @@
     $(document).ready(function() {
         $(document).on('click', '#carregar', function(e) {
             e.preventDefault();
-            var id = $(this).data('id');
             $('#carregar').html("Carregando...");
+
             $.ajax({
                 url: '{{ route('loadMore') }}',
                 method: 'GET',
+                data: {
+                    id: function puxaId(){
+                        var lista = {!! $posts !!};
+
+                        var lastId = lista[5].id;
+                        console.log(lastId);
+
+                        return lastId;
+                    }
+                },
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function(data) {
-                    for($i=0; $i < data.length; $i++)
-                        console.log(data[$i].titulo);
-                        // $('#blogApp').append(data[$i]);
+                    if(data != '') {
+                        console.log(data);
+                        $(data).each(function(key, value){
+                            // console.log(value);
+                            $('#carregar').html("Veja Mais");
+                        });
+                    } else {
+                        $('#carregar').html("Sem Artigos Para Carregar");
                     }
-                    // function(data) {
-                    // if(data != '') {
-                    //     $('#blogApp').append(data);
-                    //     console.log("DATA  " + data);
-                    //     console.log("ID  " + id);
-                    // } else {
-                    //     $('#carregar').html("Sem Artigos Para Carregar");
-                    // }
-                // }
+                }
             });
         });
     });

@@ -52,8 +52,6 @@ class ArtigosController extends Controller
         return view(
             'postsFiltrados',
             compact(
-                'categoria',
-                'categoriaFiltro',
                 'postsFiltrados',
                 'rank'
             )
@@ -77,10 +75,14 @@ class ArtigosController extends Controller
     }
 
     public function loadMore(Request $request) {
-        $retornos = '';
         $processo = $this->index();
         $idArray = $processo->posts->pluck('id');
-        $lastId = $idArray[5];
+
+        if($request->ajax()) {
+            $lastId = $_GET['id'];
+        } else {
+            $lastId = $idArray[5];
+        }
 
         $posts = Artigo::with('categorias', 'usuario', 'media')
             ->where('status', 1)
@@ -89,26 +91,7 @@ class ArtigosController extends Controller
             ->limit(6)
         ->get();
 
-        $retornos = $posts;
-        // for(; ;) {
-        //     if($request->ajax()) {
-
-        //         $processo = $retornos;
-        //         $idArray = $retornos->pluck('id');
-        //         $lastId = $idArray[5];
-
-        //         $postsAjax = Artigo::with('categorias', 'usuario', 'media')
-        //             ->where('status', 1)
-        //             ->where('id', '<', $lastId)
-        //             ->orderBy('publicacao', 'desc')
-        //             ->limit(6)
-        //         ->get();
-
-        //         $retornos = $postsAjax;
-        //     }
-        // }
-
-        return $retornos;
+        return $posts;
     }
 
     public static function blogPanel() {
