@@ -33,16 +33,98 @@ HttpRequest.post = function (url,content, funcResponse) {
 }
 /*
      função retorna um elemento html através do nome da classe
-     ou ID
+     ,ID ou o objeto do proprio elemento
  */
-$ = function (classNameElement) {
-    return document.querySelector(classNameElement);
+$ = function (elementClassName) {
+    var objType = typeof elementClassName;
+    return (objType !== null && objType === 'object') ?
+        elementClassName :
+        document.querySelector(elementClassName);
 }
 /*
     função adiciona listeners ao elemento html através do nome da classe
-    ou ID para executar um evento passado seu tipo por parametro 'typeEvent'
+    ou ID do elemento alvo por paramentro 'elementClassName'
+    para executar um evento passado seu tipo por parametro 'eventType'
     para executar uma função passado por parametro 'callback'.
  */
-$.event = function (classNameElement,typeEvent,callback) {
-   $(classNameElement).addEventListener(typeEvent,callback);
+$.event = function (elementClassName,eventType,callback) {
+   $(elementClassName).addEventListener(eventType,callback);
+}
+/*
+    função modifica o atributo style do elemento
+    passando o nome da classe ou ID do elemento alvo por parametro 'elementClassName'
+    e passando um texto css em linha por parametro 'styleCSS'
+ */
+$.css = function(elementClassName,styleCSS) {
+    $(elementClassName).setAttribute('style',styleCSS);
+}
+/*
+    função reseta o atributo style do elemento
+    passando o nome da classe ou ID do elemento alvo
+    por paramentro 'elementClassName'
+ */
+$.resetCSS = function (elementClassName) {
+    $(elementClassName).removeAttribute('style');
+}
+/*
+    função oculta um elemento
+    passando o nome do elemento alvo
+    por parametro 'elementClassName'
+ */
+$.hidden = function (elementClassName) {
+    $.css(elementClassName,'display:none !important');
+}
+/*
+    função exibe um elemento que estava oculto
+    passando o nome do elemento alvo
+    por parametro 'elementClassName' e preferencialmente
+    o tipo do atributo css display por parametro 'displayType'
+    caso não use este parametro o valor default é 'flex'
+ */
+$.show = function (elementClassName,displayType) {
+    $.css(elementClassName,'display:'+(displayType||'flex'));
+}
+/*
+    função adiciona uma classe ao atributo class do elemento
+    passando o nome da classe ou ID do elemento alvo
+    por paramentro 'elementClassName' e o nome da classe a ser adicionada
+    por parametro 'className'
+ */
+$.addClass = function (elementClassName,className) {
+    $(elementClassName).classList.add(className);
+}
+/*
+    função remove uma classe do atributo class do elemento
+    passando o nome da classe ou ID do elemento alvo
+    por paramentro 'elementClassName' e o nome da classe a ser removida
+    por parametro 'className'
+ */
+$.removeClass = function (elementClassName,className) {
+    $(elementClassName).classList.remove(className);
+}
+/*
+    função remove o atributo class do elemento
+    passando o nome da classe ou ID do elemento alvo
+    por paramentro 'elementClassName'
+ */
+$.removeAllClass = function (elementClassName) {
+    $(elementClassName).removeAttribute('class');
+}
+/*
+    função inclui um elemento HTML dentro de outro
+    após o ultimo elemento filho, passando o nome do elemento alvo
+    por parametro 'elementClassName' e o conteudo a ser adicionado
+    por paramentro 'contentHTML'
+ */
+$.append = function (elementClassName,contentHTML) {
+    $(elementClassName).insertAdjacentHTML('afterend',contentHTML);
+}
+/*
+    função inclui um elemento HTML dentro de outro
+    antes do primeiro elemento filho, passando o nome do elemento alvo
+    por parametro 'elementClassName' e o conteudo a ser adicionado
+    por paramentro 'contentHTML'
+ */
+$.prepend = function (elementClassName,contentHTML) {
+    $(elementClassName).insertAdjacentHTML('beforebegin',contentHTML);
 }
