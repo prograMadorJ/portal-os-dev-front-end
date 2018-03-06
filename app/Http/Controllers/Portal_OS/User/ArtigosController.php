@@ -28,7 +28,7 @@ class ArtigosController extends Controller
         ->get();
 
         $rank = self::blogPanel();
-
+        // $mais = $this->loadMore(Request::class );
         return view('Portal_OS.pages.blog',
     		compact(
                 'rank',
@@ -77,6 +77,7 @@ class ArtigosController extends Controller
     }
 
     public function loadMore(Request $request) {
+        $retornos = '';
         $processo = $this->index();
         $idArray = $processo->posts->pluck('id');
         $lastId = $idArray[5];
@@ -88,34 +89,26 @@ class ArtigosController extends Controller
             ->limit(6)
         ->get();
 
-        $rank = $processo->rank;
+        $retornos = $posts;
+        // for(; ;) {
+        //     if($request->ajax()) {
 
-        // dd(
-        //     'processo', $processo,
-        //     'idArray', $idArray,
-        //     'lastId', $lastId,
-        //     'posts', $posts,
-        //     'id dos posts', $posts->pluck('id'),
-        //     'rank', $rank,
-        //     'id dos posts do rank', $rank->pluck('id')
-        // );
-        if($request->ajax()) {
-            $processo = $this->loadMore();
-            dd($processo);
-        }
+        //         $processo = $retornos;
+        //         $idArray = $retornos->pluck('id');
+        //         $lastId = $idArray[5];
 
-        return redirect(
-            view('Portal_OS.components.blog.main.blogPost',
-                compact(
-                    'posts',
-                    'rank'
-                )
-            )
-        ->render());
-        // compact(
-        //     'posts',
-        //     'rank'
-        // );
+        //         $postsAjax = Artigo::with('categorias', 'usuario', 'media')
+        //             ->where('status', 1)
+        //             ->where('id', '<', $lastId)
+        //             ->orderBy('publicacao', 'desc')
+        //             ->limit(6)
+        //         ->get();
+
+        //         $retornos = $postsAjax;
+        //     }
+        // }
+
+        return $retornos;
     }
 
     public static function blogPanel() {
