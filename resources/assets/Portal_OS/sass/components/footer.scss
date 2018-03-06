@@ -18,6 +18,7 @@
     @include inner-margin(20px);
     @include justify(center);
     background: $bgcolor;
+    height: 40%;
     &__logo {
       @include grid-row;
       @include justify(center);
