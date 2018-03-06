@@ -23,20 +23,19 @@ class ArtigosController extends Controller
     public function index() {
     	$posts = Artigo::with('categorias', 'usuario', 'media')
             ->where('status', 1)
-            ->limit(6)
             ->orderBy('publicacao', 'desc')
+            ->limit(6)
         ->get();
 
         $rank = self::blogPanel();
 
         return view('Portal_OS.pages.blog',
     		compact(
-    			'posts',
                 'rank',
-                'item',
-                self::loadMore()
+                'posts'
     		)
     	);
+        // ->withPosts($posts);
     }
 
     public function categoryFilter($slug) {
@@ -77,9 +76,46 @@ class ArtigosController extends Controller
         );
     }
 
-    public static function loadMore() {
+    public function loadMore(Request $request) {
+        $processo = $this->index();
+        $idArray = $processo->posts->pluck('id');
+        $lastId = $idArray[5];
 
-        // return $posts;
+        $posts = Artigo::with('categorias', 'usuario', 'media')
+            ->where('status', 1)
+            ->where('id', '<', $lastId)
+            ->orderBy('publicacao', 'desc')
+            ->limit(6)
+        ->get();
+
+        $rank = $processo->rank;
+
+        // dd(
+        //     'processo', $processo,
+        //     'idArray', $idArray,
+        //     'lastId', $lastId,
+        //     'posts', $posts,
+        //     'id dos posts', $posts->pluck('id'),
+        //     'rank', $rank,
+        //     'id dos posts do rank', $rank->pluck('id')
+        // );
+        if($request->ajax()) {
+            $processo = $this->loadMore();
+            dd($processo);
+        }
+
+        return redirect(
+            view('Portal_OS.components.blog.main.blogPost',
+                compact(
+                    'posts',
+                    'rank'
+                )
+            )
+        ->render());
+        // compact(
+        //     'posts',
+        //     'rank'
+        // );
     }
 
     public static function blogPanel() {
