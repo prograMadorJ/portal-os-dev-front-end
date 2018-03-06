@@ -2,8 +2,8 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     cleanCSS = require('gulp-clean-css'),
     minify_js = require('gulp-uglify'),
-    browserify = require('gulp-browserify');
-image = require('gulp-image');
+    browserify = require('gulp-browserify'),
+    image = require('gulp-image');
 
 var src_dir = 'resources/assets/Portal_OS';
 var dest_dir = 'public/portal-os';
