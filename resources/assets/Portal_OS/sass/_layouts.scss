@@ -10,6 +10,25 @@ html, body {
   margin: 0;
   max-width: unset;
   min-height: 66%;
+
+  /* ========================
+      MOBILE RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-mobile) {
+    @include inner-top-margin($height-header-mobile);
+  }
+  /* ========================
+      TABLET RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-tablet) {
+    @include inner-top-margin($height-header-tablet);
+  }
+  /* ========================
+      DESKTOP RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-desktop) {
+    @include inner-top-margin($height-header-desktop);
+  }
 }
 
 /*=================================
