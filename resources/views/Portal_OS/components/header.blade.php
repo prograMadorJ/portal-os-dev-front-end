@@ -1,10 +1,7 @@
 <header class="header">
-    {{--*******************************************************************--}}
-    {{--  linhas abaixo comentadas, aguardam implementação futura --}}
-    {{--*******************************************************************--}}
-    {{--<div class="header__nav-icon" @click.stop="drawer = !drawer">--}}
-        {{--@include('components.graphics.font-awesome.icon-bars')--}}
-    {{--</div>--}}
+    <div class="header__nav-icon">
+        @include('Portal_OS.components.graphics.font-awesome.icon-bars')
+    </div>
     <div class="header__logo">
         @include('Portal_OS.components.graphics.logo-blank')
     </div>
