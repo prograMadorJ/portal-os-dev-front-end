@@ -36,8 +36,8 @@ class ArtigosController extends Controller
                 'rank',
                 'posts',
                 'item',
-                'categorias',
-                self::loadMore()
+                'categorias'
+//                self::loadMore()
     		)
     	);
         // ->withPosts($posts);
