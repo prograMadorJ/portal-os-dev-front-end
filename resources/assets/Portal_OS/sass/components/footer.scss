@@ -14,7 +14,6 @@
     $font-size-items-li: .8vw;
     $font-size-items-h5: 3.5vw;
 
-    @include flex(1,unset);
     @include inner-margin(20px);
     @include justify(center);
     background: $bgcolor;
@@ -80,7 +79,7 @@
     $font-size-social-h5: 2vw;
 
     @include grid-row;
-    @include inner-margin(4vw);
+    @include inner-margin(3vw);
     &__logo {
       @include align(self-start);
       svg {

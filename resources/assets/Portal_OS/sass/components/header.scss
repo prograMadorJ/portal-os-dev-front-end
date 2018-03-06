@@ -1,90 +1,142 @@
 @import "core";
 
 .header {
+  /* ========================
+      MOBILE RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-mobile) {
 
-  $bgcolor: $dark-green;
-  $font-color: $blank;
-  $font-color-navbar__item--active: $shiny-green;
+    $bgcolor: $dark-green;
+    $font-color: $blank;
 
-  @include grid-row;
-  @include justify(space-between);
-  @include inner-rl-margin(3vw);
-  background: $bgcolor;
-  width: 100%;
-  height: $height-header;
-  &__nav-icon svg {
-    width: 10px;
-    fill: $font-color;
-  }
-  & .navigation-drawer {
-    background: #fff;
-    &--absolute{}
-    &--close{}
-    &--temporary{}
-  }
-  &__logo {
-    @include grid-column;
-    @include justify(center);
-    @include inner-tb-margin(.6vw);
-    svg {
-      @include logo-desktop;
-    }
-  }
-  &__navbar {
     @include grid-row;
+    @include justify(center);
+    @include inner-rl-margin(3vw);
+    background: $bgcolor;
     width: 100%;
-    ul {
+    height: $height-header-mobile;
+    position: fixed;
+    z-index: 3;
+    box-shadow: 0px -5px 10px 10px #444;
+    &__nav-icon {
+      @include align(self-center);
+      position: absolute;
+      left: 4vw;
+      line-height: 1;
+      svg {
+        width: 8vw;
+        height: 8vw;
+        fill: $font-color;
+      }
+    }
+    &__logo {
+      @include grid-column;
+      @include justify(center);
+      @include inner-tb-margin(2vw);
+      svg {
+        @include logo-mobile;
+      }
+    }
+    &__navbar {
+      display: none;
+    }
+    &__access {
       @include grid-row;
       @include align(center);
-      @include justify(space-evenly);
-      line-height: 1em;
-      width: 100%;
-    }
-    li a {
-      font-size: 1.1vw;
-    }
-    &__item {
-      color: $font-color;
-      &:hover {
-        color: $shiny-green;
+      &__register {
+        @include grid-row;
+        @include outer-margin(0 2vw 0 .5vw);
+        a {
+          @include grid-row;
+          color: $font-color;
+          font-size: 1.3vw;
+          font-weight: bold;
+          line-height: 1em;
+          &:hover {
+            color: $shiny-green;
+            svg {
+              fill: $shiny-green !important;
+            }
+          }
+          svg {
+            @include outer-margin(0 .3vw);
+            fill: $font-color;
+            width: 1.2vw;
+            height: 1.25vw;
+          }
+        }
       }
-      &--active {
-        color: $font-color-navbar__item--active;
-        font-weight: 600;
+      &__entry a {
+        @include button-menu;
+        font-size: 1.2vw;
+        width: 8vw;
+        height: 3vw;
       }
     }
   }
-  &__access {
-    @include grid-row;
-    @include align(center);
-    &__register {
+  /* ========================
+      TABLET RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-tablet) {
+
+    height: $height-header-tablet;
+
+    &__nav-icon svg {
+      width: 5vw;
+      height: 5vw;
+    }
+    &__logo {
+      @include inner-tb-margin(.9vw);
+    }
+  }
+  /* ========================
+    DESKTOP RESPONSIVE
+  ======================== */
+  @media (min-width: $screen-desktop) {
+
+    $font-color-navbar__item--active: $shiny-green;
+
+    $font-size-navbar-li-a: 1.1vw;
+
+    @include justify(space-between);
+    height: $height-header-desktop;
+    position: unset;
+    box-shadow: unset;
+
+    &__nav-icon {
+      display: none;
+    }
+    &__navbar {
       @include grid-row;
-      @include outer-margin(0 2vw 0 .5vw);
-      a {
+      width: 100%;
+      ul {
         @include grid-row;
-        color: $font-color;
-        font-size: 1.3vw;
-        font-weight: bold;
+        @include align(center);
+        @include justify(space-evenly);
         line-height: 1em;
+        width: 100%;
+      }
+      li a {
+        font-size: $font-size-navbar-li-a;
+      }
+      &__item {
+        color: $blank;
         &:hover {
           color: $shiny-green;
-          svg {
-            fill: $shiny-green !important;
-          }
         }
-        svg {
-          @include outer-margin(0 .3vw);
-          fill: $font-color;
-          width: 1.2vw;
-          height: 1.25vw;
+        &--active {
+          color: $font-color-navbar__item--active;
+          font-weight: 600;
         }
       }
     }
-    &__entry a {
-      @include button-menu;
-      font-size: 1.2vw;
-      width: 8vw;
-      height: 3vw;
+    &__logo {
+      @include grid-column;
+      @include justify(center);
+      @include inner-tb-margin(.6vw);
+      svg {
+        @include logo-desktop;
+      }
     }
   }
 }
