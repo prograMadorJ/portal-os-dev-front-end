@@ -116,27 +116,45 @@ $.removeAllClass = function (elementClassName) {
     $(elementClassName).removeAttribute('class');
 }
 /*
-    função inclui um elemento HTML dentro de outro
+    função inclui uma copia do elemento HTML para dentro de outro
     após o ultimo elemento filho, passando o nome do elemento alvo
     por parametro 'elementClassName' e o conteudo a ser adicionado
     por paramentro 'contentHTMLElement'
  */
 $.append = function (elementClassName, contentHTMLElement) {
+    $.appendTo(elementClassName,contentHTMLElement.cloneNode(true));
+}
+/*
+    função move/recorta um elemento HTML para dentro de outro
+    após o ultimo elemento filho, passando o nome do elemento alvo
+    por parametro 'elementClassName' e o conteudo a ser adicionado
+    por paramentro 'contentHTMLElement'
+ */
+$.appendTo = function (elementClassName, contentHTMLElement) {
     ($.isObject(contentHTMLElement)) ?
-        $(elementClassName).insertAdjacentElement('beforeend', contentHTMLElement.cloneNode(true))
+        $(elementClassName).insertAdjacentElement('beforeend', contentHTMLElement)
         :
         $(elementClassName).insertAdjacentHTML('beforeend', contentHTMLElement)
 
 }
 /*
-    função inclui um elemento HTML dentro de outro
+    função inclui uma copia do elemento HTML para dentro de outro
     antes do primeiro elemento filho, passando o nome do elemento alvo
     por parametro 'elementClassName' e o conteudo a ser adicionado
     por paramentro 'contentHTMLElement'
  */
 $.prepend = function (elementClassName, contentHTMLElement) {
+    $.prependTo(elementClassName,contentHTMLElement.cloneNode(true));
+}
+/*
+    função move/recorta um elemento HTML para dentro de outro
+    antes do primeiro elemento filho, passando o nome do elemento alvo
+    por parametro 'elementClassName' e o conteudo a ser adicionado
+    por paramentro 'contentHTMLElement'
+ */
+$.prependTo = function (elementClassName, contentHTMLElement) {
     ($.isObject(contentHTMLElement)) ?
-        $(elementClassName).insertAdjacentElement('afterbegin', contentHTMLElement.cloneNode(true))
+        $(elementClassName).insertAdjacentElement('afterbegin', contentHTMLElement)
         :
         $(elementClassName).insertAdjacentHTML('afterbegin', contentHTMLElement)
 }
