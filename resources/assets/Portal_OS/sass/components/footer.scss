@@ -14,7 +14,6 @@
     $font-size-items-li: .8vw;
     $font-size-items-h5: 3.5vw;
 
-    @include flex(1,unset);
     @include inner-margin(20px);
     @include justify(center);
     background: $bgcolor;

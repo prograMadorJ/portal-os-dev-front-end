@@ -1,7 +1,13 @@
 @import "core";
 
-html, body {
-  height: 100% !important;
+html {
+  height: 100%;
+}
+
+body {
+  @include grid-column;
+  @include justify(space-between);
+  min-height: 100%;
 }
 
 
@@ -9,7 +15,8 @@ html, body {
   padding: 0;
   margin: 0;
   max-width: unset;
-  min-height: 66%;
+  min-height: unset;
+  height: 100%;
 
   /* ========================
       MOBILE RESPONSIVE
