@@ -27,7 +27,7 @@ html, body {
       DESKTOP RESPONSIVE
   ======================== */
   @media (min-width: $screen-desktop) {
-    @include inner-top-margin($height-header-desktop);
+    @include inner-top-margin(0);
   }
 }
 
