@@ -80,7 +80,7 @@
     $font-size-social-h5: 2vw;
 
     @include grid-row;
-    @include inner-margin(4vw);
+    @include inner-margin(3vw);
     &__logo {
       @include align(self-start);
       svg {
