@@ -14,7 +14,10 @@ $blank: white;
 //@import '../font-awesome-4.7.0/scss/_variables.scss';
 $font-family: Open Sans, sans-Serif;
 $font-color: $dark-green;
-$height-header: 4vw;
+// Header Sizes
+$height-header-desktop: 4vw;
+$height-header-tablet: 7vw;
+$height-header-mobile: 13vw;
 
 
 // Responsive screens
