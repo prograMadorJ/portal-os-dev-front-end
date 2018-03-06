@@ -48,21 +48,13 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $(document).on('click', '#carregar', function(e) {
-            e.preventDefault();
-            $('#carregar').html("Carregando...");
+            $('#carregar').html("Carregando Mais Artigos");
 
             $.ajax({
                 url: '{{ route('loadMore') }}',
                 method: 'GET',
                 data: {
-                    id: function puxaId(){
-                        var lista = {!! $posts !!};
-
-                        var lastId = lista[5].id;
-                        console.log(lastId);
-
-                        return lastId;
-                    }
+                    id: puxaId(),
                 },
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -70,7 +62,7 @@
                     if(data != '') {
                         console.log(data);
                         $(data).each(function(key, value){
-                            // console.log(value);
+                            $('#blog-post').append(data);
                             $('#carregar').html("Veja Mais");
                         });
                     } else {
@@ -78,6 +70,16 @@
                     }
                 }
             });
+            e.preventDefault();
         });
+
+        function puxaId(){
+            var lista = {!! $posts !!};
+
+            var lastId = lista[5].id;
+            console.log(lastId);
+
+            return lastId;
+        }
     });
 </script>

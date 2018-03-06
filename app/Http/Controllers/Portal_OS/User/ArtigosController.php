@@ -75,23 +75,31 @@ class ArtigosController extends Controller
     }
 
     public function loadMore(Request $request) {
-        $processo = $this->index();
-        $idArray = $processo->posts->pluck('id');
-
         if($request->ajax()) {
             $lastId = $_GET['id'];
-        } else {
+
+            $posts = Artigo::with('categorias', 'usuario', 'media')
+                ->where('status', 1)
+                ->where('id', '<', $lastId)
+                ->orderBy('publicacao', 'desc')
+                ->limit(6)
+            ->get();
+
+            return $posts;
+        } else if($request->get()) {
+            $processo = $this->index();
+            $idArray = $processo->posts->pluck('id');
             $lastId = $idArray[5];
+
+            $posts = Artigo::with('categorias', 'usuario', 'media')
+                ->where('status', 1)
+                ->where('id', '<', $lastId)
+                ->orderBy('publicacao', 'desc')
+                ->limit(6)
+            ->get();
+
+            return $posts;
         }
-
-        $posts = Artigo::with('categorias', 'usuario', 'media')
-            ->where('status', 1)
-            ->where('id', '<', $lastId)
-            ->orderBy('publicacao', 'desc')
-            ->limit(6)
-        ->get();
-
-        return $posts;
     }
 
     public static function blogPanel() {
