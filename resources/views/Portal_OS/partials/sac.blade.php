@@ -13,7 +13,7 @@
         {{ csrf_field() }}
         <div class="form__group">
             <input type="text" name="name" id="name" placeholder="Nome"
-                   pattern="[A-Za-z]+" maxlength="50" required>
+                   pattern="^([A-Za-zÀ-ú]+){2}( ?[A-Za-zÀ-ú]+)+$" maxlength="50" required>
         </div>
 
         <div class="form__group">
@@ -44,8 +44,8 @@
         </div>
 
         <div class="form__group">
-            <input type="text" name="cidade" id="city" placeholder="Cidade"
-                   pattern="[A-Za-z]+" maxlength="50" required>
+            <input type="text" name="cidade" id="city" placeholder="Cidade-UF"
+                   pattern="^([A-Za-zÀ-ú]+ ?[A-Za-zÀ-ú]+){2}-([A-Za-z]){2}$" maxlength="50" required>
         </div>
 
         <div class="form__group">
@@ -59,3 +59,8 @@
         </div>
     </form>
 </div>
+<script src="{{asset('portal-os/js/lib/forms.js')}}"></script>
+<script type="text/javascript">
+    forms.textField('#name');
+    forms.phoneField('#phone');
+</script>
