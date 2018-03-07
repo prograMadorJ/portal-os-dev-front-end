@@ -29,7 +29,13 @@ gulp.task('js', function () {
     ])
         .pipe(minify_js())
         // .pipe(browserify())
-        .pipe(gulp.dest(dest_dir + '/js/pages'))
+        .pipe(gulp.dest(dest_dir + '/js/pages'));
+    gulp.src([
+        src_dir + '/js/lib/*.js'
+    ])
+        .pipe(minify_js())
+        // .pipe(browserify())
+        .pipe(gulp.dest(dest_dir + '/js/lib'));
 });
 gulp.task('dev', function () {
     gulp.src(src_dir + 'sass/pages/*.scss')
