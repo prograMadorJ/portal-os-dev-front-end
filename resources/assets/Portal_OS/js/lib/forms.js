@@ -14,12 +14,14 @@ function defaultAllowKeys(key) {
         (key >= 37 && key <= 40) || // arrow keys
         key === 46 // del key
 }
+
 /*
      Função validar uma tecla como digito numerico
  */
 function isDigit(key) {
     return (key >= 96 && key <= 111) || String.fromCharCode(key).match(/\d/g) !== null;
 }
+
 /*
      Função validar uma tecla como letra
  */
@@ -35,6 +37,7 @@ function setMask(element, funcMask) {
         element.value = funcMask(element.value);
     }, 1);
 }
+
 /*
     Função permitir entrada somente texto em campos de formulários
  */
@@ -65,5 +68,16 @@ forms.phoneField = function (phoneField) {
             else
                 e.preventDefault(); // se a tecla não for permitida bloqueia evento
         }
+    });
+}
+/*
+    Função para aplicar mascara a campos tipo cidade com sigla do estado após um hífen
+ */
+forms.cityStateField = function (cityField) {
+    $.event(cityField, 'keydown', function (e) {
+        var allowKeys = (e.keyCode === 189) // 189 = key code hífen '-'
+            || (defaultAllowKeys(e.keyCode)
+                || (isLetter(e.keyCode) && !isDigit(e.keyCode)));
+        if (!allowKeys) e.preventDefault(); // se tecla não for permitida bloqueia evento
     });
 }

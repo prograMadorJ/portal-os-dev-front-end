@@ -63,5 +63,5 @@
 <script type="text/javascript">
     forms.textField('#name');
     forms.phoneField('#phone');
-    forms.textField('#city');
+    forms.cityStateField('#city');
 </script>
