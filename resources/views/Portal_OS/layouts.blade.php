@@ -2,7 +2,7 @@
     $amp_status = config('amp.status');
 @endphp
 
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" {{($amp_status) ? 'amp' : ''}}>
 <head>
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="{{ asset('/portal-os/js/pages/core.js') }}"></script>
+    <script src="{{ asset('/portal-os/js/lib/core.js') }}"></script>
     {{--<link href="https://unpkg.com/vuetify@1.0.1/dist/vuetify.min.css" rel="stylesheet">--}}
     @if($amp_status)
         @yield('amp-head')
