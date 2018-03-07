@@ -53,6 +53,12 @@
         var lista = {!! $posts !!};
         console.log("lista ", lista);
 
+        var lastId = lista[5].id;
+        console.log("id da lista, pos 5  ", lastId);
+
+        var parte = $(lista).slice(lastId);
+        console.log("parte  ", parte);
+
         // var lastId = lista[5].id;
         // console.log("lista 5 id", lastId);
 

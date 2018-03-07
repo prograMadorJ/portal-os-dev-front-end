@@ -84,7 +84,7 @@ class ArtigosController extends Controller
             // ->limit(6)
         ->get();
 
-        return json_encode($posts);
+        return json_decode($posts);
     }
 
     public static function blogPanel() {
