@@ -44,7 +44,7 @@
         </div>
 
         <div class="form__group">
-            <input type="text" name="cidade" id="city" placeholder="Cidade-UF"
+            <input type="text" name="city" id="city" placeholder="Cidade-UF"
                    pattern="^([A-Za-zÀ-ú]+ ?[A-Za-zÀ-ú]+){2}-([A-Za-z]){2}$" maxlength="50" required>
         </div>
 
@@ -63,4 +63,5 @@
 <script type="text/javascript">
     forms.textField('#name');
     forms.phoneField('#phone');
+    forms.textField('#city');
 </script>
