@@ -46,40 +46,40 @@
   crossorigin="anonymous"></script>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $(document).on('click', '#carregar', function(e) {
-            $('#carregar').html("Carregando Mais Artigos");
 
-            $.ajax({
-                url: '{{ route('loadMore') }}',
-                method: 'GET',
-                data: {
-                    id: puxaId(),
-                },
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function(data) {
-                    if(data != '') {
-                        console.log(data);
-                        $(data).each(function(key, value){
-                            $('#blog-post').append(data);
-                            $('#carregar').html("Veja Mais");
-                        });
-                    } else {
-                        $('#carregar').html("Sem Artigos Para Carregar");
-                    }
-                }
-            });
-            e.preventDefault();
+    $(document).on('click', '#carregar', function(e) {
+        e.preventDefault();
+
+        var lista = {!! $posts !!};
+        console.log("lista ", lista);
+
+        // var lastId = lista[5].id;
+        // console.log("lista 5 id", lastId);
+
+        $('#carregar').html("Carregando Mais Artigos");
+
+        $.ajax({
+            url: '{{ route('loadMore') }}',
+            method: 'GET',
+            // data: {
+            //     'id': lastId,
+            // },
+            // contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(data) {
+                // console.log("data not null", data);
+
+                $('#blog-post').html(data);
+                console.log("data depois do apend", data);
+
+                lastId = data[5].id;
+                console.log("last id passando data", lastId);
+
+                $('#carregar').html("veja mais");
+
+                return data[5].id;
+            }
+
         });
-
-        function puxaId(){
-            var lista = {!! $posts !!};
-
-            var lastId = lista[5].id;
-            console.log(lastId);
-
-            return lastId;
-        }
     });
 </script>
