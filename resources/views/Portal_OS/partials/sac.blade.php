@@ -54,7 +54,7 @@
 
         <div class="form__group">
             <button type="submit">
-                Enviar
+                ENVIAR
             </button>
         </div>
     </form>
