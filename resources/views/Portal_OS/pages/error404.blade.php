@@ -11,14 +11,7 @@
     @include('Portal_OS.components.header',
     [
         'title'=> 'erro',
-        'active'=> (object)
-        [
-            'home'=>'',
-            'indicacao'=>'',
-            'blog'=>'',
-            'historias'=>'',
-            'sac'=>''
-        ]
+        'active'=> ''
     ])
 @endsection
 
