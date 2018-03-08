@@ -17,6 +17,15 @@
     ]
 )
 
+@extends('Portal_OS.components.header-metatags',
+    [
+        'metatags' => [
+            'url' => route('blogPost',$post[0]->slug),
+            'description' => $post[0]->resumo
+        ]
+    ]
+)
+
 @section('header')
     @include('Portal_OS.components.header',
     [
