@@ -5,7 +5,7 @@
     <div class="blog-footer__items">
         @foreach($categorias as $categoria)
             <div class="blog-footer__items--category">
-                @include('Portal_OS.components.graphics.'.$categoria->slug)
+                <img src="{{asset('portal-os/img'.$categoria->image)}}.png" alt="{{$categoria->nome}}">
                 <span>
                 {{$categoria->nome}}
             </span>

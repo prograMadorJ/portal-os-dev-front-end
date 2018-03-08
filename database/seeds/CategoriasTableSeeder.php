@@ -39,7 +39,8 @@ class CategoriasTableSeeder extends Seeder
     			'updated_at' => $updatedAt,
     			'categoria_id' => $i + 1,
     			'seo_id' => NULL,
-                'slug' => $clip[$i]
+                'slug' => NULL,
+                'image' => '/categorias/'.$clip[$i]
     	    ];
     	}
 

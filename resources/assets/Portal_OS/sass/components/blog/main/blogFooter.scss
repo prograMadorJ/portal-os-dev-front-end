@@ -38,7 +38,7 @@
         @include align(center);
         @include outer-margin(10px 15px);
 
-        > svg {
+        > img {
           width: 100px;
           height: 100px;
         }
@@ -86,7 +86,7 @@
     &__items {
       &--category {
 
-        > svg {
+        > img {
           width: 10vw;
           height: 10vw;
         }
