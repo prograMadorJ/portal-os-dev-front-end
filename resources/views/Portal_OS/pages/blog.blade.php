@@ -6,6 +6,15 @@
     ]
 )
 
+@extends('Portal_OS.components.header-metatags',
+    [
+        'metatags' => [
+            'url' => route('blogIndex'),
+            'description' => 'Blog Ouvido & Saúde. Tudo o que você precisa saber sobre sua saúde.'
+        ]
+    ]
+)
+
 @extends('Portal_OS.amp.layouts',
     [
         'css' => 'blog',
