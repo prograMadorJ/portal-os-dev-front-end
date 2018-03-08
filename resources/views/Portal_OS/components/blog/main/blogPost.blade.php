@@ -34,7 +34,9 @@
         <div class="blog-post__social">
             <a href="#facebook">@include('Portal_OS.components.graphics.icon-facebook')</a>
             <a href="#twitter">@include('Portal_OS.components.graphics.icon-twitter')</a>
-            <a href="#google">@include('Portal_OS.components.graphics.icon-google')</a>
+            <a href="https://plus.google.com/share?url={{ route('blogPost', $post->slug) }}" target="_blank">
+                @include('Portal_OS.components.graphics.icon-google')
+            </a>
             <a href="#whatsapp">@include('Portal_OS.components.graphics.icon-whatsapp')</a>
         </div>
     </div>
