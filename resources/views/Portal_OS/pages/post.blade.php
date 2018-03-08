@@ -9,7 +9,7 @@
 @extends('Portal_OS.components.header-metatags',
     [
         'metatags' => [
-            'url' => route('blogPost',$post[0]->slug),
+            'url' => route('blogPost',str_slug($post[0]->titulo)),
             'description' => $post[0]->resumo
         ]
     ]
