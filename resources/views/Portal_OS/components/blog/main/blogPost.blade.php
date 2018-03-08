@@ -2,7 +2,7 @@
     @php
         $date = date_create($post->publicacao);
     @endphp
-    <div class="blog-post" id="blog-post">
+    <div class="blog-post">
         <div class="blog-post__title" >
             <h3 id="artTitle">
                 {{ $post->titulo }}
@@ -51,41 +51,67 @@
         e.preventDefault();
 
         var lista = {!! $posts !!};
-        console.log("lista ", lista);
-
-        var lastId = lista[5].id;
-        console.log("id da lista, pos 5  ", lastId);
-
-        var parte = $(lista).slice(lastId);
-        console.log("parte  ", parte);
-
-        // var lastId = lista[5].id;
-        // console.log("lista 5 id", lastId);
+        // console.log("lista ", lista);
 
         $('#carregar').html("Carregando Mais Artigos");
 
         $.ajax({
-            url: '{{ route('loadMore') }}',
+            url: '{{ route('loadMore') }}?limit=6&skip=6',
             method: 'GET',
-            // data: {
-            //     'id': lastId,
-            // },
-            // contentType: "application/json; charset=utf-8",
+            contentType: "application/json; charset=utf-8",
             dataType: "json",
-            success: function(data) {
-                // console.log("data not null", data);
+            // success: function(data) {
+            //     // console.log("data not null", data);
+            //     console.log("access att que deveria ser apendado", data[0].titulo);
 
-                $('#blog-post').html(data);
-                console.log("data depois do apend", data);
+            //     $('#blogApp').append(data[0].titulo);
+            //     // console.log("data depois do apend", data);
 
-                lastId = data[5].id;
-                console.log("last id passando data", lastId);
+            //     $('#carregar').html("veja mais");
+            // }
+        })
+        .done(function(res) {
+            for(i = 0; i < $(res).length; i++){
+                var data = new Date(res[i].publicacao);
+                var dia = data.getDate();
+                var mes = data.getMonth();
+                mes += 1;
+                var ano = data.getFullYear();
+                var hora = data.getHours();
+                var min = data.getMinutes();
+                var dataFinal = "" + dia + "/" + mes + "/" + ano + " - " + hora;
+                var rota = res[i].slug;
 
-                $('#carregar').html("veja mais");
+                var titulo = '<div class="blog-post__title" ><h3 id="artTitle">'
+                    + res[i].titulo +
+                '</h3><span class="blog-post__category">'
+                    + res[i].categorias.nome +
+                '</span><span class="blog-post__date" id="artDate">'
+                    + dataFinal +
+                'H</span></div>';
 
-                return data[5].id;
+                var imagem = '<div class="blog-post__image" id="artImage"><img src="{{ asset('img/post-img/\'.res[i].media.arquivo') }}"></div>';
+
+                var resumo = '<div class="blog-post__resume"><p id="artSumma">'
+                    + res[i].resumo +
+                '</p></div>';
+
+                var ref = {{route('blogPost', rota)}};
+                console.log(ref);
+                var link = '<div class="blog-post__link"><a href="'ref'">Leia mais</a></div>';
+                console.log("LINK",link);
+
+                var social = '<div class="blog-post__social">'
+                    '<a href="#facebook">@include('Portal_OS.components.graphics.icon-facebook')</a>'
+                    '<a href="#twitter">@include('Portal_OS.components.graphics.icon-twitter')</a>'
+                    '<a href="#google">@include('Portal_OS.components.graphics.icon-google')</a>'
+                    '<a href="#whatsapp">@include('Portal_OS.components.graphics.icon-whatsapp')</a>'
+                '</div>';
+
+                $('#blogApp').append(titulo, imagem, resumo, link);
             }
 
+            $('#carregar').html("veja mais");
         });
     });
 </script>

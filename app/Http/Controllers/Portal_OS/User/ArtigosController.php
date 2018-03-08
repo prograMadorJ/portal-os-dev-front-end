@@ -75,14 +75,31 @@ class ArtigosController extends Controller
     }
 
     public function loadMore(Request $request) {
-        // $lastId = $request['{id}'];
+        $limit = $request->input('limit', 6);
+        $skip = $request->input('skip', 6);
+
+        // dd(
+        //     "input skip com 6", $request->input('skip', '6'),
+        //     "input limit com 6", $request->input('limit', '6'),
+        //     "input limit sem 6", $request->input('limit'),
+        //     "input skip sem 6", $request->input('skip'),
+        //     "query skip sem 6", $request->query('skip'),
+        //     "query limit sem 6", $request->query('limit'),
+        //     "query skip com 6", $request->query('skip', '6'),
+        //     "query limit com 6", $request->query('limit', '6'),
+        //     "path url", $request->path(),
+        //     "all request", $request->all(),
+        //     "limit var", $limit,
+        //     "skip var", $skip
+        // );
 
         $posts = Artigo::with('categorias', 'usuario', 'media')
             ->where('status', 1)
-            // ->where('id', '<', $lastId)
             ->orderBy('publicacao', 'desc')
-            // ->limit(6)
+            ->limit($limit)
+            ->skip($skip)
         ->get();
+
 
         return json_decode($posts);
     }

@@ -1,7 +1,7 @@
 @extends('Portal_OS.layouts',
     [
         'css'=>'blog',
-        'js'=>'blog',
+        'js'=>'',
         'title'=>'Portal Ouvido e Saúde | Blog'
     ]
 )
