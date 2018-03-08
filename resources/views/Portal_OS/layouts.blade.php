@@ -9,6 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="{{ config('app.locale') }}">
+    @yield('header-metatags')
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ asset('/portal-os/js/lib/core.js') }}"></script>
     {{--<link href="https://unpkg.com/vuetify@1.0.1/dist/vuetify.min.css" rel="stylesheet">--}}
