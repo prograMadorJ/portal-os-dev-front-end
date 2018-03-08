@@ -6,6 +6,15 @@
     ]
 )
 
+@extends('Portal_OS.components.header-metatags',
+    [
+        'metatags' => [
+            'url' => route('blogPost',$post[0]->slug),
+            'description' => $post[0]->resumo
+        ]
+    ]
+)
+
 @extends('Portal_OS.amp.layouts',
     [
         'css' => 'post',
@@ -13,15 +22,6 @@
         'canonRouteName' => 'post',
         'amp_components' => [
             ['lib' => ['name' => '','version'=>'']]
-        ]
-    ]
-)
-
-@extends('Portal_OS.components.header-metatags',
-    [
-        'metatags' => [
-            'url' => route('blogPost',$post[0]->slug),
-            'description' => $post[0]->resumo
         ]
     ]
 )
