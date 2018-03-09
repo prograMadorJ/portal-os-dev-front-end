@@ -40,10 +40,17 @@
             <ul>
                 <h5>SOCIAL</h5>
                 <li>
-                    <a href="#facebook">@include('Portal_OS.components.graphics.icon-blank-facebook')</a>
-                    <a href="#twitter">@include('Portal_OS.components.graphics.icon-blank-twitter')</a>
-                    <a href="#google">@include('Portal_OS.components.graphics.icon-blank-google')</a>
-                    <a href="#whatsapp">@include('Portal_OS.components.graphics.icon-blank-whatsapp')</a>
+                    @include('Portal_OS.components.sharing-panel',
+                     [
+                         'share_url' => route('blogIndex'),
+                         'share_text' => "O portal Ouvido e Saúde é o site onde tem tudo que você precisa saber sobre sua saúde. Acesse agora!",
+                         'share_hashtag' => str_slug('portal ouvido e saúde'),
+                         'icon_facebook' => 'Portal_OS.components.graphics.icon-blank-facebook',
+                         'icon_twitter' => 'Portal_OS.components.graphics.icon-blank-twitter',
+                         'icon_google' => 'Portal_OS.components.graphics.icon-blank-google',
+                         'icon_whatsapp' => 'Portal_OS.components.graphics.icon-blank-whatsapp'
+                     ]
+                    )
                 </li>
             </ul>
         </div>
