@@ -38,6 +38,8 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 //    Route::get('/', 'HomeController@index')->name('home');
 //    Route::get('amp', 'HomeController@index')->name('ampHome');
     });
+
+    Route::post('/send', 'SacController@mailSender');
     /*
      * linhas abaixo comentadas, aguardam implementação futura
      */
