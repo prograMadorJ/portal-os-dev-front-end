@@ -51,7 +51,6 @@
         e.preventDefault();
 
         var lista = {!! $posts !!};
-        // console.log("lista ", lista);
 
         $('#carregar').html("Carregando Mais Artigos");
 
@@ -60,15 +59,8 @@
             method: 'GET',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            // success: function(data) {
-            //     // console.log("data not null", data);
-            //     console.log("access att que deveria ser apendado", data[0].titulo);
-
-            //     $('#blogApp').append(data[0].titulo);
-            //     // console.log("data depois do apend", data);
-
-            //     $('#carregar').html("veja mais");
-            // }
+            success: function(data) {
+            }
         })
         .done(function(res) {
             for(i = 0; i < $(res).length; i++){
@@ -80,25 +72,51 @@
                 var hora = data.getHours();
                 var min = data.getMinutes();
                 var dataFinal = "" + dia + "/" + mes + "/" + ano + " - " + hora;
+
+
+                var media = "" + res[i].media.arquivo;
+                var mediaPath = {!!
+                    asset(
+                        "img/post-img/"
+                        . '+ media +'
+                    )
+                !!}
+
                 var rota = res[i].slug;
+                var rotaPath = {!!
+                    route(
+                        "blogPost",
+                        '+ rota +'
+                    )
+                !!};
+
+                var postTitulo = res[i].titulo;
+                var categorias = res[i].categorias.nome;
+                var resumoPost = res[i].resumo;
+
+                <![CDATA[
 
                 var titulo = '<div class="blog-post__title" ><h3 id="artTitle">'
-                    + res[i].titulo +
+                    + postTitulo +
                 '</h3><span class="blog-post__category">'
-                    + res[i].categorias.nome +
+                    + categorias +
                 '</span><span class="blog-post__date" id="artDate">'
                     + dataFinal +
                 'H</span></div>';
 
-                var imagem = '<div class="blog-post__image" id="artImage"><img src="{{ asset('img/post-img/\'.res[i].media.arquivo') }}"></div>';
+                var imagem = '<div class="blog-post__image" id="artImage">'
+                    '<img src="'+ mediaPath +'">'
+                '</div>';
 
                 var resumo = '<div class="blog-post__resume"><p id="artSumma">'
-                    + res[i].resumo +
+                    + resumoPost +
                 '</p></div>';
 
-                var ref = {{route('blogPost', rota)}};
-                console.log(ref);
-                var link = '<div class="blog-post__link"><a href="'ref'">Leia mais</a></div>';
+                var link = '<div class="blog-post__link">'
+                    '<a href="'+rotaPath+'">'
+                        'Leia mais'
+                    '</a>'
+                '</div>';
                 console.log("LINK",link);
 
                 var social = '<div class="blog-post__social">'
@@ -109,6 +127,7 @@
                 '</div>';
 
                 $('#blogApp').append(titulo, imagem, resumo, link);
+                ]]>
             }
 
             $('#carregar').html("veja mais");

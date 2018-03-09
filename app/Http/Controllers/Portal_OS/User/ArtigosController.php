@@ -28,14 +28,13 @@ class ArtigosController extends Controller
         ->get();
 
         $rank = self::blogPanel();
-        // $mais = $this->loadMore(Request::class );
+
         return view('Portal_OS.pages.blog',
     		compact(
                 'rank',
                 'posts'
     		)
     	);
-        // ->withPosts($posts);
     }
 
     public function categoryFilter($slug) {
@@ -78,21 +77,6 @@ class ArtigosController extends Controller
         $limit = $request->input('limit', 6);
         $skip = $request->input('skip', 6);
 
-        // dd(
-        //     "input skip com 6", $request->input('skip', '6'),
-        //     "input limit com 6", $request->input('limit', '6'),
-        //     "input limit sem 6", $request->input('limit'),
-        //     "input skip sem 6", $request->input('skip'),
-        //     "query skip sem 6", $request->query('skip'),
-        //     "query limit sem 6", $request->query('limit'),
-        //     "query skip com 6", $request->query('skip', '6'),
-        //     "query limit com 6", $request->query('limit', '6'),
-        //     "path url", $request->path(),
-        //     "all request", $request->all(),
-        //     "limit var", $limit,
-        //     "skip var", $skip
-        // );
-
         $posts = Artigo::with('categorias', 'usuario', 'media')
             ->where('status', 1)
             ->orderBy('publicacao', 'desc')
@@ -105,7 +89,6 @@ class ArtigosController extends Controller
     }
 
     public static function blogPanel() {
-        // select count(artigos_estatisticas.id) as total,artigos.id from artigos inner join artigos_estatisticas on artigos.id = artigos_estatisticas.artigo_id GROUP BY artigos.id order by total desc;
         $selecao = DB::table('artigos')
             ->select(DB::raw
                 (
