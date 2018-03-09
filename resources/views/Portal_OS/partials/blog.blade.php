@@ -12,10 +12,18 @@
         @include('Portal_OS.components.blog.general.blogPanel')
     </div>
     <div class="blog__load">
-        <a href="{{ route('loadMore') }}" id="carregar">
+        <a href="#veja-mais" id="carregar">
             Veja mais
         </a>
     </div>
 </div>
 
 @include('Portal_OS.components.blog.main.blogFooter')
+
+<script type="text/javascript">
+    $.event('#carregar','click',function () {
+        HttpRequest.get('{{ route('loadMore') }}?limit=6&skip=6',function (res) {
+            $.append('.blog__main',res.data);
+        });
+    });
+</script>

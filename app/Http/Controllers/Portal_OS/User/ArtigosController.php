@@ -85,7 +85,7 @@ class ArtigosController extends Controller
         ->get();
 
 
-        return json_decode($posts);
+        return view('Portal_OS.components.blog.main.blogPost',compact('posts'))->render();
     }
 
     public static function blogPanel() {

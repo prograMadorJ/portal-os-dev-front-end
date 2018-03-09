@@ -122,7 +122,10 @@ $.removeAllClass = function (elementClassName) {
     por paramentro 'contentHTMLElement'
  */
 $.append = function (elementClassName, contentHTMLElement) {
-    $.appendTo(elementClassName,contentHTMLElement.cloneNode(true));
+    ($.isObject(contentHTMLElement)) ?
+        $.appendTo(elementClassName, contentHTMLElement.cloneNode(true))
+        :
+        $.appendTo(elementClassName, contentHTMLElement);
 }
 /*
     função move/recorta um elemento HTML para dentro de outro
@@ -144,7 +147,10 @@ $.appendTo = function (elementClassName, contentHTMLElement) {
     por paramentro 'contentHTMLElement'
  */
 $.prepend = function (elementClassName, contentHTMLElement) {
-    $.prependTo(elementClassName,contentHTMLElement.cloneNode(true));
+    ($.isObject(contentHTMLElement)) ?
+        $.prependTo(elementClassName, contentHTMLElement.cloneNode(true))
+        :
+        $.prependTo(elementClassName, contentHTMLElement);
 }
 /*
     função move/recorta um elemento HTML para dentro de outro
