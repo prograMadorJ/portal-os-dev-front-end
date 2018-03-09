@@ -27,14 +27,14 @@
             </p>
         </div>
         <div class="blog-post__link">
-            <a href="{{ route('blogPost', $post->slug) }}">
+            <a href="{{ route('blogPost', $post->url) }}">
                 Leia mais
             </a>
         </div>
         <div class="blog-post__social">
            @include('Portal_OS.components.sharing-panel',
             [
-                'share_url' => route('blogPost', $post->slug),
+                'share_url' => route('blogPost', $post->url),
                 'share_text' => $post->resumo,
                 'share_hashtag' => str_slug($post->titulo),
                 'icon_facebook' => 'Portal_OS.components.graphics.icon-facebook',

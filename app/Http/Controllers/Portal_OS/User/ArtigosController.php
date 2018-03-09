@@ -67,7 +67,7 @@ class ArtigosController extends Controller
 
     public function showPost($slug) {
     	$post = Artigo::with('categorias')
-            ->where('slug', $slug)
+            ->where('url', $slug)
         ->get();
 
         $rank = self::blogPanel();
