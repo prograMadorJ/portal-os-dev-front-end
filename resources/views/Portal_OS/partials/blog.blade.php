@@ -1,5 +1,5 @@
 <div class=blog>
-    <div class="blog__main">
+    <div class="blog__main" id="blogApp">
         <h1>
             Blog Ouvido e Saúde
         </h1>
@@ -12,7 +12,7 @@
         @include('Portal_OS.components.blog.general.blogPanel')
     </div>
     <div class="blog__load">
-        <a href="{{ route('loadMore') }}" id="loadMore" onclick="loadMorePosts()">
+        <a href="#veja-mais" id="carregar" class="none">
             Veja mais
         </a>
     </div>
@@ -20,55 +20,20 @@
 
 @include('Portal_OS.components.blog.main.blogFooter')
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-
 <script type="text/javascript">
-    var pgNum = 2;
-    var offFlag = 6;
-    // $(document).ready(function() {
-    //     $.ajax({
-    //         type: 'GET',
-    //         url: "/blog?page=" +pgNum,
-    //         data:{
-    //             [{ $posts }],
-    //             'offset': offFlag * pgNum
-    //         },
-    //         success: function(data) {
-    //             pgNum +=1;
-    //             if(data.length == 0) {
-    //                 $("#loadMore").css("display","none");
-    //                 console.log("NADA MAIS A CARREGAR");
-    //             } else {
-    //                 $('#blogPost').append(data.html);
-    //             }
-    //         }, error: function(data) {
+    var conta = 6;
+    var clique = 0;
 
-    //         },
-    //     })
-
-
-    // });
-
-    function loadMorePosts(e) {
-        e.preventDefault();
-        $.ajax({
-            type: 'GET',
-            url: {{ route('loadMore') }},
-            data: posts,
-            success: function(data) {
-                console.log(data);
-                if(data.length == 0) {
-                    $("#loadMore").css("display","none");
-                    console.log("NADA MAIS A CARREGAR");
-                } else {
-                    $('#blogPost').append(data.html);
-                }
-            }, error : function(data) {
-
-            },
-        })
-    }
+    $.event('#carregar','click',function () {
+        clique++;
+        skip = conta * clique;
+        HttpRequest.get('{{ route('loadMore') }}?limit=6&skip='+skip,function (res) {
+            if(res.data != "") {
+                $.append('.blog__main',res.data);
+            } else {
+                $.replaceAll('.none',"sem mais artigos para carregar");
+                $.css('.none', 'pointer-events: none !important; background-color: lightgrey;');
+            }
+        });
+    });
 </script>

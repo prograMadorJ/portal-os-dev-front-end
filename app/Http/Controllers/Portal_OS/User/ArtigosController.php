@@ -40,7 +40,6 @@ class ArtigosController extends Controller
 //                self::loadMore()
     		)
     	);
-        // ->withPosts($posts);
     }
 
     public function categoryFilter($slug) {
@@ -57,8 +56,6 @@ class ArtigosController extends Controller
         return view(
             'postsFiltrados',
             compact(
-                'categoria',
-                'categoriaFiltro',
                 'postsFiltrados',
                 'rank'
             )
@@ -85,49 +82,21 @@ class ArtigosController extends Controller
     }
 
     public function loadMore(Request $request) {
-        $processo = $this->index();
-        $idArray = $processo->posts->pluck('id');
-        $lastId = $idArray[5];
+        $limit = $request->input('limit', 6);
+        $skip = $request->input('skip', 6);
 
         $posts = Artigo::with('categorias', 'usuario', 'media')
             ->where('status', 1)
-            ->where('id', '<', $lastId)
             ->orderBy('publicacao', 'desc')
-            ->limit(6)
+            ->limit($limit)
+            ->skip($skip)
         ->get();
 
-        $rank = $processo->rank;
 
-        // dd(
-        //     'processo', $processo,
-        //     'idArray', $idArray,
-        //     'lastId', $lastId,
-        //     'posts', $posts,
-        //     'id dos posts', $posts->pluck('id'),
-        //     'rank', $rank,
-        //     'id dos posts do rank', $rank->pluck('id')
-        // );
-        if($request->ajax()) {
-            $processo = $this->loadMore();
-            dd($processo);
-        }
-
-        return redirect(
-            view('Portal_OS.components.blog.main.blogPost',
-                compact(
-                    'posts',
-                    'rank'
-                )
-            )
-        ->render());
-        // compact(
-        //     'posts',
-        //     'rank'
-        // );
+        return view('Portal_OS.components.blog.main.blogPost',compact('posts'))->render();
     }
 
     public static function blogPanel() {
-        // select count(artigos_estatisticas.id) as total,artigos.id from artigos inner join artigos_estatisticas on artigos.id = artigos_estatisticas.artigo_id GROUP BY artigos.id order by total desc;
         $selecao = DB::table('artigos')
             ->select(DB::raw
                 (
