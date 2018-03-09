@@ -1,3 +1,8 @@
+@php
+    $menu = ['home'=>'','indicacao'=>'','blog'=>'','historias'=>'','sac'=>''];
+    ($active) ? $menu[$active] = '--active' : '';
+    $active = (object)$menu;
+@endphp
 <header class="header">
     <div class="header__nav-icon">
         @include('Portal_OS.components.graphics.font-awesome.icon-bars')
