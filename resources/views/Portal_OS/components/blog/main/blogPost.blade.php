@@ -32,12 +32,17 @@
             </a>
         </div>
         <div class="blog-post__social">
-            <a href="#facebook">@include('Portal_OS.components.graphics.icon-facebook')</a>
-            <a href="#twitter">@include('Portal_OS.components.graphics.icon-twitter')</a>
-            <a href="https://plus.google.com/share?url={{ route('blogPost', $post->slug) }}" target="_blank">
-                @include('Portal_OS.components.graphics.icon-google')
-            </a>
-            <a href="#whatsapp">@include('Portal_OS.components.graphics.icon-whatsapp')</a>
+           @include('Portal_OS.components.sharing-panel',
+            [
+                'share_url' => route('blogPost', $post->slug),
+                'share_text' => $post->resumo,
+                'share_hashtag' => str_slug($post->titulo),
+                'icon_facebook' => 'Portal_OS.components.graphics.icon-facebook',
+                'icon_twitter' => 'Portal_OS.components.graphics.icon-twitter',
+                'icon_google' => 'Portal_OS.components.graphics.icon-google',
+                'icon_whatsapp' => 'Portal_OS.components.graphics.icon-whatsapp'
+            ]
+           )
         </div>
     </div>
 @endforeach
