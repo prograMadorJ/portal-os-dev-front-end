@@ -10,7 +10,7 @@
     [
         'metatags' => [
             'url' => route('blogIndex'),
-            'description' => 'Blog Ouvido & Saúde. Tudo o que você precisa saber sobre sua saúde.'
+            'description' => 'Blog Ouvido e Saúde. Tudo o que você precisa saber sobre sua saúde.'
         ]
     ]
 )
