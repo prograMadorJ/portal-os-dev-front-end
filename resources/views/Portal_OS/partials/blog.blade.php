@@ -32,8 +32,7 @@
             if(res.data != "") {
                 $.append('.blog__main',res.data);
             } else {
-                $.css('.none', 'pointer-events: none !important');
-                $.appendTo('#carregar', "Sem Mais Artigos Para Carregar");
+                $.css('.none', 'pointer-events: none !important; background-color: lightgrey;');
             }
         });
     });
