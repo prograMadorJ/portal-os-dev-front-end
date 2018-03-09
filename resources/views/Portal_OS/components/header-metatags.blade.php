@@ -8,7 +8,7 @@
     <meta property="description" content="{{
     isset($metatags) && isset($metatags->description) ?
     $metatags->description :
-    $description_default = "O portal Ouvido & Saúde é o site onde tem tudo que você precisa saber sobre sua saúde. Acesse agora!"
+    $description_default = "O portal Ouvido e Saúde é o site onde tem tudo que você precisa saber sobre sua saúde. Acesse agora!"
 }}"/>
     <meta property="og:description" content="{{
     isset($metatags) && isset($metatags->og_description) ?
