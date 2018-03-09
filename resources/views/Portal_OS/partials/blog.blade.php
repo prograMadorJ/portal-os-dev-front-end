@@ -12,7 +12,7 @@
         @include('Portal_OS.components.blog.general.blogPanel')
     </div>
     <div class="blog__load">
-        <a href="#veja-mais" id="carregar">
+        <a href="#veja-mais" id="carregar" class="none">
             Veja mais
         </a>
     </div>
@@ -21,9 +21,20 @@
 @include('Portal_OS.components.blog.main.blogFooter')
 
 <script type="text/javascript">
+    var conta = 6;
+    var clique = 0;
+
     $.event('#carregar','click',function () {
-        HttpRequest.get('{{ route('loadMore') }}?limit=6&skip=6',function (res) {
-            $.append('.blog__main',res.data);
+        clique++;
+        skip = conta * clique;
+        HttpRequest.get('{{ route('loadMore') }}?limit=6&skip='+skip,function (res) {
+            console.log(res);
+            if(res.data != "") {
+                $.append('.blog__main',res.data);
+            } else {
+                $.css('.none', 'pointer-events: none !important');
+                $.appendTo('#carregar', "Sem Mais Artigos Para Carregar");
+            }
         });
     });
 </script>
