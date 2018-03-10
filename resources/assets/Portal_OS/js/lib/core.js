@@ -82,11 +82,11 @@ $.toNode = function (contentHTMLElement) {
     como uma copia ou não: se for cópia passa pelo parametro 'copy'
     a palavra literal 'copy' se não, não declarar nehum paramentro
  */
-$.insert = function (elementClassName, contentHTMLElement, insertMode,copy) {
+$.insert = function (elementClassName, contentHTMLElement, insertMode, copy) {
     ($.isObject(contentHTMLElement)) ?
-        ((copy||false) ?
-            $(elementClassName).insertAdjacentElement(insertMode, contentHTMLElement.cloneNode(true)):
-            $(elementClassName).insertAdjacentElement(insertMode, contentHTMLElement)):
+        ((copy || false) ?
+            $(elementClassName).insertAdjacentElement(insertMode, contentHTMLElement.cloneNode(true)) :
+            $(elementClassName).insertAdjacentElement(insertMode, contentHTMLElement)) :
         $(elementClassName).insertAdjacentHTML(insertMode, contentHTMLElement)
 }
 /*
@@ -98,6 +98,16 @@ $.css = function (elementClassName, styleCSS) {
     $(elementClassName).setAttribute('style', styleCSS);
 }
 /*
+    função modifica o atributo style de todos os elementos
+    passando o nome da classe ou ID do elemento alvo por parametro 'elementClassName'
+    e passando um texto css em linha por parametro 'styleCSS'
+ */
+$.css.all = function (elementClassName, contentHTMLElement) {
+    $.all(elementClassName).forEach(function (e) {
+        $.css(e,styleCSS);
+    });
+}
+/*
     função reseta o atributo style do elemento
     passando o nome da classe ou ID do elemento alvo
     por paramentro 'elementClassName'
@@ -106,12 +116,32 @@ $.resetCSS = function (elementClassName) {
     $(elementClassName).removeAttribute('style');
 }
 /*
+    função reseta o atributo style de todos os elementos
+    passando o nome da classe ou ID do elemento alvo
+    por paramentro 'elementClassName'
+ */
+$.resetCSS.all = function (elementClassName) {
+    $.all(elementClassName).forEach(function (e) {
+        $.replaceAll(e);
+    });
+}
+/*
     função oculta um elemento
     passando o nome do elemento alvo
     por parametro 'elementClassName'
  */
 $.hidden = function (elementClassName) {
     $.css(elementClassName, 'display:none !important');
+}
+/*
+    função oculta todos os elementos
+    passando o nome do elemento alvo
+    por parametro 'elementClassName'
+ */
+$.hidden.all = function (elementClassName) {
+    $.all(elementClassName).forEach(function (e) {
+        $.hidden(e);
+    });
 }
 /*
     função exibe um elemento que estava oculto
@@ -124,6 +154,18 @@ $.show = function (elementClassName, displayType) {
     $.css(elementClassName, 'display:' + (displayType || 'flex'));
 }
 /*
+    função exibe todos os elementos que estavam oculto
+    passando o nome do elemento alvo
+    por parametro 'elementClassName' e preferencialmente
+    o tipo do atributo css display por parametro 'displayType'
+    caso não use este parametro o valor default é 'flex'
+ */
+$.show.all = function (elementClassName, displayType) {
+    $.all(elementClassName).forEach(function (e) {
+        $.show(e, displayType);
+    });
+}
+/*
     função adiciona uma classe ao atributo class do elemento
     passando o nome da classe ou ID do elemento alvo
     por paramentro 'elementClassName' e o nome da classe a ser adicionada
@@ -131,6 +173,17 @@ $.show = function (elementClassName, displayType) {
  */
 $.addClass = function (elementClassName, className) {
     $(elementClassName).classList.add(className);
+}
+/*
+    função adiciona uma classe ao atributo class de todos os elementos
+    passando o nome da classe ou ID do elemento alvo
+    por paramentro 'elementClassName' e o nome da classe a ser adicionada
+    por parametro 'className'
+ */
+$.addClass.all = function (elementClassName, className) {
+    $.all(elementClassName).forEach(function (e) {
+        $.addClass(e, className);
+    });
 }
 /*
     função remove uma classe do atributo class do elemento
@@ -142,6 +195,17 @@ $.removeClass = function (elementClassName, className) {
     $(elementClassName).classList.remove(className);
 }
 /*
+    função remove uma classe do atributo class de todos os elementos
+    passando o nome da classe ou ID do elemento alvo
+    por paramentro 'elementClassName' e o nome da classe a ser removida
+    por parametro 'className'
+ */
+$.removeClass.all = function (elementClassName, className) {
+    $.all(elementClassName).forEach(function (e) {
+        $.removeClass(e, className);
+    });
+}
+/*
     função remove o atributo class do elemento
     passando o nome da classe ou ID do elemento alvo
     por paramentro 'elementClassName'
@@ -150,13 +214,34 @@ $.removeAllClass = function (elementClassName) {
     $(elementClassName).removeAttribute('class');
 }
 /*
+    função remove o atributo class de todos os elementos
+    passando o nome da classe ou ID do elemento alvo
+    por paramentro 'elementClassName'
+ */
+$.removeAllClass.all = function (elementClassName, className) {
+    $.all(elementClassName).forEach(function (e) {
+        $.removeAllClass(e, className);
+    });
+}
+/*
     função inclui uma copia do elemento HTML para dentro de outro
     após o ultimo elemento filho, passando o nome do elemento alvo
     por parametro 'elementClassName' e o conteudo a ser adicionado
     por paramentro 'contentHTMLElement'
  */
 $.append = function (elementClassName, contentHTMLElement) {
-    $.insert(elementClassName, contentHTMLElement, 'beforeend',copy);
+    $.insert(elementClassName, contentHTMLElement, 'beforeend', copy);
+}
+/*
+    função inclui uma copia do elemento HTML para dentro de todos os outros
+    após o ultimo elemento filho, passando o nome do elemento alvo
+    por parametro 'elementClassName' e o conteudo a ser adicionado
+    por paramentro 'contentHTMLElement'
+ */
+$.append.all = function (elementClassName, contentHTMLElement) {
+    $.all(elementClassName).forEach(function (e) {
+        $.append(e, contentHTMLElement);
+    });
 }
 /*
     função move/recorta um elemento HTML para dentro de outro
@@ -168,13 +253,35 @@ $.appendTo = function (elementClassName, contentHTMLElement) {
     $.insert(elementClassName, contentHTMLElement, 'beforeend');
 }
 /*
+    função move/recorta um elemento HTML para dentro de todos os outros
+    após o ultimo elemento filho, passando o nome do elemento alvo
+    por parametro 'elementClassName' e o conteudo a ser adicionado
+    por paramentro 'contentHTMLElement'
+ */
+$.appendTo.all = function (elementClassName, contentHTMLElement) {
+    $.all(elementClassName).forEach(function (e) {
+        $.appendTo(e, contentHTMLElement);
+    });
+}
+/*
     função inclui uma copia do elemento HTML para dentro de outro
     antes do primeiro elemento filho, passando o nome do elemento alvo
     por parametro 'elementClassName' e o conteudo a ser adicionado
     por paramentro 'contentHTMLElement'
  */
 $.prepend = function (elementClassName, contentHTMLElement) {
-    $.insert(elementClassName,contentHTMLElement,'afterbegin',copy);
+    $.insert(elementClassName, contentHTMLElement, 'afterbegin', copy);
+}
+/*
+    função inclui uma copia do elemento HTML para dentro de todos os outros
+    antes do primeiro elemento filho, passando o nome do elemento alvo
+    por parametro 'elementClassName' e o conteudo a ser adicionado
+    por paramentro 'contentHTMLElement'
+ */
+$.prepend.all = function (elementClassName, contentHTMLElement) {
+    $.all(elementClassName).forEach(function (e) {
+        $.prepend(e, contentHTMLElement);
+    });
 }
 /*
     função move/recorta um elemento HTML para dentro de outro
@@ -183,7 +290,18 @@ $.prepend = function (elementClassName, contentHTMLElement) {
     por paramentro 'contentHTMLElement'
  */
 $.prependTo = function (elementClassName, contentHTMLElement) {
-    $.insert(elementClassName,contentHTMLElement,'afterbegin');
+    $.insert(elementClassName, contentHTMLElement, 'afterbegin');
+}
+/*
+    função move/recorta um elemento HTML para dentro de todos os outros
+    antes do primeiro elemento filho, passando o nome do elemento alvo
+    por parametro 'elementClassName' e o conteudo a ser adicionado
+    por paramentro 'contentHTMLElement'
+ */
+$.prependTo.all = function (elementClassName, contentHTMLElement) {
+    $.all(elementClassName).forEach(function (e) {
+        $.prependTo(e, contentHTMLElement);
+    });
 }
 /*
     função substitui todos os elementos filhos passando o nome
@@ -194,6 +312,16 @@ $.replaceAll = function (elementClassName, contentHTMLElement) {
     $(elementClassName).innerHTML = contentHTMLElement;
 }
 /*
+    função substitui todos os elementos filhos de todos os elementos passando o nome
+    do elemento pai por parametro 'elementClassName'
+    e o conteudo ou elemento substituto por parametro 'contentHTMlElement'
+ */
+$.replaceAll.all = function (elementClassName, contentHTMLElement) {
+    $.all(elementClassName).forEach(function (e) {
+        $.replaceAll(e,contentHTMLElement);
+    });
+}
+/*
     função substitui um elemento passando o nome
     do elemento a ser substituido por parametro 'elementClassName'
     e o conteudo ou elemento substituto por parametro 'contentHTMlElement'
@@ -202,12 +330,32 @@ $.replace = function (elementClassName, contentHTMLElement) {
     $(elementClassName).parentElement.replaceChild($.toNode(contentHTMLElement), $(elementClassName));
 }
 /*
+    função substitui todos os elementos passando o nome
+    do elemento a ser substituido por parametro 'elementClassName'
+    e o conteudo ou elemento substituto por parametro 'contentHTMlElement'
+ */
+$.replace.all = function (elementClassName, contentHTMLElement) {
+    $.all(elementClassName).forEach(function (e) {
+        $.replace(e,contentHTMLElement);
+    });
+}
+/*
     função inclui/adiciona um conteudo ou elemento em posição antecedente a outro elemento
     passando por parametro 'elementClassName' que é o elemento de referencia ao qual será antecedido
     pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
  */
 $.before = function (elementClassName, contentHTMLElement) {
-    $.insert(elementClassName,contentHTMLElement,'beforebegin',copy);
+    $.insert(elementClassName, contentHTMLElement, 'beforebegin', copy);
+}
+/*
+    função inclui/adiciona um conteudo ou elemento em posição antecedente a todos os outros elementos
+    passando por parametro 'elementClassName' que é o elemento de referencia ao qual será antecedido
+    pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
+ */
+$.before.all = function (elementClassName, contentHTMLElement) {
+    $.all(elementClassName).forEach(function (e) {
+        $.before(e,contentHTMLElement);
+    });
 }
 /*
     função move/recorta um conteudo ou elemento para uma posição antecedente a outro elemento
@@ -215,7 +363,17 @@ $.before = function (elementClassName, contentHTMLElement) {
     pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
  */
 $.beforeTo = function (elementClassName, contentHTMLElement) {
-    $.insert(elementClassName,contentHTMLElement,'beforebegin');
+    $.insert(elementClassName, contentHTMLElement, 'beforebegin');
+}
+/*
+    função move/recorta um conteudo ou elemento para uma posição antecedente a todos os outros elementos
+    passando por parametro 'elementClassName' que é o elemento de referencia ao qual será antecedido
+    pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
+ */
+$.beforeTo.all = function (elementClassName, contentHTMLElement) {
+    $.all(elementClassName).forEach(function (e) {
+        $.beforeTo(e,contentHTMLElement);
+    });
 }
 /*
     função inclui/adiciona um conteudo ou elemento em posição precedente a outro elemento
@@ -223,7 +381,17 @@ $.beforeTo = function (elementClassName, contentHTMLElement) {
     pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
  */
 $.after = function (elementClassName, contentHTMLElement) {
-    $.insert(elementClassName,contentHTMLElement,'afterend',copy);
+    $.insert(elementClassName, contentHTMLElement, 'afterend', copy);
+}
+/*
+    função inclui/adiciona um conteudo ou elemento em posição precedente a todos os outros elementos
+    passando por parametro 'elementClassName' que é o elemento de referencia ao qual será precedido
+    pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
+ */
+$.after.all = function (elementClassName, contentHTMLElement) {
+    $.all(elementClassName).forEach(function (e) {
+        $.after(e,contentHTMLElement);
+    });
 }
 /*
     função move/recorta um conteudo ou elemento para uma posição precedente a outro elemento
@@ -231,5 +399,15 @@ $.after = function (elementClassName, contentHTMLElement) {
     pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
  */
 $.afterTo = function (elementClassName, contentHTMLElement) {
-    $.insert(elementClassName,contentHTMLElement,'afterend');
+    $.insert(elementClassName, contentHTMLElement, 'afterend');
+}
+/*
+    função move/recorta um conteudo ou elemento para uma posição precedente a todos os outros elementos
+    passando por parametro 'elementClassName' que é o elemento de referencia ao qual será precedido
+    pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
+ */
+$.afterTo.all = function (elementClassName, contentHTMLElement) {
+    $.all(elementClassName).forEach(function (e) {
+        $.afterTo(e,contentHTMLElement);
+    });
 }
