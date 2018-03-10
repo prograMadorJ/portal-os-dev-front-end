@@ -41,6 +41,15 @@ $ = function (elementClassName) {
         document.querySelector(elementClassName);
 }
 /*
+     função retorna todos os elementos html através do nome da classe
+     ,ID ou o objeto do proprio elemento
+ */
+$.all = function (elementClassName) {
+    return ($.isObject(elementClassName)) ?
+        elementClassName :
+        document.querySelectorAll(elementClassName);
+}
+/*
     função adiciona listeners ao elemento html através do nome da classe
     ou ID do elemento alvo por paramentro 'elementClassName'
     para executar um evento passado seu tipo por parametro 'eventType'
@@ -54,6 +63,31 @@ $.event = function (elementClassName, eventType, callback) {
  */
 $.isObject = function (element) {
     return (typeof element !== null && typeof element === 'object');
+}
+/*
+    função retorna a converssão de um conteudo ou elemento
+    em conteudo ou elemento de tipo filho de um elemento (childNode)
+ */
+$.toNode = function (contentHTMLElement) {
+    var content = document.createElement('div');
+    content.innerHTML = contentHTMLElement;
+    return content;
+}
+/*
+    função insere um conteudo ou elemento em uma posição determinada
+    passando o nome do elemento como ponto referencial por parametro
+    'elementClassName' e o conteudo ou elemento a ser inserido por
+    paramentro 'contentHTMLElement' e modo de insersão por parametro
+    'insertMode' e como opicional se o conteudo ou elemento será inserido
+    como uma copia ou não: se for cópia passa pelo parametro 'copy'
+    a palavra literal 'copy' se não, não declarar nehum paramentro
+ */
+$.insert = function (elementClassName, contentHTMLElement, insertMode,copy) {
+    ($.isObject(contentHTMLElement)) ?
+        ((copy||false) ?
+            $(elementClassName).insertAdjacentElement(insertMode, contentHTMLElement.cloneNode(true)):
+            $(elementClassName).insertAdjacentElement(insertMode, contentHTMLElement)):
+        $(elementClassName).insertAdjacentHTML(insertMode, contentHTMLElement)
 }
 /*
     função modifica o atributo style do elemento
@@ -122,10 +156,7 @@ $.removeAllClass = function (elementClassName) {
     por paramentro 'contentHTMLElement'
  */
 $.append = function (elementClassName, contentHTMLElement) {
-    ($.isObject(contentHTMLElement)) ?
-        $.appendTo(elementClassName, contentHTMLElement.cloneNode(true))
-        :
-        $.appendTo(elementClassName, contentHTMLElement);
+    $.insert(elementClassName, contentHTMLElement, 'beforeend',copy);
 }
 /*
     função move/recorta um elemento HTML para dentro de outro
@@ -134,11 +165,7 @@ $.append = function (elementClassName, contentHTMLElement) {
     por paramentro 'contentHTMLElement'
  */
 $.appendTo = function (elementClassName, contentHTMLElement) {
-    ($.isObject(contentHTMLElement)) ?
-        $(elementClassName).insertAdjacentElement('beforeend', contentHTMLElement)
-        :
-        $(elementClassName).insertAdjacentHTML('beforeend', contentHTMLElement)
-
+    $.insert(elementClassName, contentHTMLElement, 'beforeend');
 }
 /*
     função inclui uma copia do elemento HTML para dentro de outro
@@ -147,10 +174,7 @@ $.appendTo = function (elementClassName, contentHTMLElement) {
     por paramentro 'contentHTMLElement'
  */
 $.prepend = function (elementClassName, contentHTMLElement) {
-    ($.isObject(contentHTMLElement)) ?
-        $.prependTo(elementClassName, contentHTMLElement.cloneNode(true))
-        :
-        $.prependTo(elementClassName, contentHTMLElement);
+    $.insert(elementClassName,contentHTMLElement,'afterbegin',copy);
 }
 /*
     função move/recorta um elemento HTML para dentro de outro
@@ -159,17 +183,14 @@ $.prepend = function (elementClassName, contentHTMLElement) {
     por paramentro 'contentHTMLElement'
  */
 $.prependTo = function (elementClassName, contentHTMLElement) {
-    ($.isObject(contentHTMLElement)) ?
-        $(elementClassName).insertAdjacentElement('afterbegin', contentHTMLElement)
-        :
-        $(elementClassName).insertAdjacentHTML('afterbegin', contentHTMLElement)
+    $.insert(elementClassName,contentHTMLElement,'afterbegin');
 }
 /*
     função substitui todos os elementos filhos passando o nome
     do elemento pai por parametro 'elementClassName'
     e o conteudo ou elemento substituto por parametro 'contentHTMlElement'
  */
-$.replaceAll = function (elementClassName,contentHTMLElement) {
+$.replaceAll = function (elementClassName, contentHTMLElement) {
     $(elementClassName).innerHTML = contentHTMLElement;
 }
 /*
@@ -177,10 +198,38 @@ $.replaceAll = function (elementClassName,contentHTMLElement) {
     do elemento a ser substituido por parametro 'elementClassName'
     e o conteudo ou elemento substituto por parametro 'contentHTMlElement'
  */
-$.replace = function (elementClassName,contentHTMLElement) {
-    var parent = $(elementClassName).parentElement;
-    var child = $(elementClassName);
-    var content = document.createElement('div');
-    content.innerHTML = contentHTMLElement;
-    parent.replaceChild(content,child);
+$.replace = function (elementClassName, contentHTMLElement) {
+    $(elementClassName).parentElement.replaceChild($.toNode(contentHTMLElement), $(elementClassName));
+}
+/*
+    função inclui/adiciona um conteudo ou elemento em posição antecedente a outro elemento
+    passando por parametro 'elementClassName' que é o elemento de referencia ao qual será antecedido
+    pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
+ */
+$.before = function (elementClassName, contentHTMLElement) {
+    $.insert(elementClassName,contentHTMLElement,'beforebegin',copy);
+}
+/*
+    função move/recorta um conteudo ou elemento para uma posição antecedente a outro elemento
+    passando por parametro 'elementClassName' que é o elemento de referencia ao qual será antecedido
+    pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
+ */
+$.beforeTo = function (elementClassName, contentHTMLElement) {
+    $.insert(elementClassName,contentHTMLElement,'beforebegin');
+}
+/*
+    função inclui/adiciona um conteudo ou elemento em posição precedente a outro elemento
+    passando por parametro 'elementClassName' que é o elemento de referencia ao qual será precedido
+    pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
+ */
+$.after = function (elementClassName, contentHTMLElement) {
+    $.insert(elementClassName,contentHTMLElement,'afterend',copy);
+}
+/*
+    função move/recorta um conteudo ou elemento para uma posição precedente a outro elemento
+    passando por parametro 'elementClassName' que é o elemento de referencia ao qual será precedido
+    pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
+ */
+$.afterTo = function (elementClassName, contentHTMLElement) {
+    $.insert(elementClassName,contentHTMLElement,'afterend');
 }
