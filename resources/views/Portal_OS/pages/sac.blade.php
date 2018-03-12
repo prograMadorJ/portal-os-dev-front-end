@@ -18,6 +18,13 @@
     ]
 )
 
+@extends('Portal_OS.components.scripts',[
+    'modules'=>
+    [
+        'form'
+    ]
+])
+
 @section('header')
     @include('Portal_OS.components.header',
     [

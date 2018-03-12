@@ -45,6 +45,3 @@
     {{--</div>--}}
     {{--</div>--}}
 </header>
-<script type="text/javascript">
-    $.toggleClick('.header__nav-icon');
-</script>

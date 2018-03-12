@@ -36,6 +36,12 @@ gulp.task('js', function () {
         .pipe(minify_js())
         // .pipe(browserify())
         .pipe(gulp.dest(dest_dir + '/js/lib'));
+    gulp.src([
+        src_dir + '/js/lib/modules/*.js'
+    ])
+        .pipe(minify_js())
+        // .pipe(browserify())
+        .pipe(gulp.dest(dest_dir + '/js/lib'));
 });
 gulp.task('dev', function () {
     gulp.src(src_dir + 'sass/pages/*.scss')

@@ -59,9 +59,13 @@
         </div>
     </form>
 </div>
-<script src="{{asset('portal-os/js/lib/forms.js')}}"></script>
+
+
 <script type="text/javascript">
-    forms.textField('#name');
-    forms.phoneField('#phone');
-    forms.cityStateField('#city');
+    $.event('form','click',function () {
+        form.textField('#name');
+        form.phoneField('#phone');
+        form.cityStateField('#city');
+    });
 </script>
+

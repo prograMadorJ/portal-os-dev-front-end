@@ -17,18 +17,28 @@
     ]
 )
 
-@section('header')
-    @include('Portal_OS.components.header',
+@extends('Portal_OS.components.scripts',[
+    'modules'=>
     [
-        'title' => 'blog',
-        'active'=> 'blog'
-    ])
+        'http-request',
+        'append',
+        'replace',
+        'css'
+    ]
+])
+
+@section('header')
+   @include('Portal_OS.components.header',
+   [
+       'title' => 'blog',
+       'active'=> 'blog'
+   ])
 @endsection
 
 @section('content')
-    @include('Portal_OS.partials.blog')
+   @include('Portal_OS.partials.blog')
 @endsection
 
 @section('footer')
-    @include('Portal_OS.components.footer')
+   @include('Portal_OS.components.footer')
 @endsection
