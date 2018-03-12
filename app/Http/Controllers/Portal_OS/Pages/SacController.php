@@ -29,28 +29,21 @@ class SacController extends Controller
      */
     public function index(Request $request)
     {
-        // $estadoTeste = Estado::where('id_estado', 26)->with('cidades')->get();
-
-        // $cidadesTeste = Cidade::where('id_estado', 26)->with('estado')->take(3)->get();
-
-        // dd(
-        //     "São Paulo", $estadoTeste,
-        //     "cidades SP", $cidadesTeste,
-        //     "acessa estado", $cidadesTeste[0]->estado,
-        //     "acessa cid", $estadoTeste[0]->cidades[1]->descricao
-        // );
-
         $estados = Estado::with('cidades')->get();
-
-        $estadoId = $request->input('estadoId');
-        $cidade = Cidade::where('id_estado', '=', $estadoId);
 
         return view('Portal_OS.pages.sac',
             compact(
-                'estados',
-                'cidades'
+                'estados'
             )
         );
+    }
+
+    public function getCity(Request $request) {
+        $estadoId = $request->input('estadoId');
+
+        $cidades = Cidade::where('id_estado', '=', $estadoId)->get();
+
+        return $cidades;
     }
 
     public function mailSender(Request $request) {

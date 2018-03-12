@@ -66,6 +66,7 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
     Route::prefix('/sac')->group(function () {
         Route::get('/','SacController@index')->name('sac');
         Route::get('/amp','SacController@index')->name('ampSac');
+        Route::get('/getUF', 'SacController@getCity')->name('extCity');
         Route::post('/send', 'SacController@mailSender')->name('sendSac');
     });
     /*

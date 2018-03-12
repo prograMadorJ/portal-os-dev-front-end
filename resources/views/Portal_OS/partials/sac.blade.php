@@ -68,7 +68,7 @@
         </div>
 
         <div class="form__group">
-            <select name="cidade" id="cidade">
+            <select name="cidade" id="cidade" class="select-cidade">
                 <option disabled="true" selected="true">
                     Selecione Sua Cidade
                 </option>
@@ -88,30 +88,19 @@
     </form>
 </div>
 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="{{ asset('/portal-os/js/lib/core.js') }}"></script>
 <script type="text/javascript">
-    $.event("#select-estado", "change", function() {
-        var estadoId = document.getElementById("select-estado").value;
-        console.log("VALOR", estadoId);
-        HttpRequest.get('{{ route('sac') }}?estadoId='+estadoId, function(res){
-            console.log("RES", res);
-            console.log("RES.DATA", res.data);
+    $.event('#select-estado', 'change', function() {
+        estadoId = document.getElementById("select-estado").value;
+
+        HttpRequest.get('{{ route('extCity') }}?estadoId='+estadoId, function(res){
+            $.replaceAll('.select-cidade',"");
+
+            for(i = 0; i < (res.data).length; i++) {
+                opt = '<option value="'+res.data[i].id_cidade+'">'+res.data[i].descricao+'</option>';
+                $.append('.select-cidade', opt);
+            }
         });
     });
-
-    // function extrairValor() {
-
-    //     HttpRequest.get('{ route('sac') }}?estadoId='+estadoId, function(res) {
-    //         console.log(res);
-    //     });
-    // };
-
-    // HttpRequest.get('{ route('loadMore') }}?limit=6&skip='+skip,function (res) {
-    //     if(res.data != "") {
-    //         $.append('.blog__main',res.data);
-    //     } else {
-    //         $.replaceAll('.none',"sem mais artigos para carregar");
-    //         $.css('.none', 'pointer-events: none !important; background-color: lightgrey;');
-    //     }
-    // });
 </script>
