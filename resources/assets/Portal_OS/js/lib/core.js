@@ -45,7 +45,7 @@ $ = function (elementClassName) {
      ,ID ou o objeto do proprio elemento.O retorno é em formato Array
  */
 $.all = function (elementClassName) {
-    return ($(elementClassName)!==null) ?
+    return ($(elementClassName) !== null) ?
         Array.from(document.querySelectorAll(elementClassName)) : elementClassName;
 }
 /*
@@ -69,9 +69,9 @@ $._isObject = function (element) {
     passado por paramentro 'callback' e passando um conteudo ou elemento
     para o paramentro da função callback pelo parametro 'contentHTMLElement
  */
-$._bindArray = function(array,contentHTMLElement,callback) {
-    array.forEach(function (e,i) {
-        callback(e,(Array.isArray(contentHTMLElement))?contentHTMLElement[i]:contentHTMLElement);
+$._applyEach = function (array, contentHTMLElement, callback) {
+    array.forEach(function (e, i) {
+        callback(e, (Array.isArray(contentHTMLElement)) ? contentHTMLElement[i] : contentHTMLElement);
     });
 };
 /*
@@ -82,6 +82,32 @@ $._toNode = function (contentHTMLElement) {
     var content = document.createElement('div');
     content.innerHTML = contentHTMLElement;
     return content;
+}
+/*
+    função adiciona um atributo ao um elemento
+    passando o nome do elemento por parametro 'elementClassName'
+    e passando um objeto '{chave:valor}' por parametro 'attributes'
+    com o nome por parametro 'name' e o valor por parametro 'value'
+ */
+$.addAttribute = function (elementClassName, attributes) {
+    Object.keys(attributes).map(function (key) {
+        $(elementClassName).setAttribute(key,attributes[key]);
+    });
+}
+/*
+    função adiciona um atributo a todos os elementos
+    passando o nome do elemento por parametro 'elementClassName'
+    e passando um objeto '{chave:valor}' por parametro 'attributes'
+    com o nome por parametro 'name' e o valor por parametro 'value'
+ */
+$.addAttribute.all = function (elementClassName, attributes) {
+    $._applyEach($.all(elementClassName), attributes, $.addAttribute);
+}
+$.getAttribute = function (elementClassName,attributeName) {
+    return $(elementClassName).getAttribute(attributeName);
+}
+$.getAttribute.all = function (elementClassName, attributes) {
+    $._applyEach($.all(elementClassName), attributes, $.getAttribute);
 }
 /*
     função insere um conteudo ou elemento em uma posição determinada
@@ -114,7 +140,7 @@ $.css = function (elementClassName, styleCSS) {
  */
 $.css.all = function (elementClassName, contentHTMLElement) {
     $.all(elementClassName).forEach(function (e) {
-        $.css(e,styleCSS);
+        $.css(e, styleCSS);
     });
 }
 /*
@@ -171,7 +197,7 @@ $.show = function (elementClassName, displayType) {
     caso não use este parametro o valor default é 'flex'
  */
 $.show.all = function (elementClassName, displayType) {
-    $._bindArray($.all(elementClassName),contentHTMLElement,$.show);
+    $._applyEach($.all(elementClassName), contentHTMLElement, $.show);
 }
 /*
     função adiciona uma classe ao atributo class do elemento
@@ -189,7 +215,7 @@ $.addClass = function (elementClassName, className) {
     por parametro 'className'
  */
 $.addClass.all = function (elementClassName, className) {
-    $._bindArray($.all(elementClassName),contentHTMLElement,$.addClass);
+    $._applyEach($.all(elementClassName), contentHTMLElement, $.addClass);
 }
 /*
     função remove uma classe do atributo class do elemento
@@ -207,7 +233,7 @@ $.removeClass = function (elementClassName, className) {
     por parametro 'className'
  */
 $.removeClass.all = function (elementClassName, className) {
-    $._bindArray($.all(elementClassName),contentHTMLElement,$.removeClass);
+    $._applyEach($.all(elementClassName), contentHTMLElement, $.removeClass);
 }
 /*
     função remove o atributo class do elemento
@@ -223,7 +249,7 @@ $.removeAllClass = function (elementClassName) {
     por paramentro 'elementClassName'
  */
 $.removeAllClass.all = function (elementClassName, className) {
-    $._bindArray($.all(elementClassName),contentHTMLElement,$.removeAllClass);
+    $._applyEach($.all(elementClassName), contentHTMLElement, $.removeAllClass);
 }
 /*
     função inclui uma copia do elemento HTML para dentro de outro
@@ -241,7 +267,7 @@ $.append = function (elementClassName, contentHTMLElement) {
     por paramentro 'contentHTMLElement'
  */
 $.append.all = function (elementClassName, contentHTMLElement) {
-    $._bindArray($.all(elementClassName),contentHTMLElement,$.append);
+    $._applyEach($.all(elementClassName), contentHTMLElement, $.append);
 }
 /*
     função move/recorta um elemento HTML para dentro de outro
@@ -259,7 +285,7 @@ $.appendTo = function (elementClassName, contentHTMLElement) {
     por paramentro 'contentHTMLElement'
  */
 $.appendTo.all = function (elementClassName, contentHTMLElement) {
-    $._bindArray($.all(elementClassName),contentHTMLElement,$.appendTo);
+    $._applyEach($.all(elementClassName), contentHTMLElement, $.appendTo);
 }
 /*
     função inclui uma copia do elemento HTML para dentro de outro
@@ -277,7 +303,7 @@ $.prepend = function (elementClassName, contentHTMLElement) {
     por paramentro 'contentHTMLElement'
  */
 $.prepend.all = function (elementClassName, contentHTMLElement) {
-    $._bindArray($.all(elementClassName),contentHTMLElement,$.prepend);
+    $._applyEach($.all(elementClassName), contentHTMLElement, $.prepend);
 }
 /*
     função move/recorta um elemento HTML para dentro de outro
@@ -295,7 +321,7 @@ $.prependTo = function (elementClassName, contentHTMLElement) {
     por paramentro 'contentHTMLElement'
  */
 $.prependTo.all = function (elementClassName, contentHTMLElement) {
-    $._bindArray($.all(elementClassName),contentHTMLElement,$.prependTo);
+    $._applyEach($.all(elementClassName), contentHTMLElement, $.prependTo);
 }
 /*
     função substitui todos os elementos filhos passando o nome
@@ -311,7 +337,7 @@ $.replaceAll = function (elementClassName, contentHTMLElement) {
     e o conteudo ou elemento substituto por parametro 'contentHTMlElement'
  */
 $.replaceAll.all = function (elementClassName, contentHTMLElement) {
-    $._bindArray($.all(elementClassName),contentHTMLElement,$.replaceAll);
+    $._applyEach($.all(elementClassName), contentHTMLElement, $.replaceAll);
 }
 /*
     função substitui um elemento passando o nome
@@ -327,7 +353,7 @@ $.replace = function (elementClassName, contentHTMLElement) {
     e o conteudo ou elemento substituto por parametro 'contentHTMlElement'
  */
 $.replace.all = function (elementClassName, contentHTMLElement) {
-    $._bindArray($.all(elementClassName),contentHTMLElement,$.replace);
+    $._applyEach($.all(elementClassName), contentHTMLElement, $.replace);
 
 }
 /*
@@ -344,7 +370,7 @@ $.before = function (elementClassName, contentHTMLElement) {
     pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
  */
 $.before.all = function (elementClassName, contentHTMLElement) {
-    $._bindArray($.all(elementClassName),contentHTMLElement,$.before);
+    $._applyEach($.all(elementClassName), contentHTMLElement, $.before);
 }
 /*
     função move/recorta um conteudo ou elemento para uma posição antecedente a outro elemento
@@ -360,7 +386,7 @@ $.beforeTo = function (elementClassName, contentHTMLElement) {
     pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
  */
 $.beforeTo.all = function (elementClassName, contentHTMLElement) {
-    $._bindArray($.all(elementClassName),contentHTMLElement,$.beforeTo);
+    $._applyEach($.all(elementClassName), contentHTMLElement, $.beforeTo);
 }
 /*
     função inclui/adiciona um conteudo ou elemento em posição precedente a outro elemento
@@ -376,7 +402,7 @@ $.after = function (elementClassName, contentHTMLElement) {
     pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
  */
 $.after.all = function (elementClassName, contentHTMLElement) {
-    $._bindArray($.all(elementClassName),contentHTMLElement,$.after);
+    $._applyEach($.all(elementClassName), contentHTMLElement, $.after);
 }
 /*
     função move/recorta um conteudo ou elemento para uma posição precedente a outro elemento
@@ -392,5 +418,5 @@ $.afterTo = function (elementClassName, contentHTMLElement) {
     pelo conteudo ou elemento passando por parametro 'contentHTMLElement'
  */
 $.afterTo.all = function (elementClassName, contentHTMLElement) {
-    $._bindArray($.all(elementClassName),contentHTMLElement,$.afterTo);
+    $._applyEach($.all(elementClassName), contentHTMLElement, $.afterTo);
 }

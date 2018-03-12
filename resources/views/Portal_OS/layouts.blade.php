@@ -12,6 +12,8 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ asset('/portal-os/js/lib/core.js') }}"></script>
     {{--<link href="https://unpkg.com/vuetify@1.0.1/dist/vuetify.min.css" rel="stylesheet">--}}
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     @if($amp_status)
         @yield('amp-head')
     @else
