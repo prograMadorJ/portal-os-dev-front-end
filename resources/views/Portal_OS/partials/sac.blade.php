@@ -89,10 +89,26 @@
 </div>
 
 <script type="text/javascript">
-    document.getElementById("select-estado").addEventListener("change", extrairValor);
-
-    function extrairValor() {
+    var inicio = document.getElementById("select-estado");
+    $.event("select-estado", "change", function() {
         var estadoId = document.getElementById("select-estado").value;
         console.log("VALOR", estadoId);
-    };
+
+    });
+
+    // function extrairValor() {
+
+    //     HttpRequest.get('{ route('sac') }}?estadoId='+estadoId, function(res) {
+    //         console.log(res);
+    //     });
+    // };
+
+    // HttpRequest.get('{ route('loadMore') }}?limit=6&skip='+skip,function (res) {
+    //     if(res.data != "") {
+    //         $.append('.blog__main',res.data);
+    //     } else {
+    //         $.replaceAll('.none',"sem mais artigos para carregar");
+    //         $.css('.none', 'pointer-events: none !important; background-color: lightgrey;');
+    //     }
+    // });
 </script>
