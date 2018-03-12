@@ -88,12 +88,15 @@
     </form>
 </div>
 
+<script src="{{ asset('/portal-os/js/lib/core.js') }}"></script>
 <script type="text/javascript">
-    var inicio = document.getElementById("select-estado");
-    $.event("select-estado", "change", function() {
+    $.event("#select-estado", "change", function() {
         var estadoId = document.getElementById("select-estado").value;
         console.log("VALOR", estadoId);
-
+        HttpRequest.get('{{ route('sac') }}?estadoId='+estadoId, function(res){
+            console.log("RES", res);
+            console.log("RES.DATA", res.data);
+        });
     });
 
     // function extrairValor() {
