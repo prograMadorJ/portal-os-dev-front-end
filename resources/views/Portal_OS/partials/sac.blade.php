@@ -24,19 +24,19 @@
         {{ csrf_field() }}
         <div class="form__group">
             <input type="text" name="nome" id="nome" placeholder="Nome"
-                   pattern="[A-Za-z]+" maxlength="50" required>
+                   pattern="[A-Za-z]+" maxlength="50" required autocomplete="off">
         </div>
 
         <div class="form__group">
             <input type="text" name="telefone" id="telefone" placeholder="Whatsapp ou Telefone (99)99999-9999"
                    maxlength="15"
                    pattern="^\([1-9]{2}\)\s[0-9]{5}-[0-9]{4}$|^\([1-9]{2}\)\s[0-9]{4}-[0-9]{4}$"
-                   required>
+                   required autocomplete="off">
         </div>
 
         <div class="form__group">
             <input type="email" name="email" id="email" placeholder="E-Mail"
-                   maxlength="100" required>
+                   maxlength="100" required autocomplete="off">
         </div>
 
         <div class="form__group">
@@ -55,8 +55,25 @@
         </div>
 
         <div class="form__group">
-            <input type="text" name="cidade" id="city" placeholder="Cidade"
-                   pattern="[A-Za-z]+" maxlength="50" required>
+            <select name="estado" id="select-estado" required>
+                <option disabled="true" selected="true">
+                    Selecione Seu Estado
+                </option>
+                @foreach($estados as $estado)
+                    <option name="estado" value="{{ $estado->id_estado }}" id="option-estado">
+                        {{ $estado->descricao }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form__group">
+            <select name="cidade" id="cidade">
+                <option disabled="true" selected="true">
+                    Selecione Sua Cidade
+                </option>
+
+            </select>
         </div>
 
         <div class="form__group">
@@ -70,3 +87,12 @@
         </div>
     </form>
 </div>
+
+<script type="text/javascript">
+    document.getElementById("select-estado").addEventListener("change", extrairValor);
+
+    function extrairValor() {
+        var estadoId = document.getElementById("select-estado").value;
+        console.log("VALOR", estadoId);
+    };
+</script>

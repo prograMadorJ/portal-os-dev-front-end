@@ -27,7 +27,7 @@ class SacController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // $estadoTeste = Estado::where('id_estado', 26)->with('cidades')->get();
 
@@ -42,25 +42,23 @@ class SacController extends Controller
 
         $estados = Estado::with('cidades')->get();
 
+        $estadoId = $request->input('estadoId');
+        $cidade = Cidade::where('id_estado', '=', $estadoId);
+
         return view('Portal_OS.pages.sac',
             compact(
-                'estados'
+                'estados',
+                'cidades'
             )
         );
     }
 
     public function mailSender(Request $request) {
-        // name
-        // phone
-        // email
-        // specialty
-        // cidade
-        // comment
-
         $messages = [
             'nome.required' => 'Campo obrigatório!',
             'telefone.required' => 'Campo obrigatório!',
             'email.required' => 'Campo obrigatório!',
+            'estado.required' => 'campo Obrigatório!',
             'cidade.required' => 'Campo obrigatório!'
         ];
 
