@@ -9,15 +9,26 @@
         </h3>
     </div>
 
-    <form class="sac__form" action-xhr="javascript:" method="POST" target="_top">
+    @if(session('error'))
+        <div class="message-error">
+            {{ session('error') }}
+        </div>
+    @endif
+    @if(session('success'))
+        <div class="message-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <form class="sac__form" action="{{ route('sendSac') }}" action-xhr="javascript:" method="POST" target="_top">
         {{ csrf_field() }}
         <div class="form__group">
-            <input type="text" name="name" id="name" placeholder="Nome"
+            <input type="text" name="nome" id="nome" placeholder="Nome"
                    pattern="[A-Za-z]+" maxlength="50" required>
         </div>
 
         <div class="form__group">
-            <input type="text" name="phone" id="phone" placeholder="Whatsapp ou Telefone (99)99999-9999"
+            <input type="text" name="telefone" id="telefone" placeholder="Whatsapp ou Telefone (99)99999-9999"
                    maxlength="15"
                    pattern="^\([1-9]{2}\)\s[0-9]{5}-[0-9]{4}$|^\([1-9]{2}\)\s[0-9]{4}-[0-9]{4}$"
                    required>
@@ -29,7 +40,7 @@
         </div>
 
         <div class="form__group">
-            <select name="specialty" id="specialty">
+            <select name="especialidade" id="especialidade">
                 <option disabled="true" selected="true">
                     Especialidade
                 </option>
@@ -49,7 +60,7 @@
         </div>
 
         <div class="form__group">
-            <textarea name="comment" id="" cols="30" rows="3" placeholder="Comentário"></textarea>
+            <textarea name="comentario" id="comentario" cols="30" rows="3" placeholder="Comentário"></textarea>
         </div>
 
         <div class="form__group">

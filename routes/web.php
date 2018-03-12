@@ -39,7 +39,6 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 //    Route::get('amp', 'HomeController@index')->name('ampHome');
     });
 
-    Route::post('/send', 'SacController@mailSender');
     /*
      * linhas abaixo comentadas, aguardam implementação futura
      */
@@ -67,6 +66,7 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
     Route::prefix('/sac')->group(function () {
         Route::get('/','SacController@index')->name('sac');
         Route::get('/amp','SacController@index')->name('ampSac');
+        Route::post('/send', 'SacController@mailSender')->name('sendSac');
     });
     /*
      * linhas abaixo comentadas, aguardam implementação futura

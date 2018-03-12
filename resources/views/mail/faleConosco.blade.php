@@ -7,28 +7,46 @@
 	</head>
 
 	<body>
-		<p>
-		    Nome: {{ $contato->nome }}
+		<strong>
+			<p nome="nome">
+		    Nome:
+		</strong>
+		    {{ $nome }}
 		</p>
 
-		<p>
-		    WhatsApp ou Telefone: {{ $contato->telefone }}
+		<strong>
+			<p nome="telefone">
+		    WhatsApp ou Telefone:
+		</strong>
+			{{ $telefone }}
 		</p>
 
-		<p>
-		    E-mail: {{ $contato->email }}
+		<strong>
+			<p nome="email">
+		    E-mail:
+		</strong>
+			 {{ $email }}
 		</p>
 
-		<p>
-			Especialidade: {{ $contato->especialidade }}
+		<strong>
+			<p nome="especialidade">
+			Especialidade:
+		</strong>
+			{{ $especialidade }}
 		</p>
 
-		<p>
-		    Cidade: {{ $contato->cidade }}
+		<strong>
+			<p nome="cidade">
+		    Cidade:
+		</strong>
+			{{ $cidade }}
 		</p>
 
-		<p>
-		    Comentário: {{ $contato->conteudo }}
+		<strong>
+			<p nome="comentario">
+		    Comentário:
+		</strong>
+			{{ $conteudo }}
 		</p>
 	</body>
 </html>
