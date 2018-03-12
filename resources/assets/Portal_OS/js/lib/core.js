@@ -109,6 +109,9 @@ $.getAttribute = function (elementClassName,attributeName) {
 $.getAttribute.all = function (elementClassName, attributes) {
     $._applyEach($.all(elementClassName), attributes, $.getAttribute);
 }
+$.hasAttribute = function (elementClassName,attributeName) {
+    return $(elementClassName).hasAttribute(attributeName);
+}
 /*
     função insere um conteudo ou elemento em uma posição determinada
     passando o nome do elemento como ponto referencial por parametro
@@ -419,4 +422,22 @@ $.afterTo = function (elementClassName, contentHTMLElement) {
  */
 $.afterTo.all = function (elementClassName, contentHTMLElement) {
     $._applyEach($.all(elementClassName), contentHTMLElement, $.afterTo);
+}
+
+$.clicked = function (elementClassName) {
+    $.event(elementClassName,'click',function () {
+        $.addAttribute(elementClassName,{'clicked':''});
+    });
+}
+
+$.toggleClick = function (elementClassName) {
+    $.event(elementClassName,'click',function () {
+        if($.hasAttribute(elementClassName, 'clicked')) {
+            $.addAttribute(elementClassName, {'unclicked': ''})
+            $(elementClassName).removeAttribute('clicked')
+        }else {
+            $.clicked(elementClassName);
+            $(elementClassName).removeAttribute('unclicked')
+        }
+    });
 }

@@ -46,9 +46,5 @@
     {{--</div>--}}
 </header>
 <script type="text/javascript">
-    var c
-    $.event('.header__nav-icon', 'click', function () {
-        c = $.getAttribute(this,'clicked');
-        $.addAttribute(this, {'clicked': !Object(c)});
-    });
+    $.toggleClick('.header__nav-icon');
 </script>
