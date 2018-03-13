@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Portal_OS\Pages;
 
 use Illuminate\Http\Request;
 use Validator;
@@ -9,6 +9,7 @@ use App\Cadastro;
 use App\GDO\Estado;
 use App\GDO\Cidade;
 
+use App\Http\Controllers\Controller;
 
 class SacController extends Controller
 {
