@@ -2,7 +2,7 @@ form.textField('#nome');
 form.phoneField('#telefone');
 $.event('#select-estado', 'change', function() {
     estadoId = $("#select-estado").value;
-
+    $.replaceAll('.select-cidade','<option value="">carregando cidades...</option>');
     HttpRequest.get($.route('#select-estado')+'?estadoId='+estadoId, function(res){
         $.removeAll('.select-cidade');
 
