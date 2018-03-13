@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Portal_OS\User;
 
 use App\Http\Controllers\Controller;
 use App\Depoimento;

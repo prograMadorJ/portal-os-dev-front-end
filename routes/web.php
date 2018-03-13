@@ -39,23 +39,23 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 //});
 
     Route::prefix('/blog')->group(function () {
-        Route::get('/', 'User\ArtigosController@index')->name('blogIndex');
-        Route::get('/categoria/{slug}', 'User\ArtigosController@categoryFilter')->name('categoriasBlog');
-        Route::get('/artigo/{slug}', 'User\ArtigosController@showPost')->name('blogPost');
-        Route::get('/getRequest', 'User\ArtigosController@loadMore')->name('loadMore');
-        Route::get('/amp', 'User\ArtigosController@index')->name('ampBlog');
+        Route::get('/', 'Portal_OS\User\ArtigosController@index')->name('blogIndex');
+        Route::get('/categoria/{slug}', 'Portal_OS\User\ArtigosController@categoryFilter')->name('categoriasBlog');
+        Route::get('/artigo/{slug}', 'Portal_OS\User\ArtigosController@showPost')->name('blogPost');
+        Route::get('/getRequest', 'Portal_OS\User\ArtigosController@loadMore')->name('loadMore');
+        Route::get('/amp', 'Portal_OS\User\ArtigosController@index')->name('ampBlog');
     });
 
     Route::prefix('/historias')->group(function () {
-        Route::get('/','StoriesController@index')->name('historias');
-        Route::get('/amp','StoriesController@index')->name('ampHistorias');
+        Route::get('/', 'Portal_OS\User\DepoimentosController@index')->name('historias');
+        Route::get('/amp', 'Portal_OS\User\DepoimentosController@index')->name('ampHistorias');
     });
 
     Route::prefix('/sac')->group(function () {
-        Route::get('/','SacController@index')->name('sac');
-        Route::get('/amp','SacController@index')->name('ampSac');
-        Route::get('/getUF', 'SacController@getCity')->name('extCity');
-        Route::post('/send', 'SacController@mailSender')->name('sendSac');
+        Route::get('/','Portal_OS\Pages\SacController@index')->name('sac');
+        Route::get('/amp','Portal_OS\Pages\SacController@index')->name('ampSac');
+        Route::get('/getUF', 'Portal_OS\Pages\SacController@getCity')->name('extCity');
+        Route::post('/send', 'Portal_OS\Pages\SacController@mailSender')->name('sendSac');
     });
     /*
      * linhas abaixo comentadas, aguardam implementação futura
@@ -78,8 +78,8 @@ Route::get('/robots.txt', 'HomeController@robots');
 
 // Redirect
 
-Route::get('/{error}', 'Pages\ErrorController@pagina404');
-Route::get('/{error}/{error2}', 'Pages\ErrorController@pagina404');
-Route::get('/{error}/{error2}/{error3}', 'Pages\ErrorController@pagina404');
-Route::get('/{error}/{error2}/{error3}/{error4}', 'Pages\ErrorController@pagina404');
-Route::get('/{error}/{error2}/{error3}/{error4}/{error5}', 'Pages\ErrorController@pagina404');
+Route::get('/{error}', 'Portal_OS\Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}', 'Portal_OS\Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}/{error3}', 'Portal_OS\Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}/{error3}/{error4}', 'Portal_OS\Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}/{error3}/{error4}/{error5}', 'Portal_OS\Pages\ErrorController@pagina404');
