@@ -47,13 +47,15 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
     });
 
     Route::prefix('/historias')->group(function () {
-        Route::get('/', 'User\DepoimentosController@index')->name('historias');
-        Route::get('/amp', 'User\DepoimentosController@index')->name('ampHistorias');
+        Route::get('/','StoriesController@index')->name('historias');
+        Route::get('/amp','StoriesController@index')->name('ampHistorias');
     });
 
     Route::prefix('/sac')->group(function () {
-        Route::get('/', 'SacController@index')->name('sac');
-        Route::get('/amp', 'SacController@index')->name('ampSac');
+        Route::get('/','SacController@index')->name('sac');
+        Route::get('/amp','SacController@index')->name('ampSac');
+        Route::get('/getUF', 'SacController@getCity')->name('extCity');
+        Route::post('/send', 'SacController@mailSender')->name('sendSac');
     });
     /*
      * linhas abaixo comentadas, aguardam implementação futura
