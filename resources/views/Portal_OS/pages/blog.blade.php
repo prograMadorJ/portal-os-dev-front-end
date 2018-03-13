@@ -32,7 +32,6 @@
         'http-request',
         'append',
         'replace',
-        'attributes',
         'css',
         'route'
     ]
