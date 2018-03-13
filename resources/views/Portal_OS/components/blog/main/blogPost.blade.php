@@ -32,7 +32,7 @@
             </a>
         </div>
         <div class="blog-post__social">
-           @include('Portal_OS.components.sharing-panel',
+           @include('Portal_OS.components.share.sharing-panel',
             [
                 'share_url' => route('blogPost', $post->url),
                 'share_text' => $post->resumo,

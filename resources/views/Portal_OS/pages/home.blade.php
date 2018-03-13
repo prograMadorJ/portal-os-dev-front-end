@@ -17,7 +17,7 @@
     ]
 )
 
-@extends('Portal_OS.components.scripts',[
+@extends('Portal_OS.components.scripts.scripts',[
     'page' => 'home',
     'modules'=>
     [

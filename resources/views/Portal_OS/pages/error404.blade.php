@@ -5,7 +5,7 @@
     ]
 )
 
-@extends('Portal_OS.components.scripts',[
+@extends('Portal_OS.components.scripts.scripts',[
     'page' => 'error404',
     'modules'=>
     [

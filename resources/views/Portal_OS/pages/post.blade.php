@@ -5,7 +5,7 @@
     ]
 )
 
-@extends('Portal_OS.components.header-metatags',
+@extends('Portal_OS.components.metatags.header-metatags',
     [
         'metatags' => [
             'url' => route('blogPost',str_slug($post[0]->titulo)),
@@ -25,7 +25,7 @@
     ]
 )
 
-@extends('Portal_OS.components.scripts',[
+@extends('Portal_OS.components.scripts.scripts',[
     'page' => 'post',
     'modules'=>
     [

@@ -40,7 +40,7 @@
             <ul>
                 <h5>SOCIAL</h5>
                 <li>
-                    @include('Portal_OS.components.sharing-panel',
+                    @include('Portal_OS.components.share.sharing-panel',
                      [
                          'share_url' => route('blogIndex'),
                          'share_text' => "O portal Ouvido e Saúde é o site onde tem tudo que você precisa saber sobre sua saúde. Acesse agora!",
