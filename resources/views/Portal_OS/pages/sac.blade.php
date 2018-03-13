@@ -21,7 +21,13 @@
     'page' => 'sac',
     'modules'=>
     [
-        'form'
+        'form',
+        'http-request',
+        'route',
+        'attributes',
+        'append',
+        'remove',
+        'replace'
     ]
 ])
 
