@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @yield('header-metatags')
     @yield('head-scripts')
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">

@@ -64,7 +64,7 @@ class ArtigosController extends Controller
 
     public function showPost(Request $request, $slug) {
     	$post = Artigo::with('categorias')
-            ->where('slug', $slug)
+            ->where('url', $slug)
         ->get();
 
         $estatistica = new ArtigosEstatistica;

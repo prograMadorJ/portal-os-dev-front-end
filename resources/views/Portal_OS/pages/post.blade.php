@@ -5,6 +5,15 @@
     ]
 )
 
+@extends('Portal_OS.components.header-metatags',
+    [
+        'metatags' => [
+            'url' => route('blogPost',str_slug($post[0]->titulo)),
+            'description' => $post[0]->resumo
+        ]
+    ]
+)
+
 @extends('Portal_OS.amp.layouts',
     [
         'css' => 'post',
