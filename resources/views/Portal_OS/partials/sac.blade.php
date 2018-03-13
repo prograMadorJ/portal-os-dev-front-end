@@ -91,7 +91,7 @@
     $.event('#select-estado', 'change', function() {
            estadoId = document.getElementById("select-estado").value;
 
-           $.replaceAll('.select-cidade','<option value="">carregando cidades...</option>');
+           $.replaceAll('.select-cidade','<option value="">CARREGANDO CIDADES...</option>');
 
            HttpRequest.get('{{ route('extCity') }}?estadoId='+estadoId, function(res){
                $.removeAll('.select-cidade');
