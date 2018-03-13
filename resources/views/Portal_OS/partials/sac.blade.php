@@ -40,8 +40,8 @@
         </div>
 
         <div class="form__group">
-            <select name="especialidade" id="especialidade">
-                <option disabled="true" selected="true">
+            <select name="especialidade" id="especialidade" required>
+                <option disabled="true" selected="true" value="">
                     Especialidade
                 </option>
                 <option>
@@ -55,8 +55,8 @@
         </div>
 
         <div class="form__group">
-            <select name="estado" id="select-estado" required>
-                <option disabled="true" selected="true">
+            <select name="estado" id="select-estado" route="{{route('extCity')}}" required>
+                <option disabled="true" selected="true" value="">
                     Selecione Seu Estado
                 </option>
                 @foreach($estados as $estado)
@@ -68,11 +68,10 @@
         </div>
 
         <div class="form__group">
-            <select name="cidade" id="cidade" class="select-cidade">
-                <option disabled="true" selected="true">
+            <select name="cidade" id="cidade" class="select-cidade" required>
+                <option disabled="true" selected="true" value="">
                     Selecione Sua Cidade
                 </option>
-
             </select>
         </div>
 
@@ -88,19 +87,3 @@
     </form>
 </div>
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="{{ asset('/portal-os/js/lib/core.js') }}"></script>
-<script type="text/javascript">
-    $.event('#select-estado', 'change', function() {
-        estadoId = document.getElementById("select-estado").value;
-
-        HttpRequest.get('{{ route('extCity') }}?estadoId='+estadoId, function(res){
-            $.replaceAll('.select-cidade',"");
-
-            for(i = 0; i < (res.data).length; i++) {
-                opt = '<option value="'+res.data[i].id_cidade+'">'+res.data[i].descricao+'</option>';
-                $.append('.select-cidade', opt);
-            }
-        });
-    });
-</script>
