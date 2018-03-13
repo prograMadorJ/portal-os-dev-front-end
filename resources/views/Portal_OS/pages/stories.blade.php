@@ -1,7 +1,6 @@
 @extends('Portal_OS.layouts',
     [
         'css' => 'stories',
-        'js' => 'stories',
         'title' => 'Portal Ouvido e Saúde | Histórias Reais'
      ]
 )
@@ -17,8 +16,16 @@
     ]
 )
 
+@extends('Portal_OS.components.scripts.scripts',[
+    'page' => 'stories',
+    'modules'=>
+    [
+        ''
+    ]
+])
+
 @section('header')
-    @include('Portal_OS.components.header',
+    @include('Portal_OS.components.layouts.header',
     [
         'title'=> 'histórias',
         'active'=> 'historias'
@@ -30,5 +37,5 @@
 @endsection
 
 @section('footer')
-    @include('Portal_OS.components.footer')
+    @include('Portal_OS.components.layouts.footer')
 @endsection

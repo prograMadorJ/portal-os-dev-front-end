@@ -2,7 +2,7 @@
     declaração de variaveis
  */
 var
-    forms = {};
+    form = {};
 
 /*
     Função para validar teclas padrão
@@ -41,7 +41,7 @@ function setMask(element, funcMask) {
 /*
     Função permitir entrada somente texto em campos de formulários
  */
-forms.textField = function (textField) {
+form.textField = function (textField) {
     $.event(textField, 'keydown', function (e) {
         var allowKeys = defaultAllowKeys(e.keyCode) || (isLetter(e.keyCode) && !isDigit(e.keyCode));
         if (!allowKeys) e.preventDefault(); // se tecla não for permitida bloqueia evento
@@ -50,7 +50,7 @@ forms.textField = function (textField) {
 /*
     Função para aplicar mascara a campos tipo telefone
  */
-forms.phoneField = function (phoneField) {
+form.phoneField = function (phoneField) {
     $.event(phoneField, 'keydown', function (e) {
         var allowKeys = defaultAllowKeys(e.keyCode) || isDigit(e.keyCode);
         if ($(phoneField).selectionStart < 4 || $(phoneField).selectionStart > 5) {  // teste necessário no momento de edição com uso de backspace
@@ -73,7 +73,7 @@ forms.phoneField = function (phoneField) {
 /*
     Função para aplicar mascara a campos tipo cidade com sigla do estado após um hífen
  */
-forms.cityStateField = function (cityField) {
+form.cityStateField = function (cityField) {
     $.event(cityField, 'keydown', function (e) {
         var allowKeys = (e.keyCode === 189) // 189 = key code hífen '-'
             || (defaultAllowKeys(e.keyCode)

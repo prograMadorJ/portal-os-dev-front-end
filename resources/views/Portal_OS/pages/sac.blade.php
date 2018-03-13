@@ -1,7 +1,6 @@
 @extends('Portal_OS.layouts',
     [
         'css' => 'sac',
-        'js' => 'sac',
         'title' => 'Portal Ouvido e Saúde | Fale Conosco'
      ]
 )
@@ -18,8 +17,22 @@
     ]
 )
 
+@extends('Portal_OS.components.scripts.scripts',[
+    'page' => 'sac',
+    'modules'=>
+    [
+        'form',
+        'http-request',
+        'route',
+        'attributes',
+        'append',
+        'remove',
+        'replace'
+    ]
+])
+
 @section('header')
-    @include('Portal_OS.components.header',
+    @include('Portal_OS.components.layouts.header',
     [
         'title'=> 'fale conosco',
         'active'=> 'sac'
@@ -31,5 +44,5 @@
 @endsection
 
 @section('footer')
-    @include('Portal_OS.components.footer')
+    @include('Portal_OS.components.layouts.footer')
 @endsection

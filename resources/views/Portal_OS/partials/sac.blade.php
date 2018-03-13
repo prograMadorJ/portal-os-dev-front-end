@@ -9,28 +9,39 @@
         </h3>
     </div>
 
-    <form class="sac__form" action-xhr="javascript:" method="POST" target="_top">
+    @if(session('error'))
+        <div class="message-error">
+            {{ session('error') }}
+        </div>
+    @endif
+    @if(session('success'))
+        <div class="message-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <form class="sac__form" action="{{ route('sendSac') }}" action-xhr="javascript:" method="POST" target="_top">
         {{ csrf_field() }}
         <div class="form__group">
-            <input type="text" name="name" id="name" placeholder="Nome"
-                   pattern="^([A-Za-zÀ-ú]+){2}( ?[A-Za-zÀ-ú]+)+$" maxlength="50" required>
+            <input type="text" name="nome" id="nome" placeholder="Nome"
+                   pattern="^([A-Za-zÀ-ú]+){2}( ?[A-Za-zÀ-ú]+)+$" maxlength="50" required autocomplete="off">
         </div>
 
         <div class="form__group">
-            <input type="text" name="phone" id="phone" placeholder="Whatsapp ou Telefone (99)99999-9999"
+            <input type="text" name="telefone" id="telefone" placeholder="Whatsapp ou Telefone (99)99999-9999"
                    maxlength="15"
                    pattern="^\([1-9]{2}\)\s[0-9]{5}-[0-9]{4}$|^\([1-9]{2}\)\s[0-9]{4}-[0-9]{4}$"
-                   required>
+                   required autocomplete="off">
         </div>
 
         <div class="form__group">
             <input type="email" name="email" id="email" placeholder="E-Mail"
-                   maxlength="100" required>
+                   maxlength="100" required autocomplete="off">
         </div>
 
         <div class="form__group">
-            <select name="specialty" id="specialty">
-                <option disabled="true" selected="true">
+            <select name="especialidade" id="especialidade" required>
+                <option disabled="true" selected="true" value="">
                     Especialidade
                 </option>
                 <option>
@@ -44,12 +55,28 @@
         </div>
 
         <div class="form__group">
-            <input type="text" name="city" id="city" placeholder="Cidade-UF"
-                   pattern="^([A-Za-zÀ-ú]+ ?[A-Za-zÀ-ú]+){2}-([A-Za-z]){2}$" maxlength="50" required>
+            <select name="estado" id="select-estado" route="{{route('extCity')}}" required>
+                <option disabled="true" selected="true" value="">
+                    Selecione Seu Estado
+                </option>
+                @foreach($estados as $estado)
+                    <option name="estado" value="{{ $estado->id_estado }}" id="option-estado">
+                        {{ $estado->descricao }}
+                    </option>
+                @endforeach
+            </select>
         </div>
 
         <div class="form__group">
-            <textarea name="comment" id="" cols="30" rows="3" placeholder="Comentário"></textarea>
+            <select name="cidade" id="cidade" class="select-cidade" required>
+                <option disabled="true" selected="true" value="">
+                    Selecione Sua Cidade
+                </option>
+            </select>
+        </div>
+
+        <div class="form__group">
+            <textarea name="comentario" id="comentario" cols="30" rows="3" placeholder="Comentário"></textarea>
         </div>
 
         <div class="form__group">
@@ -59,9 +86,4 @@
         </div>
     </form>
 </div>
-<script src="{{asset('portal-os/js/lib/forms.js')}}"></script>
-<script type="text/javascript">
-    forms.textField('#name');
-    forms.phoneField('#phone');
-    forms.cityStateField('#city');
-</script>
+

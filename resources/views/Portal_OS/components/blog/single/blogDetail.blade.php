@@ -1,4 +1,3 @@
-
 @php
     $date = date_create($post[0]->publicacao);
 @endphp
@@ -30,10 +29,17 @@
 
     </div>
     <div class="blog-detail__social">
-        <a href="#facebook">@include('Portal_OS.components.graphics.icon-facebook')</a>
-        <a href="#twitter">@include('Portal_OS.components.graphics.icon-twitter')</a>
-        <a href="#google">@include('Portal_OS.components.graphics.icon-google')</a>
-        <a href="#whatsapp">@include('Portal_OS.components.graphics.icon-whatsapp')</a>
+        @include('Portal_OS.components.share.sharing-panel',
+         [
+             'share_url' => route('blogPost', $post[0]->url),
+             'share_text' => $post[0]->resumo,
+             'share_hashtag' => str_slug($post[0]->titulo),
+             'icon_facebook' => 'Portal_OS.components.graphics.icon-facebook',
+             'icon_twitter' => 'Portal_OS.components.graphics.icon-twitter',
+             'icon_google' => 'Portal_OS.components.graphics.icon-google',
+             'icon_whatsapp' => 'Portal_OS.components.graphics.icon-whatsapp'
+         ]
+        )
     </div>
     <div class="blog-detail__content">
         <p>

@@ -1,8 +1,16 @@
 @extends('Portal_OS.layouts',
     [
         'css'=>'blog',
-        'js'=>'',
         'title'=>'Portal Ouvido e Saúde | Blog'
+    ]
+)
+
+@extends('Portal_OS.components.metatags.header-metatags',
+    [
+        'metatags' => [
+            'url' => route('blogIndex'),
+            'description' => 'Blog Ouvido e Saúde. Tudo o que você precisa saber sobre sua saúde.'
+        ]
     ]
 )
 
@@ -17,18 +25,31 @@
     ]
 )
 
-@section('header')
-    @include('Portal_OS.components.header',
+@extends('Portal_OS.components.scripts.scripts',[
+    'page' => 'blog',
+    'modules'=>
     [
-        'title' => 'blog',
-        'active'=> 'blog'
-    ])
+        'http-request',
+        'append',
+        'replace',
+        'attributes',
+        'css',
+        'route'
+    ]
+])
+
+@section('header')
+   @include('Portal_OS.components.layouts.header',
+   [
+       'title' => 'blog',
+       'active'=> 'blog'
+   ])
 @endsection
 
 @section('content')
-    @include('Portal_OS.partials.blog')
+   @include('Portal_OS.partials.blog')
 @endsection
 
 @section('footer')
-    @include('Portal_OS.components.footer')
+   @include('Portal_OS.components.layouts.footer')
 @endsection

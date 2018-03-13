@@ -30,11 +30,11 @@ class ArtigoTableSeeder extends Seeder
         	$updatedDate = clone($date);
 
         	$posts[] = [
-        		'titulo' => $faker->sentence(rand(4, 7)),
+        		'titulo' => $titulo = $faker->sentence(rand(4, 7)),
         		'resumo' => $faker->sentence(rand(10, 15)),
         		'conteudo' => $faker->paragraphs(rand(8, 20), true),
         		'seo_id' => NULL,
-        		'url' => $faker->sentence(),
+        		'url' => str_slug($titulo),
         		'link_titulo' => $faker->word(),
         		'publicacao' => $publishedDate,
         		'agendado' => $scheduledDate,

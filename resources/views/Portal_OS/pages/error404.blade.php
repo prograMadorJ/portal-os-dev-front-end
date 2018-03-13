@@ -1,14 +1,21 @@
 @extends('Portal_OS.layouts',
     [
         'css' => 'error404',
-        'js' => 'error404',
         'title' => 'Portal Ouvido e Saúde | Recurso não está disponivel no momento'
     ]
 )
 
+@extends('Portal_OS.components.scripts.scripts',[
+    'page' => 'error404',
+    'modules'=>
+    [
+        ''
+    ]
+])
+
 
 @section('header')
-    @include('Portal_OS.components.header',
+    @include('Portal_OS.components.layouts.header',
     [
         'title'=> 'erro',
         'active'=> ''
@@ -20,5 +27,5 @@
 @endsection
 
 @section('footer')
-    @include('Portal_OS.components.footer')
+    @include('Portal_OS.components.layouts.footer')
 @endsection

@@ -23,16 +23,21 @@ class ArtigosController extends Controller
     public function index() {
     	$posts = Artigo::with('categorias', 'usuario', 'media')
             ->where('status', 1)
-            ->orderBy('publicacao', 'desc')
             ->limit(6)
+            ->orderBy('publicacao', 'desc')
         ->get();
 
         $rank = self::blogPanel();
 
+        $categorias = $this->categorias();
+
         return view('Portal_OS.pages.blog',
     		compact(
                 'rank',
-                'posts'
+                'posts',
+                'item',
+                'categorias'
+//                self::loadMore()
     		)
     	);
     }
@@ -59,23 +64,26 @@ class ArtigosController extends Controller
 
     public function showPost(Request $request, $slug) {
     	$post = Artigo::with('categorias')
-            ->where('slug', $slug)
+            ->where('url', $slug)
         ->get();
 
         $estatistica = new ArtigosEstatistica;
         $estatistica->artigo_id = $post[0]->id;
         $estatistica->cliente_ip = $request->ip();
         $estatistica->http_user_agent = $request->header('User-Agent');
-        $estatistica->tipos_estatistica_id = 2;
+        $estatistica->tipos_estatistica_id = 1;
         $estatistica->save();
 
         $rank = self::blogPanel();
+
+        $categorias = self::categorias();
 
     	return view(
             'Portal_OS.pages.post',
             compact(
                 'post',
-                'rank'
+                'rank',
+                'categorias'
             )
         );
     }
@@ -127,5 +135,13 @@ class ArtigosController extends Controller
         ->get();
 
         return $panels;
+    }
+
+    private function categorias() {
+        return Categoria::select(
+            'nome',
+            'descricao',
+            'image'
+        )->get();
     }
 }

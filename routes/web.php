@@ -52,8 +52,10 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
     });
 
     Route::prefix('/sac')->group(function () {
-        Route::get('/', 'SacController@index')->name('sac');
-        Route::get('/amp', 'SacController@index')->name('ampSac');
+        Route::get('/','Portal_OS\Pages\SacController@index')->name('sac');
+        Route::get('/amp','Portal_OS\Pages\SacController@index')->name('ampSac');
+        Route::get('/getUF', 'Portal_OS\Pages\SacController@getCity')->name('extCity');
+        Route::post('/send', 'Portal_OS\Pages\SacController@mailSender')->name('sendSac');
     });
     /*
      * linhas abaixo comentadas, aguardam implementação futura
@@ -76,8 +78,8 @@ Route::get('/robots.txt', 'HomeController@robots');
 
 // Redirect
 
-Route::get('/{error}', 'Pages\ErrorController@pagina404');
-Route::get('/{error}/{error2}', 'Pages\ErrorController@pagina404');
-Route::get('/{error}/{error2}/{error3}', 'Pages\ErrorController@pagina404');
-Route::get('/{error}/{error2}/{error3}/{error4}', 'Pages\ErrorController@pagina404');
-Route::get('/{error}/{error2}/{error3}/{error4}/{error5}', 'Pages\ErrorController@pagina404');
+Route::get('/{error}', 'Portal_OS\Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}', 'Portal_OS\Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}/{error3}', 'Portal_OS\Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}/{error3}/{error4}', 'Portal_OS\Pages\ErrorController@pagina404');
+Route::get('/{error}/{error2}/{error3}/{error4}/{error5}', 'Portal_OS\Pages\ErrorController@pagina404');

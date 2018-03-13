@@ -10,5 +10,7 @@ Homestead.yaml
 /public/css
 /public/js
 /public/sw.js
+/public/portal-os
+package-lock.json
 /public/portal-os/css
 /public/portal-os/js
