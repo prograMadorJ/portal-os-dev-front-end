@@ -37,7 +37,6 @@ class ArtigosController extends Controller
                 'posts',
                 'item',
                 'categorias'
-//                self::loadMore()
     		)
     	);
     }
