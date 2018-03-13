@@ -31,7 +31,7 @@
     <div class="blog-detail__social">
         @include('Portal_OS.components.sharing-panel',
          [
-             'share_url' => route('blogPost', $post[0]->slug),
+             'share_url' => route('blogPost', $post[0]->url),
              'share_text' => $post[0]->resumo,
              'share_hashtag' => str_slug($post[0]->titulo),
              'icon_facebook' => 'Portal_OS.components.graphics.icon-facebook',
