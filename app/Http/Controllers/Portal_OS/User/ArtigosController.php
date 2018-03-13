@@ -14,7 +14,7 @@ use App\Seo;
 use App\Media;
 use App\MediaDerivative;
 use Carbon\Carbon;
-use App\ArtigosEstatistica;
+use App\ArtigosEstatistica as ArtigosEstatistica;
 use App\TiposEstatistica;
 use DB;
 
@@ -57,10 +57,17 @@ class ArtigosController extends Controller
         );
     }
 
-    public function showPost($slug) {
+    public function showPost(Request $request, $slug) {
     	$post = Artigo::with('categorias')
             ->where('slug', $slug)
         ->get();
+
+        $estatistica = new ArtigosEstatistica;
+        $estatistica->artigo_id = $post[0]->id;
+        $estatistica->cliente_ip = $request->ip();
+        $estatistica->http_user_agent = $request->header('User-Agent');
+        $estatistica->tipos_estatistica_id = 2;
+        $estatistica->save();
 
         $rank = self::blogPanel();
 
@@ -105,7 +112,6 @@ class ArtigosController extends Controller
             ->groupBy('artigos.id')
             ->orderBy('total', 'desc')
         ->get();
-
         $panels = Artigo::whereIn('id', [
                 $selecao[0]->id,
                 $selecao[1]->id,
