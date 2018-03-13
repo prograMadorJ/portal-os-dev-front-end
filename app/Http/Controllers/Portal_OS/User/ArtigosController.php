@@ -92,7 +92,12 @@ class ArtigosController extends Controller
         ->get();
 
 
-        return view('Portal_OS.components.blog.main.blogPost',compact('posts'))->render();
+        return view(
+            'Portal_OS.components.blog.main.blogPost',
+            compact(
+                'posts'
+            )
+        )->render();
     }
 
     public static function blogPanel() {
