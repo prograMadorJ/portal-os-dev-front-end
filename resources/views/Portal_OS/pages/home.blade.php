@@ -1,7 +1,6 @@
 @extends('Portal_OS.layouts',
     [
         'css' => 'home',
-        'js' => 'home',
         'title' => 'Portal Ouvido e Saúde | Agende sua consulta'
     ]
 )
@@ -18,6 +17,13 @@
     ]
 )
 
+@extends('Portal_OS.components.scripts',[
+    'page' => 'home',
+    'modules'=>
+    [
+        ''
+    ]
+])
 
 @section('header')
     @include('Portal_OS.components.header',

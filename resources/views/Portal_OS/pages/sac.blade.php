@@ -1,7 +1,6 @@
 @extends('Portal_OS.layouts',
     [
         'css' => 'sac',
-        'js' => 'sac',
         'title' => 'Portal Ouvido e Saúde | Fale Conosco'
      ]
 )
@@ -19,6 +18,7 @@
 )
 
 @extends('Portal_OS.components.scripts',[
+    'page' => 'sac',
     'modules'=>
     [
         'form'

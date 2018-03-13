@@ -1,7 +1,6 @@
 @extends('Portal_OS.layouts',
     [
         'css'=>'post',
-        'js'=>'post',
         'title'=>'Portal Ouvido e Saúde | Post'
     ]
 )
@@ -16,6 +15,14 @@
         ]
     ]
 )
+
+@extends('Portal_OS.components.scripts',[
+    'page' => 'post',
+    'modules'=>
+    [
+        ''
+    ]
+])
 
 @section('header')
     @include('Portal_OS.components.header',

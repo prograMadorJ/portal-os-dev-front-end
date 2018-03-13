@@ -28,5 +28,6 @@
 </div>
 @yield('footer')
 @yield('footer-scripts')
+@stack('post-scripts')
 </body>
 </html>

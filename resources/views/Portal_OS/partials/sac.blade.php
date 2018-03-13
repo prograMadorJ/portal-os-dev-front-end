@@ -61,11 +61,3 @@
 </div>
 
 
-<script type="text/javascript">
-    $.event('form','click',function () {
-        form.textField('#name');
-        form.phoneField('#phone');
-        form.cityStateField('#city');
-    });
-</script>
-

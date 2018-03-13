@@ -8,4 +8,7 @@
             <script src="{{ asset('/portal-os/js/lib/'.$module.'.js') }}"></script>
         @endforeach
     @endif
+    @if($page && isset($page))
+        <script src="{{ asset('/portal-os/js/pages/'.$page.'.js') }}"></script>
+    @endif
 @endsection

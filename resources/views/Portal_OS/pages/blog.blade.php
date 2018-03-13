@@ -1,7 +1,6 @@
 @extends('Portal_OS.layouts',
     [
         'css'=>'blog',
-        'js'=>'',
         'title'=>'Portal Ouvido e Saúde | Blog'
     ]
 )
@@ -18,12 +17,15 @@
 )
 
 @extends('Portal_OS.components.scripts',[
+    'page' => 'blog',
     'modules'=>
     [
         'http-request',
         'append',
         'replace',
-        'css'
+        'attributes',
+        'css',
+        'route'
     ]
 ])
 
