@@ -32,7 +32,7 @@
 ])
 
 @section('header')
-    @include('Portal_OS.components.header',
+    @include('Portal_OS.components.layouts.header',
     [
         'title'=> 'fale conosco',
         'active'=> 'sac'
@@ -44,5 +44,5 @@
 @endsection
 
 @section('footer')
-    @include('Portal_OS.components.footer')
+    @include('Portal_OS.components.layouts.footer')
 @endsection

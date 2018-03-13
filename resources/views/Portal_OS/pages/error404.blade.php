@@ -15,7 +15,7 @@
 
 
 @section('header')
-    @include('Portal_OS.components.header',
+    @include('Portal_OS.components.layouts.header',
     [
         'title'=> 'erro',
         'active'=> ''
@@ -27,5 +27,5 @@
 @endsection
 
 @section('footer')
-    @include('Portal_OS.components.footer')
+    @include('Portal_OS.components.layouts.footer')
 @endsection
