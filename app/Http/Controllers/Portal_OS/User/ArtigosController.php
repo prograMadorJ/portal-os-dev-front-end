@@ -71,7 +71,7 @@ class ArtigosController extends Controller
         $estatistica->artigo_id = $post[0]->id;
         $estatistica->cliente_ip = $request->ip();
         $estatistica->http_user_agent = $request->header('User-Agent');
-        $estatistica->tipos_estatistica_id = 2;
+        $estatistica->tipos_estatistica_id = 1;
         $estatistica->save();
 
         $rank = self::blogPanel();
