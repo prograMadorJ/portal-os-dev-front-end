@@ -4,7 +4,7 @@
     por parametro 'elementClassName'
  */
 $.hidden = function (elementClassName) {
-    $.css(elementClassName, 'display:none !important');
+    $(elementClassName).setAttribute('style', 'display:none !important');
 }
 /*
     função oculta todos os elementos
@@ -24,7 +24,8 @@ $.hidden.all = function (elementClassName) {
     caso não use este parametro o valor default é 'flex'
  */
 $.show = function (elementClassName, displayType) {
-    $.css(elementClassName, 'display:' + (displayType || 'flex'));
+    $(elementClassName).setAttribute('style', 'display:' + (displayType || 'flex'));
+
 }
 /*
     função exibe todos os elementos que estavam oculto
@@ -34,5 +35,5 @@ $.show = function (elementClassName, displayType) {
     caso não use este parametro o valor default é 'flex'
  */
 $.show.all = function (elementClassName, displayType) {
-    $._applyEach($.all(elementClassName), contentHTMLElement, $.show);
+    $._applyEach($.all(elementClassName), displayType, $.show);
 }

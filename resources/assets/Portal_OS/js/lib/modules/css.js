@@ -11,7 +11,7 @@ $.css = function (elementClassName, styleCSS) {
     passando o nome da classe ou ID do elemento alvo por parametro 'elementClassName'
     e passando um texto css em linha por parametro 'styleCSS'
  */
-$.css.all = function (elementClassName, contentHTMLElement) {
+$.css.all = function (elementClassName, styleCSS) {
     $.all(elementClassName).forEach(function (e) {
         $.css(e, styleCSS);
     });
@@ -31,6 +31,6 @@ $.resetCSS = function (elementClassName) {
  */
 $.resetCSS.all = function (elementClassName) {
     $.all(elementClassName).forEach(function (e) {
-        $.replaceAll(e);
+        $.resetCSS(e);
     });
 }

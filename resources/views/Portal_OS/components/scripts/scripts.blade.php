@@ -5,10 +5,14 @@
 @section('footer-scripts')
     @if($modules && isset($modules))
         @foreach($modules as $module)
-            <script src="{{ asset('/portal-os/js/lib/'.$module.'.js') }}"></script>
+            @if(trim($module)!=='')
+                <script src="{{ asset('/portal-os/js/lib/'.$module.'.js') }}"></script>
+            @endif
         @endforeach
     @endif
     @if($page && isset($page))
-        <script src="{{ asset('/portal-os/js/pages/'.$page.'.js') }}"></script>
+        @if(trim($page)!=='')
+            <script src="{{ asset('/portal-os/js/pages/'.$page.'.js') }}"></script>
+        @endif
     @endif
 @endsection
