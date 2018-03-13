@@ -39,16 +39,16 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
 //});
 
     Route::prefix('/blog')->group(function () {
-        Route::get('/', 'User\ArtigosController@index')->name('blogIndex');
-        Route::get('/categoria/{slug}', 'User\ArtigosController@categoryFilter')->name('categoriasBlog');
-        Route::get('/artigo/{slug}', 'User\ArtigosController@showPost')->name('blogPost');
-        Route::get('/getRequest', 'User\ArtigosController@loadMore')->name('loadMore');
-        Route::get('/amp', 'User\ArtigosController@index')->name('ampBlog');
+        Route::get('/', 'Portal_OS\User\ArtigosController@index')->name('blogIndex');
+        Route::get('/categoria/{slug}', 'Portal_OS\User\ArtigosController@categoryFilter')->name('categoriasBlog');
+        Route::get('/artigo/{slug}', 'Portal_OS\User\ArtigosController@showPost')->name('blogPost');
+        Route::get('/getRequest', 'Portal_OS\User\ArtigosController@loadMore')->name('loadMore');
+        Route::get('/amp', 'Portal_OS\User\ArtigosController@index')->name('ampBlog');
     });
 
     Route::prefix('/historias')->group(function () {
-        Route::get('/', 'User\DepoimentosController@index')->name('historias');
-        Route::get('/amp', 'User\DepoimentosController@index')->name('ampHistorias');
+        Route::get('/', 'Portal_OS\User\DepoimentosController@index')->name('historias');
+        Route::get('/amp', 'Portal_OS\User\DepoimentosController@index')->name('ampHistorias');
     });
 
     Route::prefix('/sac')->group(function () {
