@@ -7,9 +7,11 @@
             <h3 id="artTitle">
                 {{ $post->titulo }}
             </h3>
-            @foreach($post->categorias as $cat)
-                <span class="blog-post__category"> {{ $cat->nome }} </span>
-            @endforeach
+            @if(isset($post->categorias))
+                @foreach($post->categorias as $cat)
+                    <span class="blog-post__category"> {{ $cat->nome }} </span>
+                @endforeach
+            @endif
             <span class="blog-post__date" id="artDate">
                 {{ date_format($date,"d/m/y - H") }}H
             </span>
