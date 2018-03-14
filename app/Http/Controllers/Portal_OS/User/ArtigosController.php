@@ -31,18 +31,23 @@ class ArtigosController extends Controller
 
         $categorias = $this->categorias();
 
+        $prefix = 'artigo';
+        $categorie = 'todos';
+
         return view('Portal_OS.pages.blog',
     		compact(
                 'rank',
                 'posts',
                 'item',
-                'categorias'
+                'categorias',
+                'prefix',
+                'categorie'
     		)
     	);
     }
 
-    public function categoryFilter($slug) {
-        $categoria = Categoria::where('slug', $slug)->get();
+    public function categoryFilter($name) {
+        $categoria = Categoria::where('nome', $name)->get();
         $categoriaFiltro = $categoria->pluck('id');
         $categoriaQuery = $categoriaFiltro[0];
 
@@ -57,14 +62,17 @@ class ArtigosController extends Controller
 
         $categorias = self::categorias();
 
-        // $prefix = "categoria";
-        // dd($posts, $prefix);
+         $prefix = "categoria";
+        $categorie = $name;
+
         return view(
             'Portal_OS.pages.blog',
             compact(
                 'posts',
                 'rank',
-                'categorias'
+                'categorias',
+                'prefix',
+                'categorie'
             )
         );
     }
@@ -96,40 +104,25 @@ class ArtigosController extends Controller
     }
 
     public function loadMore(Request $request) {
-        // $prefix = $request->input('prefix');
-        // dd($prefix);
-        // dd("POSTS", $posts, "PREFIX", $prefix);
-        $rota = '/blog/categoria';
-        if($rota == '/blog') {
-            $limit = $request->input('limit', 6);
-            $skip = $request->input('skip', 6);
+        $limit = $request->input('limit', 6);
+        $skip = $request->input('skip', 6);
+         $prefix = $request->input('prefix');
+
+        if($prefix == 'artigo') {
             $posts = Artigo::with('categorias', 'usuario', 'media')
                 ->where('status', 1)
                 ->orderBy('publicacao', 'desc')
                 ->limit($limit)
                 ->skip($skip)
             ->get();
-        } else if($rota == '/blog/categoria') {
-            $limit = $request->input('limit', 6);
-            $skip = $request->input('skip', 6);
-            $categoria = Categoria::where('slug', $slug)->get();
-            $categoriaFiltro = $categoria->pluck('id');
-            $categoriaQuery = $categoriaFiltro[0];
-
-            $posts = Artigo::with('categorias', 'usuario', 'media')
-                ->whereHas('categorias',function($q) use($categoriaQuery){
-                    $q->where('id', '=', $categoriaQuery);
-                })
-                ->orderBy('publicacao', 'desc')
-                ->limit($limit)
-                ->skip($skip)
-            ->get();
+        } else if($prefix == 'categoria') {
+            self::categoryFilter('ouvido');
         }
 
         return view(
             'Portal_OS.components.blog.main.blogPost',
             compact(
-                'posts'
+                'posts','prefix'
             )
         )->render();
     }
