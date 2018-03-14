@@ -44,9 +44,12 @@ class ArtigosController extends Controller
     public function categoryFilter($slug) {
         $categoria = Categoria::where('slug', $slug)->get();
         $categoriaFiltro = $categoria->pluck('id');
+        $categoriaQuery = $categoriaFiltro[0];
 
         $posts = Artigo::with('categorias', 'usuario', 'media')
-            ->where('categoria_id', '=', $categoriaFiltro)
+            ->whereHas('categorias',function($q) use($categoriaQuery){
+                $q->where('id', '=', $categoriaQuery);
+            })
             ->orderBy('publicacao', 'desc')
         ->get();
 
@@ -54,6 +57,8 @@ class ArtigosController extends Controller
 
         $categorias = self::categorias();
 
+        // $prefix = "categoria";
+        // dd($posts, $prefix);
         return view(
             'Portal_OS.pages.blog',
             compact(
@@ -91,16 +96,62 @@ class ArtigosController extends Controller
     }
 
     public function loadMore(Request $request) {
+        // $prefix = $request->input('prefix');
+        // dd($prefix);
+        // dd("POSTS", $posts, "PREFIX", $prefix);
+        $rota = '/blog/categoria';
+        if($rota == '/blog') {
+            $limit = $request->input('limit', 6);
+            $skip = $request->input('skip', 6);
+            $posts = Artigo::with('categorias', 'usuario', 'media')
+                ->where('status', 1)
+                ->orderBy('publicacao', 'desc')
+                ->limit($limit)
+                ->skip($skip)
+            ->get();
+        } else if($rota == '/blog/categoria') {
+            $limit = $request->input('limit', 6);
+            $skip = $request->input('skip', 6);
+            $categoria = Categoria::where('slug', $slug)->get();
+            $categoriaFiltro = $categoria->pluck('id');
+            $categoriaQuery = $categoriaFiltro[0];
+
+            $posts = Artigo::with('categorias', 'usuario', 'media')
+                ->whereHas('categorias',function($q) use($categoriaQuery){
+                    $q->where('id', '=', $categoriaQuery);
+                })
+                ->orderBy('publicacao', 'desc')
+                ->limit($limit)
+                ->skip($skip)
+            ->get();
+        }
+
+        return view(
+            'Portal_OS.components.blog.main.blogPost',
+            compact(
+                'posts'
+            )
+        )->render();
+    }
+
+    public function loadMoreFilterCategories(Request $request) {
+
+        $categoria = Categoria::where('slug', $slug)->get();
+        $categoriaFiltro = $categoria->pluck('id');
+        $categoriaQuery = $categoriaFiltro[0];
+
         $limit = $request->input('limit', 6);
         $skip = $request->input('skip', 6);
 
         $posts = Artigo::with('categorias', 'usuario', 'media')
-            ->where('status', 1)
+            ->whereHas('categorias',function($q) use($categoriaQuery){
+
+                $q->where('id', '=', $categoriaQuery);
+            })
             ->orderBy('publicacao', 'desc')
             ->limit($limit)
             ->skip($skip)
         ->get();
-
 
         return view(
             'Portal_OS.components.blog.main.blogPost',
