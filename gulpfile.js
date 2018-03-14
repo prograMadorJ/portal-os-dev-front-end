@@ -25,6 +25,12 @@ gulp.task('sass', function () {
 gulp.task('js', function () {
     // Single entry point to browserify
     gulp.src([
+        src_dir + '/js/*.js'
+    ])
+        .pipe(minify_js())
+        // .pipe(browserify())
+        .pipe(gulp.dest(dest_dir + '/js/'));
+    gulp.src([
         src_dir + '/js/pages/*.js'
     ])
         .pipe(minify_js())

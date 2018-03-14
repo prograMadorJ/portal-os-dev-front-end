@@ -54,3 +54,7 @@ $.removeAttribute = function (elementClassName,attributeName) {
 $.removeAttribute.all = function (elementClassName,attributeName) {
     $._applyEach($.all(elementClassName), attributeName, $.removeAttribute);
 }
+
+$.replaceAttribute = function (elementClassName,attributes) {
+    $.addAttribute(elementClassName,attributes);
+}
