@@ -1,7 +1,7 @@
 /*
     declaração de variaveis
  */
-var $ = {};
+var modulesPath,pagesPath, $ = {};
 
 /*
      função retorna um elemento html através do nome da classe
@@ -55,6 +55,16 @@ $._toNode = function (contentHTMLElement) {
     content.innerHTML = contentHTMLElement;
     return content;
 }
+$._validatePath = function (path) {
+    return path.substring(0,1)==='/';
+}
+$._makeScript = function (fileName,pathName) {
+    if ($('#' + fileName) === undefined || $('#' + fileName) === null) {
+        var path = (pathName.substring(pathName.length-1)==='/')?pathName:pathName+'/';
+        var script = '<script class="module" id="' + fileName + '" src="' + window.location.origin + path  + fileName + '.js"></script>';
+        $.insert($('.page'), script, 'beforebegin');
+    }
+}
 /*
     função insere um conteudo ou elemento em uma posição determinada
     passando o nome do elemento como ponto referencial por parametro
@@ -70,4 +80,22 @@ $.insert = function (elementClassName, contentHTMLElement, insertMode, copy) {
             $(elementClassName).insertAdjacentElement(insertMode, contentHTMLElement.cloneNode(true)) :
             $(elementClassName).insertAdjacentElement(insertMode, contentHTMLElement)) :
         $(elementClassName).insertAdjacentHTML(insertMode, contentHTMLElement)
+}
+
+$.modulesPath = function (path) {
+    if($._validatePath(path))
+        modulesPath = path;
+    else
+        console.error('core error: call function "$.modulesPath" parameter path name should begin with slash root "/"')
+
+}
+
+$.require = function (moduleName) {
+    $._makeScript(moduleName,modulesPath);
+}
+
+$.requires = function (modulesName) {
+    Object.keys(modulesName).map(function (key) {
+        $.require(modulesName[key]);
+    });
 }

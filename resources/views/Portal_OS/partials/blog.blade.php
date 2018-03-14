@@ -20,7 +20,7 @@
 
 @include('Portal_OS.components.blog.main.blogFooter')
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     $.event('#carregar','click',function () {
         clique++;
         skip = conta * clique;
@@ -33,4 +33,4 @@
             }
         });
     });
-</script>
+</script> --}}
