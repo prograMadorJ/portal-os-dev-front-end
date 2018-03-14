@@ -26,7 +26,15 @@
 )
 
 @extends('Portal_OS.components.scripts.scripts',[
-    'page' => 'blog'
+    'page' => 'blog',
+    'modules'=>
+    [
+      'http-request',
+      'append',
+      'replace',
+      'css',
+      'route'
+    ]
 ])
 
 @section('header')
