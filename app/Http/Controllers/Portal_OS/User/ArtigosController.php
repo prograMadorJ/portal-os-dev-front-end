@@ -45,18 +45,21 @@ class ArtigosController extends Controller
         $categoria = Categoria::where('slug', $slug)->get();
         $categoriaFiltro = $categoria->pluck('id');
 
-        $postsFiltrados = Artigo::with('categorias')
+        $posts = Artigo::with('categorias', 'usuario', 'media')
             ->where('categoria_id', '=', $categoriaFiltro)
             ->orderBy('publicacao', 'desc')
         ->get();
 
         $rank = self::blogPanel();
 
+        $categorias = self::categorias();
+
         return view(
-            'postsFiltrados',
+            'Portal_OS.pages.blog',
             compact(
-                'postsFiltrados',
-                'rank'
+                'posts',
+                'rank',
+                'categorias'
             )
         );
     }

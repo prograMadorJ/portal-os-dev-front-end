@@ -1,14 +1,6 @@
 var conta = 6;
 var clique = 0;
 
-$.requires([
-    'http-request',
-    'append',
-    'replace',
-    'css',
-    'route'
-]);
-
 $.event('#carregar', 'click', function () {
     clique++;
     skip = conta * clique;
