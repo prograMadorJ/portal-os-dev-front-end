@@ -48,3 +48,8 @@
         </div>
     </div>
 @endforeach
+<div class="blog__load">
+    <a href="#veja-mais" route="{{route('loadMore',$prefix)}}" id="carregar" class="none">
+        Veja mais
+    </a>
+</div>

@@ -12,25 +12,10 @@
         @include('Portal_OS.components.blog.general.blogPanel')
     </div>
     <div class="blog__load">
-        <a href="#veja-mais" route="{{route('loadMore')}}" id="carregar" class="none">
+        <a href="#veja-mais" route="{{route('loadMore',$prefix)}}" id="carregar" class="none">
             Veja mais
         </a>
     </div>
 </div>
 
 @include('Portal_OS.components.blog.main.blogFooter')
-
-{{-- <script type="text/javascript">
-    $.event('#carregar','click',function () {
-        clique++;
-        skip = conta * clique;
-        HttpRequest.get('{{ route('loadMore') }}?limit=6&skip='+skip,function (res) {
-            if(res.data != "") {
-                $.append('.blog__main',res.data);
-            } else {
-                $.replaceAll('.none',"sem mais artigos para carregar");
-                $.css('.none', 'pointer-events: none !important; background-color: lightgrey;');
-            }
-        });
-    });
-</script> --}}

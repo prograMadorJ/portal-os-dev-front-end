@@ -31,12 +31,15 @@ class ArtigosController extends Controller
 
         $categorias = $this->categorias();
 
+        $prefix = 'artigo';
+
         return view('Portal_OS.pages.blog',
     		compact(
                 'rank',
                 'posts',
                 'item',
-                'categorias'
+                'categorias',
+                'prefix'
     		)
     	);
     }
@@ -91,6 +94,13 @@ class ArtigosController extends Controller
     }
 
     public function loadMore(Request $request) {
+        $prefix = $request->input('prefix','artigo');
+        if($prefix==='artigo') {
+            // codigo para artigos
+        }
+        else if($prefix==='categoria') {
+            // codigo para categoria
+        }
         $limit = $request->input('limit', 6);
         $skip = $request->input('skip', 6);
 
