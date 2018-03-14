@@ -1,9 +1,12 @@
 form.textField('#nome');
 form.phoneField('#telefone');
+
 $.event('#select-estado', 'change', function() {
     estadoId = $("#select-estado").value;
-    $.replaceAll('.select-cidade','<option value="">carregando cidades...</option>');
-    HttpRequest.get($.route('#select-estado')+'?estadoId='+estadoId, function(res){
+
+    $.replaceAll('.select-cidade','<option value="">CARREGANDO CIDADES...</option>');
+
+    HttpRequest.get($.route(this)+'?estadoId='+estadoId, function(res){
         $.removeAll('.select-cidade');
 
         for(i = 0; i < (res.data).length; i++) {

@@ -12,7 +12,7 @@ $.requires([
 $.event('#carregar', 'click', function () {
     clique++;
     skip = conta * clique;
-    HttpRequest.get($.route('.blog__load a')+ '?limit=6&skip=' + skip, function (res) {
+    HttpRequest.get($.route(this)+ '?limit=6&skip=' + skip, function (res) {
         if (res.data != "") {
             $.append('.blog__main', res.data);
         } else {
