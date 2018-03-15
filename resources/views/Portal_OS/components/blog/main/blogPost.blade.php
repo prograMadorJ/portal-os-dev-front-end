@@ -2,7 +2,7 @@
     @php
         $date = date_create($post->publicacao);
     @endphp
-    <div class="blog-post">
+    <div class="blog-post" categorie="{{$categorie}}">
         <div class="blog-post__title" >
             <h3 id="artTitle">
                 {{ $post->titulo }}
@@ -49,8 +49,3 @@
     </div>
 @endforeach
 
-<div class="blog__load">
-    <a href="#veja-mais" route="{{route('loadMore').'?prefix='.$prefix. '&categoria=' .$categorie}}" class="none" id="carregar">
-        Veja Mais
-    </a>
-</div>

@@ -31,7 +31,6 @@ class ArtigosController extends Controller
 
         $categorias = $this->categorias();
 
-        $prefix = 'artigo';
         $categorie = 'todos';
 
         return view('Portal_OS.pages.blog',
@@ -40,7 +39,6 @@ class ArtigosController extends Controller
                 'posts',
                 'item',
                 'categorias',
-                'prefix',
                 'categorie'
     		)
     	);
@@ -56,13 +54,13 @@ class ArtigosController extends Controller
                 $q->where('id', '=', $categoriaQuery);
             })
             ->orderBy('publicacao', 'desc')
+            ->limit(1)
         ->get();
 
         $rank = self::blogPanel();
 
         $categorias = self::categorias();
 
-         $prefix = "categoria";
         $categorie = $name;
 
         return view(
@@ -71,7 +69,6 @@ class ArtigosController extends Controller
                 'posts',
                 'rank',
                 'categorias',
-                'prefix',
                 'categorie'
             )
         );
@@ -106,23 +103,37 @@ class ArtigosController extends Controller
     public function loadMore(Request $request) {
         $limit = $request->input('limit', 6);
         $skip = $request->input('skip', 6);
-         $prefix = $request->input('prefix');
+        $prefix = $request->input('prefix');
+        $categorie = $request->input('categoria');
 
-        if($prefix == 'artigo') {
+        if(isset($categorie) && $categorie == 'todos') {
+
             $posts = Artigo::with('categorias', 'usuario', 'media')
                 ->where('status', 1)
                 ->orderBy('publicacao', 'desc')
                 ->limit($limit)
                 ->skip($skip)
             ->get();
-        } else if($prefix == 'categoria') {
-            self::categoryFilter('ouvido');
-        }
 
+        } else if(isset($categorie)) {
+
+            $categoria = Categoria::where('nome', $categorie)->get();
+            $categoriaFiltro = $categoria->pluck('id');
+            $categoriaQuery = $categoriaFiltro[0];
+
+            $posts = Artigo::with('categorias', 'usuario', 'media')
+                ->whereHas('categorias',function($q) use($categoriaQuery){
+                    $q->where('id', '=', $categoriaQuery);
+                })
+                ->orderBy('publicacao', 'desc')
+                ->limit($limit)
+                ->skip($skip)
+                ->get();
+        }
         return view(
             'Portal_OS.components.blog.main.blogPost',
             compact(
-                'posts','prefix'
+                'posts','categorie'
             )
         )->render();
     }
