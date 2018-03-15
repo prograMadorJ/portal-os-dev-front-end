@@ -31,7 +31,7 @@ class ArtigosController extends Controller
 
         $categorias = $this->categorias();
 
-        $category = 'todos';
+        $categorie = 'todos';
 
         return view('Portal_OS.pages.blog',
     		compact(
@@ -39,7 +39,7 @@ class ArtigosController extends Controller
                 'posts',
                 'item',
                 'categorias',
-                'category'
+                'categorie'
     		)
     	);
     }
@@ -61,7 +61,7 @@ class ArtigosController extends Controller
 
         $categorias = self::categorias();
 
-        $category = $slug;
+        $categorie = $slug;
 
         return view(
             'Portal_OS.pages.blog',
@@ -69,7 +69,7 @@ class ArtigosController extends Controller
                 'posts',
                 'rank',
                 'categorias',
-                'category'
+                'categorie'
             )
         );
     }
@@ -100,26 +100,22 @@ class ArtigosController extends Controller
         );
     }
 
-    public function loadMore(Request $request, $slug) {
+    public function loadMore(Request $request) {
         $limit = $request->input('limit', 6);
         $skip = $request->input('skip', 6);
         $prefix = $request->input('prefix');
-        $category = $request->input('categoria');
-        dump(
-            "limit", $limit,
-            "skip", $skip,
-            "prefix", $prefix,
-            "category", $category
-        );
-        if(isset($category) && $category == 'todos') {
+        $categorie = $request->input('categoria');
+
+        if(isset($categorie) && $categorie == 'todos') {
             $posts = Artigo::with('categorias', 'usuario', 'media')
                 ->where('status', 1)
                 ->orderBy('publicacao', 'desc')
                 ->limit($limit)
                 ->skip($skip)
             ->get();
-        } else if(isset($category)) {
-            $categoria = Categoria::where('slug', $slug)->get();
+        } else if(isset($categorie)) {
+
+            $categoria = Categoria::where('slug', $categorie)->get();
             $categoriaFiltro = $categoria->pluck('id');
             $categoriaQuery = $categoriaFiltro[0];
 
@@ -130,14 +126,13 @@ class ArtigosController extends Controller
                 ->orderBy('publicacao', 'desc')
                 ->limit($limit)
                 ->skip($skip)
-            ->get();
+                ->get();
         }
-
         return view(
             'Portal_OS.components.blog.main.blogPost',
             compact(
                 'posts',
-                'category'
+                'categorie'
             )
         )->render();
     }

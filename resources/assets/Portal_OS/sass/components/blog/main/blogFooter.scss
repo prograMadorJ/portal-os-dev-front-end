@@ -34,32 +34,33 @@
       @include inner-tb-margin(25px);
 
       &--category {
-        @include grid-column(1,0%);
+        @include grid-column(1, 0%);
         @include align(center);
         @include outer-margin(10px 15px);
 
-        > img {
-          width: 100px;
-          height: 100px;
-        }
-
-        > span {
-          font-size: $font-size-items--category-span;
-          font-weight: bold;
-          text-align: center;
-          text-transform: uppercase;
+        &-icon {
+          @include grid-column;
+           > img {
+            width: 100px;
+            height: 100px;
+          }
+           > span {
+            font-size: $font-size-items--category-span;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+          }
         }
         > p {
           display: none;
         }
 
-        > a {
-          display: none;
+        &-link {
+          display: none ;
         }
       }
     }
   }
-
 
   /* ========================
     DESKTOP RESPONSIVE
@@ -70,7 +71,6 @@
     $font-size-items--category-span: 1vw;
     $font-size-items--category-p: 1vw;
     $font-size-items--category-a: 15px;
-
 
     $font-color-items--category-a: $highlight-green;
 
@@ -86,13 +86,14 @@
     &__items {
       &--category {
 
-        > img {
-          width: 10vw;
-          height: 10vw;
-        }
-
-        > span {
-          font-size: $font-size-items--category-span;
+        &-icon  {
+          img {
+            width: 10vw;
+            height: 10vw;
+          }
+          span {
+            font-size: $font-size-items--category-span;
+          }
         }
 
         > p {
@@ -102,8 +103,8 @@
           font-size: $font-size-items--category-p;
         }
 
-        > a {
-          @include button-inverted(120px,20px);
+        &-link {
+          @include button-inverted(120px, 20px);
           background: $bg-color-items--category-a;
           font-weight: 400;
         }
