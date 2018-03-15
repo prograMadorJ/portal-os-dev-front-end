@@ -31,7 +31,9 @@
     [
       'http-request',
       'append',
+      'remove',
       'replace',
+      'attributes',
       'css',
       'route'
     ]

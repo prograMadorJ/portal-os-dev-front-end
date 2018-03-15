@@ -11,11 +11,11 @@
     <div class="blog__right">
         @include('Portal_OS.components.blog.general.blogPanel')
     </div>
-    {{-- <div class="blog__load">
-        <a href="#veja-mais" route="{{route('loadMore', $prefix)}}" class="none" id="carregar">
+    <div class="blog__load">
+        <a href="#veja-mais" route="{{route('loadMore')}}" class="none" id="carregar">
             Veja Mais
         </a>
-    </div> --}}
+    </div>
 </div>
 
 @include('Portal_OS.components.blog.main.blogFooter')

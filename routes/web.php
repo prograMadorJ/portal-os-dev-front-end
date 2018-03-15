@@ -43,7 +43,6 @@ Route::group(['middleware' => ['set_cookies', 'load_scripts']], function () {
         Route::get('/categoria/{slug}', 'Portal_OS\User\ArtigosController@categoryFilter')->name('categoriasBlog');
         Route::get('/artigo/{slug}', 'Portal_OS\User\ArtigosController@showPost')->name('blogPost');
         Route::get('/getRequest', 'Portal_OS\User\ArtigosController@loadMore')->name('loadMore');
-        Route::get('/morePostsQuery', 'Portal_OS\User\ArtigosController@loadMoreFilterCategories')->name('filtroCategorias');
         Route::get('/amp', 'Portal_OS\User\ArtigosController@index')->name('ampBlog');
     });
 
