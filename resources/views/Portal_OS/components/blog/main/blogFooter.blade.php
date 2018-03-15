@@ -5,7 +5,7 @@
     <div class="blog-footer__items">
         @foreach($categorias as $categoria)
             <div class="blog-footer__items--category">
-                <a href="{{route('categoriasBlog',$categoria->nome)}}">
+                <a class="blog-footer__items--category-icon" href="{{route('categoriasBlog',$categoria->nome)}}">
                     <img src="{{asset('portal-os/img'.$categoria->image)}}.png" alt="{{$categoria->nome}}">
                     <span>{{$categoria->nome}}</span>
                 </a>
@@ -13,7 +13,7 @@
                     {{$categoria->descricao}}
                 </p>
 
-                <a href="{{route('categoriasBlog',$categoria->nome)}}">
+                <a class="blog-footer__items--category-link" href="{{route('categoriasBlog',$categoria->nome)}}">
                     LER MAIS
                 </a>
             </div>
