@@ -31,7 +31,9 @@
     [
       'http-request',
       'append',
+      'remove',
       'replace',
+      'attributes',
       'css',
       'route'
     ]
@@ -52,3 +54,4 @@
 @section('footer')
    @include('Portal_OS.components.layouts.footer')
 @endsection
+

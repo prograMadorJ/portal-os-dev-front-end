@@ -12,10 +12,11 @@
         @include('Portal_OS.components.blog.general.blogPanel')
     </div>
     <div class="blog__load">
-        <a href="#veja-mais" route="{{route('loadMore',$prefix)}}" id="carregar" class="none">
-            Veja mais
+        <a href="#veja-mais" route="{{route('loadMore')}}" class="none" id="carregar">
+            Veja Mais
         </a>
     </div>
 </div>
 
 @include('Portal_OS.components.blog.main.blogFooter')
+
