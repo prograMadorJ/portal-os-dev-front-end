@@ -26,7 +26,7 @@ class AlterArtigosTableAddSlugColumn extends Migration
     public function down()
     {
         Schema::table('artigos', function (Blueprint $table) {
-            $table->dropColumn('slug');
+            $table->dropIfExists('slug');
         });
     }
 }

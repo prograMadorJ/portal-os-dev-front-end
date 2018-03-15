@@ -26,7 +26,7 @@ class AlterCategoriasTableAddImageColumn extends Migration
     public function down()
     {
         Schema::table('categorias', function (Blueprint $table) {
-            //
+            $table->dropIfExists('image');
         });
     }
 }
