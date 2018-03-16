@@ -104,7 +104,7 @@ class ArtigosController extends Controller
         $limit = $request->input('limit', 6);
         $skip = $request->input('skip', 6);
         $prefix = $request->input('prefix');
-        $categorie = $request->input('categorie');
+        $categorie = $request->input('categoria');
 
         if(isset($categorie) && $categorie == 'todos') {
             $posts = Artigo::with('categorias', 'usuario', 'media')
