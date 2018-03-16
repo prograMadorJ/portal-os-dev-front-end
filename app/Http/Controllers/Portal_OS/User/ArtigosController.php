@@ -44,8 +44,8 @@ class ArtigosController extends Controller
     	);
     }
 
-    public function categoryFilter($name) {
-        $categoria = Categoria::where('nome', $name)->get();
+    public function categoryFilter($slug) {
+        $categoria = Categoria::where('slug', $slug)->get();
         $categoriaFiltro = $categoria->pluck('id');
         $categoriaQuery = $categoriaFiltro[0];
 
@@ -54,14 +54,14 @@ class ArtigosController extends Controller
                 $q->where('id', '=', $categoriaQuery);
             })
             ->orderBy('publicacao', 'desc')
-            ->limit(1)
+            ->limit(6)
         ->get();
 
         $rank = self::blogPanel();
 
         $categorias = self::categorias();
 
-        $categorie = $name;
+        $categorie = $slug;
 
         return view(
             'Portal_OS.pages.blog',
@@ -107,17 +107,15 @@ class ArtigosController extends Controller
         $categorie = $request->input('categoria');
 
         if(isset($categorie) && $categorie == 'todos') {
-
             $posts = Artigo::with('categorias', 'usuario', 'media')
                 ->where('status', 1)
                 ->orderBy('publicacao', 'desc')
                 ->limit($limit)
                 ->skip($skip)
             ->get();
-
         } else if(isset($categorie)) {
 
-            $categoria = Categoria::where('nome', $categorie)->get();
+            $categoria = Categoria::where('slug', $categorie)->get();
             $categoriaFiltro = $categoria->pluck('id');
             $categoriaQuery = $categoriaFiltro[0];
 
@@ -133,7 +131,8 @@ class ArtigosController extends Controller
         return view(
             'Portal_OS.components.blog.main.blogPost',
             compact(
-                'posts','categorie'
+                'posts',
+                'categorie'
             )
         )->render();
     }
