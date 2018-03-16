@@ -28,7 +28,7 @@ class AlterArtigosTable extends Migration
     public function down()
     {
         Schema::table('artigos', function (Blueprint $table) {
-            $table->dropForeign('categoria_id');
+            $table->dropIfExists('categoria_id');
         });
     }
 }

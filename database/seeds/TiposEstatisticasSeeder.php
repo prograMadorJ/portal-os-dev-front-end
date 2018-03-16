@@ -13,13 +13,13 @@ class TiposEstatisticasSeeder extends Seeder
     {
         //campos
         // id, nome, created_at, updated_at
-        // DB::table('tipos_estatisticas')->insert(
-        // 	// [
-	       //  //     'nome' => 'Click'
-       	// 	// ],
-       	// 	[
-       	// 		'nome' => 'View'
-       	// 	]
-       	// );
+         DB::table('tipos_estatisticas')->insert(
+         	// [
+	         //     'nome' => 'Click'
+       	 	// ],
+       	 	[
+       	 		'nome' => 'View'
+       	 	]
+       	 );
     }
 }

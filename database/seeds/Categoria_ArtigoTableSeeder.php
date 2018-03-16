@@ -22,12 +22,16 @@ class Categoria_ArtigoTableSeeder extends Seeder
 
         $artigo_id = Artigo::select('id')->first()->id or 1;
         $artigoCount = Artigo::count();
+        $cont_categoria = $category_id;
 
         for($i = 1; $i <= $artigoCount; $i++)
         {
+            if($cont_categoria > $catCount)
+                $cont_categoria = $category_id;
+
         	$categoria_artigo[] = [
-                'categoria_id' => rand($category_id, $catCount),
-                'artigo_id' => rand($artigo_id, $artigoCount)
+                'categoria_id' => $cont_categoria++,
+                'artigo_id' => $i
         	];
         }
 

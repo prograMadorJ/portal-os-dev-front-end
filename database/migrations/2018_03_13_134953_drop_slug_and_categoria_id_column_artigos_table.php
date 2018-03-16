@@ -15,9 +15,9 @@ class DropSlugAndCategoriaIdColumnArtigosTable extends Migration
     public function up()
     {
 
-        Schema::table('artigos', function (Blueprint $table) {
-            $table->dropColumn('slug');
-            $table->dropColumn('categoria_id');
+        Schema::talbe('artigos', function (Blueprint $table) {
+            $table->dropIfExists('slug');
+            $table->dropIfExists('categoria_id');
         });
     }
 
