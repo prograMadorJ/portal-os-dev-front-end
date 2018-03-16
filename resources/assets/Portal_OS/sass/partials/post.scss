@@ -34,7 +34,7 @@
     }
 
     &__right {
-      @include grid-row(0, 20vw);
+      @include grid-column(0, 20vw);
       @include outer-margin(10px 0 10px 30px);
       height: 100%;
       order: 0;

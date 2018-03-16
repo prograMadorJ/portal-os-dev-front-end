@@ -8,9 +8,9 @@
         </h2>
         @include('Portal_OS.components.blog.main.blogPost')
     </div>
-    {{--<div class="blog__right">--}}
-        {{--@include('Portal_OS.components.blog.general.blogPanel')--}}
-    {{--</div>--}}
+    <div class="blog__right">
+        @include('Portal_OS.components.blog.general.blogPanel')
+    </div>
     <div class="blog__load">
         <a href="#veja-mais" route="{{route('loadMore')}}" class="none" id="carregar">
             Veja Mais
@@ -18,5 +18,5 @@
     </div>
 </div>
 
-{{--@include('Portal_OS.components.blog.main.blogFooter')--}}
+@include('Portal_OS.components.blog.main.blogFooter')
 
