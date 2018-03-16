@@ -10,7 +10,7 @@
 ==================================*/
 @mixin grid-row($flex:0,$basis:unset) {
   display: flex;
-  flex-direction: row;
+  flex-flow: row;
   @include flex($flex,$basis);
 }
 /*=================================
@@ -18,7 +18,7 @@
 ==================================*/
 @mixin grid-row-reverse($flex:0,$basis:unset) {
   display: flex;
-  flex-direction: row-reverse;
+  flex-flow: row-reverse;
   @include flex($flex,$basis);
 }
 /*=================================
@@ -26,7 +26,7 @@
 ==================================*/
 @mixin grid-column($flex:0,$basis:unset) {
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
   @include flex($flex,$basis);
 }
 /*=================================
@@ -34,7 +34,7 @@
 ==================================*/
 @mixin grid-column-reverse($flex:0,$basis:unset) {
   display: flex;
-  flex-direction: column-reverse;
+  flex-flow: column-reverse;
   @include flex($flex,$basis);
 }
 /*=================================
@@ -42,7 +42,7 @@
 ==================================*/
 @mixin grid-wrap($flex:1,$basis:100%) {
   display: flex;
-  flex-direction: row;
+  flex-flow: row;
   @include flex($flex,$basis);
   flex-wrap: wrap;
 }

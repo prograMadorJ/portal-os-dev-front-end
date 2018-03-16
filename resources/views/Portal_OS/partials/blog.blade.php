@@ -18,5 +18,5 @@
     </div>
 </div>
 
-@include('Portal_OS.components.blog.main.blogFooter')
+{{--@include('Portal_OS.components.blog.main.blogFooter')--}}
 
