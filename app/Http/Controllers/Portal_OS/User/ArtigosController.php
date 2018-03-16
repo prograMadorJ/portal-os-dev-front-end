@@ -31,7 +31,7 @@ class ArtigosController extends Controller
 
         $categorias = $this->categorias();
 
-        $categorie = 'todos';
+        $category = 'todos';
 
         return view('Portal_OS.pages.blog',
     		compact(
@@ -39,13 +39,14 @@ class ArtigosController extends Controller
                 'posts',
                 'item',
                 'categorias',
-                'categorie'
+                'category'
     		)
     	);
     }
 
     public function categoryFilter($slug) {
-        $categoria = Categoria::where('slug', $slug)->get();
+
+        $categoria = Categoria::where('nome', $slug)->get();
         $categoriaFiltro = $categoria->pluck('id');
         $categoriaQuery = $categoriaFiltro[0];
 
@@ -61,7 +62,7 @@ class ArtigosController extends Controller
 
         $categorias = self::categorias();
 
-        $categorie = $slug;
+        $category = $slug;
 
         return view(
             'Portal_OS.pages.blog',
@@ -69,7 +70,7 @@ class ArtigosController extends Controller
                 'posts',
                 'rank',
                 'categorias',
-                'categorie'
+                'category'
             )
         );
     }
@@ -101,21 +102,21 @@ class ArtigosController extends Controller
     }
 
     public function loadMore(Request $request) {
+
         $limit = $request->input('limit', 6);
         $skip = $request->input('skip', 6);
-        $prefix = $request->input('prefix');
-        $categorie = $request->input('categoria');
+        $category = $request->input('categoria');
 
-        if(isset($categorie) && $categorie == 'todos') {
+        if(isset($category) && $category == 'todos') {
             $posts = Artigo::with('categorias', 'usuario', 'media')
                 ->where('status', 1)
                 ->orderBy('publicacao', 'desc')
                 ->limit($limit)
                 ->skip($skip)
             ->get();
-        } else if(isset($categorie)) {
+        } else if(isset($category)) {
 
-            $categoria = Categoria::where('slug', $categorie)->get();
+            $categoria = Categoria::where('nome', $category)->get();
             $categoriaFiltro = $categoria->pluck('id');
             $categoriaQuery = $categoriaFiltro[0];
 
@@ -132,37 +133,11 @@ class ArtigosController extends Controller
             'Portal_OS.components.blog.main.blogPost',
             compact(
                 'posts',
-                'categorie'
+                'category'
             )
         )->render();
     }
 
-    public function loadMoreFilterCategories(Request $request) {
-
-        $categoria = Categoria::where('slug', $slug)->get();
-        $categoriaFiltro = $categoria->pluck('id');
-        $categoriaQuery = $categoriaFiltro[0];
-
-        $limit = $request->input('limit', 6);
-        $skip = $request->input('skip', 6);
-
-        $posts = Artigo::with('categorias', 'usuario', 'media')
-            ->whereHas('categorias',function($q) use($categoriaQuery){
-
-                $q->where('id', '=', $categoriaQuery);
-            })
-            ->orderBy('publicacao', 'desc')
-            ->limit($limit)
-            ->skip($skip)
-        ->get();
-
-        return view(
-            'Portal_OS.components.blog.main.blogPost',
-            compact(
-                'posts'
-            )
-        )->render();
-    }
 
     public static function blogPanel() {
         $selecao = DB::table('artigos')

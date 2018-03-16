@@ -47,6 +47,7 @@
 @import '../components/blog/general/blogPanel';
 
 @import "../components/blog/main/blogFooter";
+
 .blog-footer {
   /* ========================
     DESKTOP RESPONSIVE
@@ -58,12 +59,13 @@
     &__items {
       @include grid-column;
       &--category {
-        span {
+        &-icon span {
           @include outer-top-margin(1vw);
           font-size: $font-size-items--category-span;
           font-weight: 600;
         }
-        p, a {
+
+        &-description, &-link {
           display: none;
         }
       }

@@ -9,11 +9,6 @@ $.event('#carregar', 'click', function () {
     var rota = $.route(this) + '?categoria=' + categoria + '&limit=6&skip=' + skip;
 
     HttpRequest.get(rota, function (res) {
-
-    var categoria = $.getAttribute('.blog-post','categorie'),
-        route = $.route(this) + '?categoria=' + categoria + '&limit=6&skip=' + skip;
-
-    HttpRequest.get(route, function (res) {
         if (res.data != "") {
             $.append('.blog__main', res.data);
         } else {

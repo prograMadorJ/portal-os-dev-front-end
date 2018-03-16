@@ -2,48 +2,50 @@
       FLEX
 ==================================*/
 @mixin flex($flex:0,$basis:unset) {
-  @if($flex!=0){flex: $flex};
-  @if($basis!=unset){flex-basis: $basis};
+  display: flex;
+  display: -ms-flexbox; // IE10
+  display: -webkit-flex; // Safari / iOS
+  @if($flex!=0) {
+    flex: $flex;
+  };
+  @if($basis!=unset) {
+    flex-basis: $basis;
+  };
 }
 /*=================================
   FLEX - GRID ROW
 ==================================*/
 @mixin grid-row($flex:0,$basis:unset) {
-  display: flex;
-  flex-direction: row;
   @include flex($flex,$basis);
+  flex-flow: row;
 }
 /*=================================
   FLEX - GRID ROW REVERSE
 ==================================*/
 @mixin grid-row-reverse($flex:0,$basis:unset) {
-  display: flex;
-  flex-direction: row-reverse;
   @include flex($flex,$basis);
+  flex-flow: row-reverse;
 }
 /*=================================
   FLEX - GRID COLUMN
 ==================================*/
 @mixin grid-column($flex:0,$basis:unset) {
-  display: flex;
-  flex-direction: column;
   @include flex($flex,$basis);
+  flex-flow: column;
 }
 /*=================================
   FLEX - GRID COLUMN REVERSE
 ==================================*/
 @mixin grid-column-reverse($flex:0,$basis:unset) {
-  display: flex;
-  flex-direction: column-reverse;
   @include flex($flex,$basis);
+  flex-flow: column-reverse;
 }
 /*=================================
       FLEX - GRID WRAP
 ==================================*/
 @mixin grid-wrap($flex:1,$basis:100%) {
-  display: flex;
-  flex-direction: row;
   @include flex($flex,$basis);
+  flex-flow: row;
   flex-wrap: wrap;
 }
 /*=================================
@@ -137,10 +139,20 @@
   order: $number;
 }
 /*=================================
+  MS-FLEX-PACK - JUSTIFY HORIZONTAL
+==================================*/
+@mixin ms-flex-justify-content($type) {
+  @if($type=='space-between'){-ms-flex-pack: justify;}
+  @if($type=='space-around'){-ms-flex-pack: distribute;}
+  @if($type=='center'){-ms-flex-pack: center;}
+}
+/*=================================
   FLEX - JUSTIFY HORIZONTAL
 ==================================*/
 @mixin justify($type: space-around) {
   justify-content: $type;
+  @include ms-flex-justify-content($type); // IE10
+  -webkit-justify-content: $type; // Safari / iOS
 }
 /*=================================
   ALIGN-ITEMS VERTICAL
@@ -148,21 +160,31 @@
 @mixin align($position:unset) {
   @if($position==self-center) {
     align-self: center;
+    -webkit-align-self: center;
   }
   @else if($position==self-start){
     align-self: start;
+    -webkit-align-self: start;
+    -ms-flex-item-align: start;
   }
   @else if($position==self-end){
     align-self: end;
+    -webkit-align-self: end;
+    -ms-flex-item-align: end;
   }
   @else if($position==flex-end){
     align-self: flex-end;
+    -webkit-align-items: flex-end;
+    -ms-flex-item-align: end;
   }
   @else if($position==flex-start){
     align-self: flex-start;
+    -webkit-align-items: flex-start;
+    -ms-flex-item-align: start
   }
   @else {
     align-items: $position;
+    -webkit-align-items: $position;
   }
 }
 
