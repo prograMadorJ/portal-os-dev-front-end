@@ -104,7 +104,7 @@ class ArtigosController extends Controller
         $limit = $request->input('limit', 6);
         $skip = $request->input('skip', 6);
         $prefix = $request->input('prefix');
-        $categorie = $request->input('categoria');
+        $categorie = $request->input('categorie');
 
         if(isset($categorie) && $categorie == 'todos') {
             $posts = Artigo::with('categorias', 'usuario', 'media')
@@ -114,7 +114,6 @@ class ArtigosController extends Controller
                 ->skip($skip)
             ->get();
         } else if(isset($categorie)) {
-
             $categoria = Categoria::where('slug', $categorie)->get();
             $categoriaFiltro = $categoria->pluck('id');
             $categoriaQuery = $categoriaFiltro[0];
@@ -128,38 +127,12 @@ class ArtigosController extends Controller
                 ->skip($skip)
                 ->get();
         }
+
         return view(
             'Portal_OS.components.blog.main.blogPost',
             compact(
                 'posts',
                 'categorie'
-            )
-        )->render();
-    }
-
-    public function loadMoreFilterCategories(Request $request) {
-
-        $categoria = Categoria::where('slug', $slug)->get();
-        $categoriaFiltro = $categoria->pluck('id');
-        $categoriaQuery = $categoriaFiltro[0];
-
-        $limit = $request->input('limit', 6);
-        $skip = $request->input('skip', 6);
-
-        $posts = Artigo::with('categorias', 'usuario', 'media')
-            ->whereHas('categorias',function($q) use($categoriaQuery){
-
-                $q->where('id', '=', $categoriaQuery);
-            })
-            ->orderBy('publicacao', 'desc')
-            ->limit($limit)
-            ->skip($skip)
-        ->get();
-
-        return view(
-            'Portal_OS.components.blog.main.blogPost',
-            compact(
-                'posts'
             )
         )->render();
     }
@@ -181,6 +154,7 @@ class ArtigosController extends Controller
             ->groupBy('artigos.id')
             ->orderBy('total', 'desc')
         ->get();
+
         $panels = Artigo::whereIn('id', [
                 $selecao[0]->id,
                 $selecao[1]->id,

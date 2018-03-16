@@ -2,7 +2,7 @@
     @php
         $date = date_create($post->publicacao);
     @endphp
-    <div class="blog-post" categorie="{{$categorie}}">
+    <div class="blog-post" categorie="{{ $categorie }}">
         <div class="blog-post__title" >
             <h3 id="artTitle">
                 {{ $post->titulo }}
