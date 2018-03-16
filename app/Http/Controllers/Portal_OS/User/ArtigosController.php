@@ -45,8 +45,7 @@ class ArtigosController extends Controller
     }
 
     public function categoryFilter($slug) {
-
-        $categoria = Categoria::where('nome', $slug)->get();
+        $categoria = Categoria::where('slug', $slug)->get();
         $categoriaFiltro = $categoria->pluck('id');
         $categoriaQuery = $categoriaFiltro[0];
 
@@ -102,7 +101,6 @@ class ArtigosController extends Controller
     }
 
     public function loadMore(Request $request) {
-
         $limit = $request->input('limit', 6);
         $skip = $request->input('skip', 6);
         $category = $request->input('categoria');
@@ -156,6 +154,7 @@ class ArtigosController extends Controller
             ->groupBy('artigos.id')
             ->orderBy('total', 'desc')
         ->get();
+
         $panels = Artigo::whereIn('id', [
                 $selecao[0]->id,
                 $selecao[1]->id,

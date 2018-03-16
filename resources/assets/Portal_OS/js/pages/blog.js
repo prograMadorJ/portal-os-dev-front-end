@@ -5,7 +5,7 @@ $.event('#carregar', 'click', function () {
     clique++;
     skip = conta * clique;
 
-    var categoria = $.getAttribute('.blog-post', 'category');
+    var categoria = $.getAttribute('.blog-post', 'categorie');
     var rota = $.route(this) + '?categoria=' + categoria + '&limit=6&skip=' + skip;
 
     HttpRequest.get(rota, function (res) {
