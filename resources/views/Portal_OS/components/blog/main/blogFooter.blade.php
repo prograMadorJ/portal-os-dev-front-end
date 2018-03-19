@@ -9,7 +9,7 @@
                     <img src="{{asset('portal-os/img'.$categoria->image)}}.png" alt="{{$categoria->nome}}">
                     <span>{{$categoria->nome}}</span>
                 </a>
-                <p>
+                <p class="blog-footer__items--category-description">
                     {{$categoria->descricao}}
                 </p>
 
